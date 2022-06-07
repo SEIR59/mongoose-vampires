@@ -171,8 +171,61 @@ const newVamps = [{
 
 //Select by Exists of does not exist
 
-1. Have a key of title
-Vampire.find({title: {$exists: true}})
+// 1. Have a key of title
+// Vampire.find({title: {$exists: true}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// 2. Do not have a key of victims
+// Vampire.find({victims: {$exists: false}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// 3. have a title AND no Victims
+// Vampire.find({title: {$exists: true}, victims: {$exists: false}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// 4. Have victims and the victims are greater than 1000
+// Vampire.find(
+//     {victims: {$exists: true}, victims: {$gt: 1000}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+//////////////////////
+// Select with OR  //
+/////////////////////
+
+//1. Are from NY, NY, US or New Orleans, Louisiana, ,U.S
+Vampire.find({$or: [{location: "New York, New York, US"},{location: "New Orleans, Louisiana, US"}]})
 .then((data) =>{
     console.log(data)
 })
@@ -183,8 +236,8 @@ Vampire.find({title: {$exists: true}})
     db.close();
 })
 
-2. Do not have a key of victims
-Vampire.find({victims: {$exists: false}})
+//2. Love brodding or being tragic
+Vampire.find({$or: [{loves: "brooding"},{loves: "being tragic"}]})
 .then((data) =>{
     console.log(data)
 })
@@ -195,8 +248,8 @@ Vampire.find({victims: {$exists: false}})
     db.close();
 })
 
-3. have a title AND no Victims
-Vampire.find({title: {$exists: true}, victims: {$exists: false}})
+//3. Have more than 1000 victims or love marshmallows
+Vampire.find({$or: [{loves: "marshmallows"},{victims: {$gt: 1000}}]})
 .then((data) =>{
     console.log(data)
 })
@@ -207,9 +260,8 @@ Vampire.find({title: {$exists: true}, victims: {$exists: false}})
     db.close();
 })
 
-4. Have victims and the victims are greater than 1000
-Vampire.find(
-    {victims: {$exists: true}, victims: {$gt: 1000}})
+//4. have red hair green eyes. 
+Vampire.find({$or: [{hair_color: "red"},{eye_color: "green"}]})
 .then((data) =>{
     console.log(data)
 })
@@ -219,3 +271,4 @@ Vampire.find(
 .finally(() => {
     db.close();
 })
+
