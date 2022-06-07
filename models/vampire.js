@@ -25,4 +25,4 @@ const vampireSchema = new Schema({
   },
 });
 
-modules.exports = model('Vampire', vampireSchema);
+module.exports = model('Vampire', vampireSchema);

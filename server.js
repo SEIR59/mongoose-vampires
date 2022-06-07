@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const path = require('path');
 const vampire = require('./models/vampire');
+const seedData = require('./seedData');
 
 //! Create our Express Application Object Bind Liquid Templating Engine
 /////////////////////////////////////////////////
@@ -39,4 +40,26 @@ mongoose.connection
   .on('close', () => console.log('Disconnected from Mongoose'))
   .on('error', (error) => console.log(error));
 
-/////////////////////////////////////////////////
+////////////////////////////////////////////
+//! Routes
+////////////////////////////////////////////
+app.get('/', (req, res) => {
+  res.send('your server is running... better catch it.');
+});
+
+app.get('/vampires/seed', (req, res) => {
+  //? Delete all fruits
+  vampire.deleteMany({}).then(() => {
+    //? Seed Starter Fruits
+    vampire.create(seedData).then((data) => {
+      //? send created fruits as response to confirm creation
+      res.json(data);
+    });
+  });
+});
+
+//////////////////////////////////////////////
+//! Server Listener
+//////////////////////////////////////////////
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
