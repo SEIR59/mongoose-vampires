@@ -20,6 +20,8 @@ const CONFIG = {
   useUnifiedTopology: true,
 };
 
+const db = mongoose.connection;
+
 // Establish Connection
 mongoose.connect(DATABASE_URL, CONFIG);
 
@@ -61,7 +63,65 @@ const vampireSchema = new Schema({
 //Make Vampire model
 const Vampire = model("Vampire", vampireSchema);
 
-Vampire.insertMany(vampiresArr)
-    .then((data) =>  {console.log(data)})
-    .catch((error)=>{console.log(error)})
-    .finally(()=>{db.close()})
+// Vampire.insertMany(vampiresArr)
+//     .then((data) =>  {console.log(data)})
+//     .catch((error)=>{console.log(error)})
+//     .finally(()=>{db.close()})
+
+//Creating 4 new Vampires
+
+const newVamps = [{
+    name: 'Vampire 1',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1901, 2, 13, 7, 47),
+    loves: ['blood','straws'],
+    location: 'New York, New York, US',
+    gender: 'm',
+    victims: 17
+  },{
+    name: 'Vampire 2',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1901, 2, 13, 7, 47),
+    loves: ['blood','straws'],
+    location: 'New York, New York, US',
+    gender: 'm',
+    victims: 10
+  },{
+    name: 'Vampire 3',
+    hair_color: 'blonde',
+    eye_color: 'brown',
+    dob: new Date(1901, 2, 13, 7, 47),
+    loves: ['blood','straws'],
+    location: 'New York, New York, US',
+    gender: 'f',
+    victims: 2
+  },{
+    name: 'Vampire 4',
+    hair_color: 'black',
+    eye_color: 'brown',
+    dob: new Date(1776, 2, 13, 7, 47),
+    loves: ['blood','straws'],
+    location: 'New York, New York, US',
+    gender: 'f',
+    victims: 38
+  }
+]
+// Vampire.insertMany(newVamps)
+//     .then((data) =>  {console.log(data)})
+//     .catch((error)=>{console.log(error)})
+//     .finally(()=>{db.close()})
+
+
+Vampire.find({gender: 'f'})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
