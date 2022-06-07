@@ -61,19 +61,7 @@ const vampireSchema = new Schema({
 //Make Vampire model
 const Vampire = model("Vampire", vampireSchema);
 
-/////////////////////////////////////////////////
-// Create our Express Application Object
-/////////////////////////////////////////////////
-
-const app = require("liquid-express-views")(express(), {
-    root: [path.resolve(__dirname, "views/")],
-  });
-  
-  /////////////////////////////////////////////////////
-  // Middleware
-  /////////////////////////////////////////////////////
-  app.use(morgan("tiny")); //logging
-  app.use(methodOverride("_method")); // override for put and delete requests from forms
-  app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
-  app.use(express.static("public")); // serve files from public statically
-  
+Vampire.insertMany(vampiresArr)
+    .then((data) =>  {console.log(data)})
+    .catch((error)=>{console.log(error)})
+    .finally(()=>{db.close()})
