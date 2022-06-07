@@ -136,7 +136,43 @@ const newVamps = [{
 //     db.close();
 // })
 
-Vampire.find({victims: { "$lte": 500}})
+// Vampire.find({victims: { "$lte": 500}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// Vampire.find({victims: {$ne: 210234}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// Vampire.find({victims: {$gt:150, $lt:500}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();lt
+// })
+
+//Select by Exists of does not exist
+
+1. Have a key of title
+Vampire.find({title: {$exists: true}})
 .then((data) =>{
     console.log(data)
 })
@@ -147,7 +183,8 @@ Vampire.find({victims: { "$lte": 500}})
     db.close();
 })
 
-Vampire.find({victims: {$ne: 210234}})
+2. Do not have a key of victims
+Vampire.find({victims: {$exists: false}})
 .then((data) =>{
     console.log(data)
 })
@@ -158,7 +195,21 @@ Vampire.find({victims: {$ne: 210234}})
     db.close();
 })
 
-Vampire.find({victims: {$gt:150, $lt:500}})
+3. have a title AND no Victims
+Vampire.find({title: {$exists: true}, victims: {$exists: false}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
+4. Have victims and the victims are greater than 1000
+Vampire.find(
+    {victims: {$exists: true}, victims: {$gt: 1000}})
 .then((data) =>{
     console.log(data)
 })
