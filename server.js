@@ -1,11 +1,26 @@
-// var vampire = {
-//     name: 'Chocula',
-//     title: 'Count'
-//     hair_color: 'brown',
-//     eye_color: 'brown',
-//     dob: new Date(1971, 2, 13, 7, 47),
-//     loves: ['cereal','marshmallows'],
-//     location: 'Minneapolis, Minnesota, US',
-//     gender: 'm',
-//     victims: 2,
-//   }
+require('dotenv').config(); // Load ENV Variables
+const express = require('express'); // import express
+const morgan = require('morgan'); //import morgan
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+const path = require('path');
+
+
+/////////////////////////////////////////////
+//! Database Connection
+/////////////////////////////////////////////
+//? Setup inputs for our connect function
+const DATABASE_URL = process.env.DATABASE_URL;
+const CONFIG = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+//? Establish Connection
+mongoose.connect(DATABASE_URL, CONFIG);
+
+//? Events for when connection opens/disconnects/errors
+mongoose.connection
+  .on('open', () => console.log('Connected to Mongoose'))
+  .on('close', () => console.log('Disconnected from Mongoose'))
+  .on('error', (error) => console.log(error));
