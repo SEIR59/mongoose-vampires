@@ -224,8 +224,59 @@ const newVamps = [{
 // Select with OR  //
 /////////////////////
 
-//1. Are from NY, NY, US or New Orleans, Louisiana, ,U.S
-Vampire.find({$or: [{location: "New York, New York, US"},{location: "New Orleans, Louisiana, US"}]})
+// //1. Are from NY, NY, US or New Orleans, Louisiana, ,U.S
+// Vampire.find({$or: [{location: "New York, New York, US"},{location: "New Orleans, Louisiana, US"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //2. Love brodding or being tragic
+// Vampire.find({$or: [{loves: "brooding"},{loves: "being tragic"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //3. Have more than 1000 victims or love marshmallows
+// Vampire.find({$or: [{loves: "marshmallows"},{victims: {$gt: 1000}}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //4. have red hair green eyes. 
+// Vampire.find({$or: [{hair_color: "red"},{eye_color: "green"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+/////////////////////////////////////////////////////
+// Select Objects that match one of several values///
+////////////////////////////////////////////////////
+//1. Love either frilly shirtsleeves or frilly collars
+Vampire.find({$or: [{loves: "frilly shirtsleeves"},{loves: "frilly collars"}]})
 .then((data) =>{
     console.log(data)
 })
@@ -236,8 +287,8 @@ Vampire.find({$or: [{location: "New York, New York, US"},{location: "New Orleans
     db.close();
 })
 
-//2. Love brodding or being tragic
-Vampire.find({$or: [{loves: "brooding"},{loves: "being tragic"}]})
+//2. love brooding
+Vampire.find({loves: "brooding"})
 .then((data) =>{
     console.log(data)
 })
@@ -248,8 +299,8 @@ Vampire.find({$or: [{loves: "brooding"},{loves: "being tragic"}]})
     db.close();
 })
 
-//3. Have more than 1000 victims or love marshmallows
-Vampire.find({$or: [{loves: "marshmallows"},{victims: {$gt: 1000}}]})
+//3. love at least one of the folllowing: appearing innocent, trickery, lurking in rotting mansions, R & B music //
+Vampire.find({$or: [{loves: "appearing innocent"},{loves: "trickery"},{loves: "lurking in rotting mansions"}, {loves: "R&B Music"}]})
 .then((data) =>{
     console.log(data)
 })
@@ -260,8 +311,9 @@ Vampire.find({$or: [{loves: "marshmallows"},{victims: {$gt: 1000}}]})
     db.close();
 })
 
-//4. have red hair green eyes. 
-Vampire.find({$or: [{hair_color: "red"},{eye_color: "green"}]})
+//4. love fancy cloaks but not if they also love either top hats or virgin blood
+Vampire.find(
+   {loves:"fancy cloaks", $nor: [{loves: "top hats"},{loves: "virgin blood"}]})
 .then((data) =>{
     console.log(data)
 })
