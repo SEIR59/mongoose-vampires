@@ -33,7 +33,7 @@ const db = mongoose.connection
 // pull schema and model from mongoose
 const { Schema, model } = mongoose;
 
-// make fruits schema
+// make Vampires schema
 const vampiresSchema = new Schema(
     {
         name: { type: String, required: true },
@@ -49,7 +49,7 @@ const vampiresSchema = new Schema(
     { timestamps: true }
 );
 
-// make fruit model
+// make Vampire model
 const Vampire = model("Vampire", vampiresSchema);
 
 // Seed Data to insert into database
@@ -184,15 +184,71 @@ const seedData = [
         name: 'Barnabas Spenser',
         hair_color: 'brown',
         eye_color: 'brown',
-        dob: new Date(1984, 6, 3, 13, 12),
+        dob: new Date(1984, 3, 3, 13, 12),
         loves: ['being merry', 'being insane', 'card games'],
         location: 'New York, New York, US',
         gender: 'm',
         title: 'Osiris of Sewer Rats'
     }
 ]
-
+// Vampire.deleteMany({}).then((data) =>{
 Vampire.insertMany(seedData)
-    .then((data) => { console.log(data) })
-    .catch((error) => { console.log(error) })
-    .finally(() => { db.close() })
+    .then((data) => console.log('seedData inserted'))
+    .catch((error) => console.log(error))
+    // .finally(() => db.close())
+// })
+
+const Mark = {
+    name: 'Mark',
+    hair_color: 'red',
+    eye_color: 'blue',
+    dob: new Date(1986, 3, 27),
+    loves: ['climbing', 'coding', 'snacking'],
+    location: 'Boulder, Colorado, US',
+    gender: 'm',
+    title: 'Gerken puttin work in'
+}
+
+const John = {
+    name: 'John Johnson',
+    hair_color: 'brown',
+    eye_color: 'red',
+    dob: new Date(1914, 10, 3, 13, 12),
+    loves: ['being average', 'not making an impression', 'accounting'],
+    location: 'San Francisco, California, US',
+    gender: 'm',
+    title: 'The Most Forgettable Vampire Ever'
+}
+
+const Janet = {
+    name: 'Janet Bieber',
+    hair_color: 'blonde',
+    eye_color: 'brown',
+    dob: new Date(1998, 1, 20, 13, 12),
+    loves: ['draining the life out of fans', 'being famous'],
+    location: 'Quebec, Canada',
+    gender: 'f',
+    title: 'Pop Icon'
+}
+const Britney = {
+    name: 'Britney Spenser',
+    hair_color: 'blonde',
+    eye_color: 'green',
+    dob: new Date(1980, 6, 10),
+    loves: ['getting hit one more time'],
+    location: 'New York, New York, US',
+    gender: 'f',
+    title: 'Queen of Pop'
+}
+
+const createVampire = (name) => {
+    Vampire.create(name)
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+        // .finally(() => db.close())
+}
+
+createVampire(Mark)
+createVampire(John)
+createVampire(Janet)
+createVampire(Britney)
