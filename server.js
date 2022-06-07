@@ -47,15 +47,14 @@ app.get('/', (req, res) => {
   res.send('your server is running... better catch it.');
 });
 
-app.get('/vampires/seed', (req, res) => {
-  //? Delete all fruits
-  vampire.deleteMany({}).then(() => {
-    //? Seed Starter Fruits
-    vampire.create(seedData).then((data) => {
-      //? send created fruits as response to confirm creation
-      res.json(data);
-    });
-  });
+app.get('/vampires/seed', async (req, res) => {
+  try {
+    await vampire.deleteMany({});
+    const vampiresData = await vampire.insertMany(seedData);
+    res.json(vampiresData);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
 });
 
 //////////////////////////////////////////////
