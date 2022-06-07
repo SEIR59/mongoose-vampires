@@ -125,7 +125,29 @@ const newVamps = [{
 //     db.close();
 // })
 
-Vampire.find({victims: { $gt: 500}})
+// Vampire.find({victims: { $gt: 500}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// Vampire.find({victims: { "$lte": 500}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+Vampire.find({victims: {$ne: 210234}})
 .then((data) =>{
     console.log(data)
 })
@@ -135,4 +157,3 @@ Vampire.find({victims: { $gt: 500}})
 .finally(() => {
     db.close();
 })
-
