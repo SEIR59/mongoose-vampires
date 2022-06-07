@@ -54,7 +54,7 @@ const vampireSchema = new Schema({
     location: String,
     gender: String,
     victims: {
-        type: String,
+        type: Number,
         min: 1
     }
 })
@@ -125,16 +125,16 @@ const newVamps = [{
 //     db.close();
 // })
 
-// Vampire.find({victims: { $gt: 500}})
-// .then((data) =>{
-//     console.log(data)
-// })
-// .catch((error) => {
-//     console.log(data)
-// })
-// .finally(() => {
-//     db.close();
-// })
+Vampire.find({victims: { $gt: 500}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
 
 // Vampire.find({victims: { "$lte": 500}})
 // .then((data) =>{
@@ -147,13 +147,23 @@ const newVamps = [{
 //     db.close();
 // })
 
-Vampire.find({victims: {$ne: 210234}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// Vampire.find({victims: {$ne: 210234}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+// Vampire.find({victims: {$gt:150, $lt:500}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
