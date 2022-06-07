@@ -50,7 +50,7 @@ const { Schema, model } = mongoose;
 
 // make vampire schema
 const vampireSchema = new Schema({
-  name: String,
+  name: {type: String, required: true },
   title: String,
   readyToEat: Boolean,
   name: String,
@@ -61,7 +61,7 @@ const vampireSchema = new Schema({
   loves: Array,
   location: String,
   gender: String,
-  victims: Number,
+  victims: {type: Number, min: 0}, //no less than 0 victims
 });
 
 // make vampire model
