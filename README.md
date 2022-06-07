@@ -262,7 +262,7 @@ Select all vampires that:
 5. have not killed more than 200 people
 
 
-## Replace
+## Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
 
 1. replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
 2. replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
