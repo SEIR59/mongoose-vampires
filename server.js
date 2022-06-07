@@ -55,7 +55,7 @@ const vampireSchema = new Schema({
   readyToEat: Boolean,
   name: String,
   title: String,
-  hair_color: String,
+  hair_color: {type: String, default: 'blonde'},
   eye_color: String,
   dob: Date,
   loves: Array,
