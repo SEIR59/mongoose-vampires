@@ -8,6 +8,8 @@ const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path");
 
+const vampiresArr = require("./models/vampire.js")
+
 /////////////////////////////////////////////
 // Database Connection
 /////////////////////////////////////////////
@@ -27,5 +29,51 @@ mongoose.connection
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
 
-///////////
+//////////////////////////
+// Models ////////////////
+/////////////////////////
 
+const {Schema, model } = mongoose;
+
+//Make vampire Schema
+const vampireSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    title: String,
+    hair_color: {
+        type: String,
+        default: "blonde"
+    },
+    eye_color: String,
+    dob: Date,
+    loves: Array,
+    location: String,
+    gender: String,
+    victims: {
+        type: String,
+        min: 1
+    }
+})
+
+
+//Make Vampire model
+const Vampire = model("Vampire", vampireSchema);
+
+/////////////////////////////////////////////////
+// Create our Express Application Object
+/////////////////////////////////////////////////
+
+const app = require("liquid-express-views")(express(), {
+    root: [path.resolve(__dirname, "views/")],
+  });
+  
+  /////////////////////////////////////////////////////
+  // Middleware
+  /////////////////////////////////////////////////////
+  app.use(morgan("tiny")); //logging
+  app.use(methodOverride("_method")); // override for put and delete requests from forms
+  app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+  app.use(express.static("public")); // serve files from public statically
+  
