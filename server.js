@@ -174,7 +174,18 @@ const newVamps = [
 // })
 
 // have a title AND no victims
-Vampire.find({$and: [{title: {$exists: true}},{victims: {$exists: false}}]})
+// Vampire.find({$and: [{title: {$exists: true}},{victims: {$exists: false}}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+// have victims AND the victims they have are greater than 1000
+Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 .then((vampire) => {
     console.log(vampire)
 })
