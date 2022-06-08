@@ -257,6 +257,13 @@ async function findNotEqual(){
 }
 //findNotEqual()
 
+// If written this way, and is implicit
+async function fewerAndGreater(){
+  const andOperator = await Vampire.find({victims: {$gt: 150, $lt:500}})
+  console.log(andOperator)
+}
+// fewerAndGreater()
+
 
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
