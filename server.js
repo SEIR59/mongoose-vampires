@@ -541,6 +541,29 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
+// replace the first male vampire with vampire called 'Guy Man'
+// Vampire.updateOne({gender: 'm'}, {$set: {name: 'Guy Man'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// Guy Man has a key of is_actually with the value of were-lizard
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually: 'were-lizard'}}, {upsert: true})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+Vampire.count({name: 'Guy Man'})
+.then((data) => {
+  console.log(data)
+})
+
 //////////////
 // listener //
 //////////////
