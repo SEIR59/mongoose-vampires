@@ -497,13 +497,35 @@ const newVamps = [
 
 //REMOVE
 //Remove a single document wherein the hair_color is 'brown'
-Vampire.deleteOne( {hair_color: 'brown'} )
-.then((vampire) => {
-  console.log(vampire)
-})
-.catch((error) => {
-  console.log(error)
-})
-.finally(() => {
- db.close()
-})
+// Vampire.deleteOne( {hair_color: 'brown'} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+// Vampire.deleteMany( {eye_color: 'blue'} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+// Vampire.find( {eye_color: 'blue'} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
