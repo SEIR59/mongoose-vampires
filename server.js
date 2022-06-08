@@ -634,11 +634,6 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
-Vampire.count({eye_color: 'blue'})
-.then((data) => {
-  console.log(data)
-})
-
 //////////////
 // listener //
 //////////////
