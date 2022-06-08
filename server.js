@@ -296,7 +296,18 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 
 // Negative Selection
 // love ribbons but do not have brown eyes
-Vampire.find({$and: [{loves: 'ribbons'},{eye_color: {$not:{ $eq:'brown'}}}]})
+// Vampire.find({$and: [{loves: 'ribbons'},{eye_color: {$not:{ $eq:'brown'}}}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+// are not from Rome
+Vampire.find({location: {$not:{ $eq:'Rome, Italy'}}})
 .then((vampire) => {
     console.log(vampire)
 })
