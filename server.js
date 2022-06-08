@@ -150,7 +150,19 @@ const newVamps = [
 
 //Exist or Does not Exist
 //have a key of 'title'
-Vampire.find({title: {$exists: true}})
+// Vampire.find({title: {$exists: true}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// do not have a key of 'victims'
+Vampire.find({title: {$exists: false}})
 .then((vampire) => {
     console.log(vampire)
 })
