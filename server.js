@@ -335,6 +335,15 @@ Vampire.find({title: {$exists: true}})
   console.log(error)
 })
 
+// query to find all the vampires who do not have the key of victims
+Vampire.find({victims: {$exists: false}})
+.then((data) => {
+  console.log('-----7-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
 
 //////////////
 // listener //
