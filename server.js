@@ -178,5 +178,35 @@ const newVamp = [
 // .finally(() =>{
 //     db.close()
 // })
+// Vampire.find({ $or: [{ loves: 'brooding'}, {loves: 'being tragic' }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ $or: [{ victims: {$gt:1000}}, {loves: 'marshmallows' }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+Vampire.find({ $or: [{ hair_color: 'red'}, {eye_color: 'green' }]})
+.then((vampire) =>{
+   console.log(vampire)
+})
+.catch((error) =>{
+    console.log(error)
+})
+.finally(() =>{
+    db.close()
+})
 
 
