@@ -312,6 +312,22 @@ async function fancyCloaks(){
   console.log(notIf)
 }
 // fancyCloaks()
+
+async function loveRibbons(){
+  const ribbonsBut = await Vampire.find({$and: [{loves: 'ribbons'}, {eye_color: {$ne: 'brown'}}]})
+  console.log(ribbonsBut)
+}
+// loveRibbons()
+
+
+
+
+
+
+
+
+
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
