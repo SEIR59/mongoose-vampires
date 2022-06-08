@@ -259,7 +259,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // love brooding
-Vampire.find({$or: [{loves:'brooding'},{loves:'brooding'}]})
+// Vampire.find({$or: [{loves:'brooding'},{loves:'brooding'}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+Vampire.find({$or: [{loves:'appearing innocent'},{loves:'trickery'},{loves:'lurking in rotting mansions'},{loves:'R&B music'}]})
 .then((vampire) => {
     console.log(vampire)
 })
