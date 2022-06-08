@@ -367,7 +367,39 @@ const newVamps = [
 //     db.close()
 // })
 
-Vampire.find({name: 'Eve'})
+// Vampire.find({name: 'Eve'})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+// Vampire.replaceOne({name: 'Count Chocula'},{name: 'Guy Man'})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually:'were-lizard'}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+Vampire.find({name: 'Guy Man'})
 .then((vampire) => {
     console.log(vampire)
 })
