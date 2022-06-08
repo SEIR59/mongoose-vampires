@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spook</title>
+</head>
+<body style="display:flex; flex-flow:column nowrap;justify-content: center;">
+    <h1>SPOOKY VAMPIRE PAGE</h1>
+    <div class="container" style="display:flex; flex-flow: row wrap; align-items: center; justify-content: center; gap:3vw; background:black;">
+
+    {% for vamp in vampireList%}
+
+    {% if vamp.gender == 'm'%}
+    <div style="background:blue;display:flex;flex-flow:column nowrap;justify-content: center;align-items: center; width:40vw;">
+    {%else%}
+    <div style="background:pink;display:flex;flex-flow:column nowrap;justify-content: space-evenly; align-items: center; width: 40vw;">
+        {%else%}
+    {%endif %}
+    <h3>{{vamp.name}}</h3>
+    <p>Date of birth: {{vamp.dob}}</p>
+    <p>Hair: {{vamp.hair_color}}</p>
+    <p>Eyes: {{vamp.hair_color}}</p>
+    <p>Loves: {{vamp.loves | join: ', '}}</p>
+    <p>Body count: {{vamp.victims}}</p>
+    </div>
+
+    {%endfor%}
+
+</div>
+</body>
+</html>
