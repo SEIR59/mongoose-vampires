@@ -272,8 +272,13 @@ app.get("/vampires/seed", (request, response) => {
 //////////////////////////
 // select by comparison //
 //////////////////////////
-
-
+// query to find all female vampires
+Vampire.find({gender: 'f'}).then((data) => {
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
 
 //////////////
 // listener //
