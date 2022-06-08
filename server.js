@@ -271,4 +271,16 @@ const find500v = async () => {
     mongoose.connection.close();
   }
 };
-notEqual()
+//notEqual()
+
+const gtle = async () => {
+  try {
+    const  gl = await Vampire.find({ victims:{$gt:150, $lte:500 }});
+    console.log( gl );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+gtle()
