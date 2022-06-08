@@ -272,11 +272,64 @@ const newVamps = [{
 //     db.close();
 // })
 
-/////////////////////////////////////////////////////
-// Select Objects that match one of several values///
-////////////////////////////////////////////////////
-//1. Love either frilly shirtsleeves or frilly collars
-Vampire.find({$or: [{loves: "frilly shirtsleeves"},{loves: "frilly collars"}]})
+// /////////////////////////////////////////////////////
+// // Select Objects that match one of several values///
+// ////////////////////////////////////////////////////
+// //1. Love either frilly shirtsleeves or frilly collars
+// Vampire.find({$or: [{loves: "frilly shirtsleeves"},{loves: "frilly collars"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //2. love brooding
+// Vampire.find({loves: "brooding"})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //3. love at least one of the folllowing: appearing innocent, trickery, lurking in rotting mansions, R & B music //
+// Vampire.find({$or: [{loves: "appearing innocent"},{loves: "trickery"},{loves: "lurking in rotting mansions"}, {loves: "R&B Music"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// //4. love fancy cloaks but not if they also love either top hats or virgin blood
+// Vampire.find(
+//    {loves:"fancy cloaks", $nor: [{loves: "top hats"},{loves: "virgin blood"}]})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+///////////////////////////////////
+// Negative Selection  ////////////
+//////////////////////////////////
+
+//1. love ribbons but do not have brown eyes
+Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
 .then((data) =>{
     console.log(data)
 })
@@ -287,8 +340,8 @@ Vampire.find({$or: [{loves: "frilly shirtsleeves"},{loves: "frilly collars"}]})
     db.close();
 })
 
-//2. love brooding
-Vampire.find({loves: "brooding"})
+// //2. Are not from Rome
+Vampire.find({location: {$ne: "Rome"}})
 .then((data) =>{
     console.log(data)
 })
@@ -299,8 +352,8 @@ Vampire.find({loves: "brooding"})
     db.close();
 })
 
-//3. love at least one of the folllowing: appearing innocent, trickery, lurking in rotting mansions, R & B music //
-Vampire.find({$or: [{loves: "appearing innocent"},{loves: "trickery"},{loves: "lurking in rotting mansions"}, {loves: "R&B Music"}]})
+//3. DO NOT LOVE ANU OF THE FOLLOWING []
+Vampire.find({loves: {$nin: ["fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]}})
 .then((data) =>{
     console.log(data)
 })
@@ -311,9 +364,8 @@ Vampire.find({$or: [{loves: "appearing innocent"},{loves: "trickery"},{loves: "l
     db.close();
 })
 
-//4. love fancy cloaks but not if they also love either top hats or virgin blood
-Vampire.find(
-   {loves:"fancy cloaks", $nor: [{loves: "top hats"},{loves: "virgin blood"}]})
+// 4. Have not killed more than 200 
+Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
 .then((data) =>{
     console.log(data)
 })
@@ -323,4 +375,3 @@ Vampire.find(
 .finally(() => {
     db.close();
 })
-
