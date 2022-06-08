@@ -537,7 +537,119 @@ const newVampires = [
 
 //UPDATE
 //Update 'Guy Man' to have a gender of 'f'
-Vampire.updateOne( {name: 'Guy Man'}, { $set: { gender: 'were-lizard'}}, {upsert: true} )
+// Vampire.updateOne( {name: 'Guy Man'}, { gender: 'f'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//Update 'Eve' to have a gender of 'm'
+// Vampire.updateOne( {name: 'Eve'}, { gender: 'm'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['clothes', 'jobs']}} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['alarm clocks', 'jackalopes']}} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//Rename 'Eve's' name field to 'moniker'
+// Vampire.updateOne( {name: 'Eve'}, { $rename: { name: 'moniker'}}, {upsert: true} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+// Vampire.updateMany( {gender: 'f'}, { gender: 'fems'}, {upsert: true} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//REMOVE
+//Remove a single document wherein the hair_color is 'brown'
+// Vampire.deleteOne( {hair_color: 'brown'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+Vampire.deleteMany( {eye_color: 'blue'} )
 // if database transaction succeeds
 .then((vampire) => {
   console.log(vampire)
@@ -550,6 +662,8 @@ Vampire.updateOne( {name: 'Guy Man'}, { $set: { gender: 'were-lizard'}}, {upsert
 .finally(() => {
  db.close()
 })
+
+
 
 
 
