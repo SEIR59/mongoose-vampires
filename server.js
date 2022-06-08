@@ -5,8 +5,6 @@ const morgan = require("morgan")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const path = require("path")
-const { response } = require("express")
-const { dividedBy } = require("liquid/lib/liquid/standard_filters")
 
 // connecting with a database
 // input set up
@@ -270,6 +268,12 @@ app.get("/vampires/seed", (request, response) => {
 // .catch((error) => {
 //   console.log(error)
 // })
+
+//////////////////////////
+// select by comparison //
+//////////////////////////
+
+
 
 //////////////
 // listener //
