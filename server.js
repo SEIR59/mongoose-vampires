@@ -275,8 +275,8 @@ app.get("/vampires/seed", (request, response) => {
 // query to find all female vampires
 Vampire.find({gender: 'f'})
 .then((data) => {
+  console.log('-----1-----')
   console.log(data)
-  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
@@ -285,8 +285,8 @@ Vampire.find({gender: 'f'})
 // query to find vampires with victims greater than 500
 Vampire.find({victims: {$gt: 500}})
 .then((data) => {
+  console.log('-----2-----')
   console.log(data)
-  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
@@ -295,8 +295,8 @@ Vampire.find({victims: {$gt: 500}})
 // query to find vampires with fewer than or equal to 150 victims
 Vampire.find({victims: {$lte: 150}})
 .then((data) => {
+  console.log('-----3-----')
   console.log(data)
-  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
@@ -305,21 +305,21 @@ Vampire.find({victims: {$lte: 150}})
 // query to find vampires whose victim count is not equal to 210234
 Vampire.find({victims: {$ne: 210234}})
 .then((data) => {
+  console.log('-----4-----')
   console.log(data)
-  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
 })
 
 // query to find vampires greater than 150 victims and fewer than 500 victims
-Vampire.find({victims: {$and: [
+Vampire.find({$and: [
   {victims: {$gt: 150}}, 
   {victims: {$lt: 500}}
-]}})
+]})
 .then((data) => {
+  console.log('-----5-----')
   console.log(data)
-  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
