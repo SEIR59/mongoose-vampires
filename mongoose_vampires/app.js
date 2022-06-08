@@ -275,8 +275,18 @@ db.on("close", () => console.log("mongo disconnected"));
 // Select all the vampires that:
 
 // have a key of 'title'
+// Vampire.find({
+//   title: { $exists: true}
+// })
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// do not have a key of 'victims'
 Vampire.find({
-  title: { $exists: true}
+  victims: { $exists: false}
 })
 .then((vampires) => {
   console.log(vampires)
@@ -284,6 +294,5 @@ Vampire.find({
 .catch((error) => {
   console.log(error)
 })
-// do not have a key of 'victims'
 // have a title AND no victims
 // have victims AND the victims they have are greater than 1000
