@@ -410,6 +410,19 @@ Vampire.find({$or: [
   console.log(error)
 })
 
+// query to find vampires with red hair or green eyes
+Vampire.find({$or: [
+  {hair_color: 'red'},
+  {eye_color: 'green'}
+]})
+.then((data) => {
+  console.log('-----13-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
