@@ -447,7 +447,7 @@ Vampire.find(
   console.log(error)
 })
 
-// query to find vampires if the love one of the following (shown below)
+// query to find vampires if they love one of the following (shown below)
 Vampire.find(
   {loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}}
 )
