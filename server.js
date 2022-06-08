@@ -307,6 +307,11 @@ async function loveAtLeast(){
 }
 // loveAtLeast()
 
+async function fancyCloaks(){
+  const notIf = await Vampire.find({$and: [{loves: 'fancy cloaks'},{loves: {$nin: ['top hats', 'virgin blood']}}]})
+  console.log(notIf)
+}
+// fancyCloaks()
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
