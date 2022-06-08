@@ -204,6 +204,46 @@ const seedData = [
   }
 ]
 
+const myVampires = [
+  {
+    name: 'Alex Kang',
+    hair_color: 'black',
+    eye_color: 'dark brown',
+    dob: new Date(2001, 2, 18, 8, 50),
+    loves: ['reading', 'causing trouble'],
+    location: 'Boston, Massachusetts, US',
+    gender: 'm',
+    victims: 20
+  }, {
+    name: 'Door Strawberry',
+    dob: new Date(1999, 6, 10, 12, 0),
+    hair_color: 'brown',
+    eye_color: 'blue',
+    loves: ['anime', 'strawberry ice cream'],
+    location: 'Montreal, Canada',
+    gender: 'm',
+    victims: 9
+  }, {
+    name: 'Tinga',
+    dob: new Date(2002, 5, 7, 14, 9),
+    hair_color: 'brown',
+    eye_color: 'dark brown',
+    loves: ['nurse', 'being short', 'flimsy glasses'],
+    location: 'Hotel Vampiringa',
+    gender: 'f',
+    victims: 69
+  }, {
+    name: 'Tringi',
+    dob: new Date(2040, 10, 8, 20, 34),
+    hair_color: 'black',
+    eye_color: 'green',
+    loves: ['wings', 'drawing'],
+    location: 'Hotel Vampiringa',
+    gender: 'f',
+    victims: -3
+  }
+]
+
 ////////////
 // routes //
 ////////////
