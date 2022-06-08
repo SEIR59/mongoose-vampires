@@ -152,7 +152,7 @@ const newVampires = [
 
 //2.have greater than 500 victims
 
-// Vampire.find({victims:{$gte:500}})
+// Vampire.find({victims:{$gt:500}})
 // // if database transaction succeeds
 // .then((Vampire) => {
 //   console.log(Vampire)
@@ -169,7 +169,37 @@ const newVampires = [
 
 //3.have fewer than or equal to 150 victims
 
-Vampire.find({victims:{$lte:150}})
+// Vampire.find({victims:{$lte:150}})
+// // if database transaction succeeds
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//4.have a victim count is not equal to 210234
+// Vampire.find({victims: {$ne:210234}})
+// // if database transaction succeeds
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//5.have greater than 150 AND fewer than 500 victims
+Vampire.find({$and: [{victims: {$gt:150}},{victims:{$lt:500}}]})
 // if database transaction succeeds
 .then((Vampire) => {
   console.log(Vampire)
@@ -182,8 +212,6 @@ Vampire.find({victims:{$lte:150}})
 .finally(() => {
  db.close()
 })
-
-
 
 
 
