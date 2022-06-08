@@ -577,7 +577,17 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
-Vampire.find({name: 'Eve'})
+// add clothes and jobs to Guy Man's hates
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs']}}, {upsert: true})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+
+Vampire.find({name: 'Guy Man'})
 .then((data) => {
   console.log(data)
 })
