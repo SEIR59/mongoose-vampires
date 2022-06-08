@@ -423,6 +423,18 @@ Vampire.find({$or: [
   console.log(error)
 })
 
+// query to find vampires that love frilly shirtsleeves or frilly collars
+Vampire.find(
+  {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'}]}
+)
+.then((data) => {
+  console.log('-----14-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
