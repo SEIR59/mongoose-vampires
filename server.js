@@ -512,7 +512,7 @@ Vampire.find(
   console.log(error)
 })
 
-// vampirse that have not killed more than 200 people
+// vampire that have not killed more than 200 people
 Vampire.find({victims: {$not: {$gt: 200}}}
 )
 .then((data) => {
