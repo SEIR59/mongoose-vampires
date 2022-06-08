@@ -128,3 +128,55 @@ const newVamp = [
 // .finally(() =>{
 //     db.close()
 // })
+// Vampire.find({ title: {$exists: true}})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ title: {$exists: false}})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ $and: [{ title: {$exists: true}, victims: {$exists: false} }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ $and: [{ vicitms: {$exists: true}, victims: {$gt: 1000} }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ $or: [{ location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US' }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+
+
