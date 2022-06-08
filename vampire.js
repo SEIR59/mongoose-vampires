@@ -27,6 +27,7 @@ const vampiresSchema = new Schema({
     min: 1,
   },
   title: String,
+  hates: [],
 });
 //build model
 const Vampire = model("Vampire", vampiresSchema);

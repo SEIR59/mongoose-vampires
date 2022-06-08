@@ -18,8 +18,17 @@ const CONFIG = {
   useUnifiedTopology: true,
 };
 
+//////////////////////////////////////////////
 // Establish Connection
-mongoose.connect(DATABASE_URL, CONFIG);
+// Server Listener
+//////////////////////////////////////////////
+const PORT = process.env.PORT;
+mongoose
+  .connect(DATABASE_URL, CONFIG)
+  .then(() => {
+    app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
+  })
+  .catch((err) => console.log(err));
 
 // Events for when connection opens/disconnects/errors
 mongoose.connection
@@ -51,9 +60,3 @@ app.get("/", (req, res) => {
 
 // Seed database
 const seedData = require("./seed.js");
-
-//////////////////////////////////////////////
-// Server Listener
-//////////////////////////////////////////////
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
