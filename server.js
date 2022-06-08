@@ -275,6 +275,7 @@ app.get("/vampires/seed", (request, response) => {
 // query to find all female vampires
 Vampire.find({gender: 'f'}).then((data) => {
   console.log(data)
+  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
@@ -283,6 +284,7 @@ Vampire.find({gender: 'f'}).then((data) => {
 // query to find vampires with victims greater than 500
 Vampire.find({victims: {$gt: 500}}).then((data) => {
   console.log(data)
+  console.log('----------')
 })
 .catch((error) => {
   console.log(error)
