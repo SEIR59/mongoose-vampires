@@ -559,7 +559,16 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
-Vampire.count({name: 'Guy Man'})
+// update Guy Man to have a gender of 'f'
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'f'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+Vampire.find({name: 'Guy Man'})
 .then((data) => {
   console.log(data)
 })
