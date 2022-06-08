@@ -319,7 +319,11 @@ async function loveRibbons(){
 }
 // loveRibbons()
 
-
+async function notRoman(){
+  const notFromRome = await Vampire.find({location: {$not: /rome/ }})
+  console.log(notFromRome)
+}
+// notRoman()
 
 
 
