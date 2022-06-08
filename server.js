@@ -430,4 +430,85 @@ const broski = async () => {
     mongoose.connection.close();
   }
 };
-broski()
+//broski()
+
+// NEGATIVE SELECTION
+const ribbrown = async () => {
+  try {
+    const rbb = await (await Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}}))
+    console.log( rbb );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// ribbrown()
+
+
+const  rome = async () => {
+  try {
+    const rm  = await (await Vampire.find({$not:{location:"Rome"}}))
+    console.log( rm );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// rome()
+
+
+const nolove = async () => {
+  try {
+    const nol  = await (await Vampire.find({loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocents', 'being tragic', 'brooding']}}))
+    console.log( nol );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+// nolove()
+
+const notk = async () => {
+  try {
+    const nk = await (await Vampire.find({victims:{$lt:200} }))
+    console.log( nk );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//notk()
+
+
+////////////////
+
+
+//REPLACE
+const broskis = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Eve'}, { $set: {portrayed_by: 'Tilda Swinton'}}, {upsert: true}))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//broskis()
+
+const brus = async () => {
+  try {
+    const b = await (await Vampire.updateOne({ name: 'Count Chocula'}, { name: 'Guy Man'}))
+    console.log( b );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// brus()
