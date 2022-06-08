@@ -372,6 +372,11 @@ async function newName(){
   console.log(newMoniker)
 }
 
+async function femUpdate(){
+  let newFems = await Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}})
+  console.log(newFems)
+}
+
 
 
 
