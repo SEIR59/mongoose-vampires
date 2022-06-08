@@ -324,16 +324,26 @@ db.on("close", () => console.log("mongo disconnected"));
 // Select all the vampires that:
 
 // are from New York, New York, US or New Orleans, Louisiana, US
-Vampire.find({ $or: [
-      {location: "New York, New York, US" },
-      {location: "New Orleans, Louisiana, US" }
-    ]})
-  .then((vampires) => {
-    console.log(vampires)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+// Vampire.find({ $or: [
+//       {location: "New York, New York, US" },
+//       {location: "New Orleans, Louisiana, US" }
+//     ]})
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
 // love brooding or being tragic
+Vampire.find({ $or: [
+  {loves: /brooding/ },
+  {loves: /being tragic/ }
+]})
+.then((vampires) => {
+console.log(vampires)
+})
+.catch((error) => {
+console.log(error)
+})
 // have more than 1000 victims or love marshmallows
 // have red hair or green eyes
