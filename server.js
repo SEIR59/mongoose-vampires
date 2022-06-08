@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path")
-const Vampire = require("./vapmires")
+const Vampire = require("./vampires")
 
 
 const DATABASE_URL = process.env.DATABASE_URL; //just give it a variable name for using .env
@@ -324,44 +324,108 @@ app.get("/vampires/seed", (req, res) => {
 })
 })
 
- Vampire.create([
-  {
-    name: 'Bniyam',
-    hair_color: 'black',
-    eye_color: 'brown',
-    dob: new Date(1999, 6, 3, 13, 12),
-    loves: ['being merry', 'being insane', 'card games'],
-    location: 'denver,co,US',
-    gender: 'm',
-    title: 'The tallest'
-  },
-  {
-    name: 'Afe',
-    hair_color: 'black',
-    eye_color: 'brown',
-    dob: new Date(1998, 6, 3, 13, 12),
-    loves: ['being merry', 'being insane', 'card games'],
-    location: 'washington,dc,US',
-    gender: 'm',
-    title: 'The funny'
-  }, {
-    name: 'Helu',
-    hair_color: 'black',
-    eye_color: 'brown',
-    dob: new Date(2000, 6, 3, 13, 12),
-    loves: ['being merry', 'being insane', 'card games'],
-    location: 'alexa,va,US',
-    gender: 'f',
-    title: 'The not funny '
-  }, {
-    name: 'Liyu',
-    hair_color: 'black',
-    eye_color: 'brown',
-    dob: new Date(1999, 6, 3, 13, 12),
-    loves: ['being merry', 'being insane', 'card games'],
-    location: 'silverspring,md,US',
-    gender: 'f',
-    title: 'The gf'
+//  Vampire.create([
+//   {
+//     name: 'Bniyam',
+//     hair_color: 'black',
+//     eye_color: 'brown',
+//     dob: new Date(1999, 6, 3, 13, 12),
+//     loves: ['being merry', 'being insane', 'card games'],
+//     location: 'denver,co,US',
+//     gender: 'm',
+//     title: 'The tallest'
+//   },
+//   {
+//     name: 'Afe',
+//     hair_color: 'black',
+//     eye_color: 'brown',
+//     dob: new Date(1998, 6, 3, 13, 12),
+//     loves: ['being merry', 'being insane', 'card games'],
+//     location: 'washington,dc,US',
+//     gender: 'm',
+//     title: 'The funny'
+//   }, {
+//     name: 'Helu',
+//     hair_color: 'black',
+//     eye_color: 'brown',
+//     dob: new Date(2000, 6, 3, 13, 12),
+//     loves: ['being merry', 'being insane', 'card games'],
+//     location: 'alexa,va,US',
+//     gender: 'f',
+//     title: 'The not funny '
+//   }, {
+//     name: 'Liyu',
+//     hair_color: 'black',
+//     eye_color: 'brown',
+//     dob: new Date(1999, 6, 3, 13, 12),
+//     loves: ['being merry', 'being insane', 'card games'],
+//     location: 'silverspring,md,US',
+//     gender: 'f',
+//     title: 'The gf'
+//   }
+//  ])
+const findFemaleVampires = async () => {
+  try {
+    const femaleVampires = await Vampire.find({ gender: 'f' });
+    console.log(femaleVampires);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
   }
- ])
-  
+};
+//  findFemaleVampires();
+
+
+const find500v = async () => {
+  try {
+    const victims500 = await Vampire.find({ victims:{$gt:500 }});
+    console.log(victims500);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// find500v()
+
+
+
+const lessFewer = async () => {
+  try {
+    const lessF = await Vampire.find({ victims:{$lte:150 }});
+    console.log(lessF);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// lessFewer()
+
+
+const notEqual = async () => {
+  try {
+    const noteq = await Vampire.find({ victims:{$ne:210234 }});
+    console.log( noteq);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+// notEqual()
+
+
+const gtle = async () => {
+  try {
+    const  gl = await Vampire.find({ victims:{$gt:150, $lte:500 }});
+    console.log( gl );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//gtle()
