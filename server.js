@@ -259,4 +259,16 @@ const find500v = async () => {
     mongoose.connection.close();
   }
 };
- lessFewer()
+ //lessFewer()
+
+ const notEqual = async () => {
+  try {
+    const noteq = await Vampire.find({ victims:{$ne:210234 }});
+    console.log( noteq);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+notEqual()
