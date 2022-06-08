@@ -586,7 +586,6 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
-
 // guy man also hates alarm clocks and jacalopes
 // Vampire.updateOne({name: 'Guy Man'}, {$push: {hates: {
 //   $each: ['alarm clocks', 'jackalopes'],
@@ -598,6 +597,9 @@ app.get("/vampires/seed", (request, response) => {
 // .catch((error) => {
 //   console.log(error)
 // })
+
+
+
 
 Vampire.find({name: 'Guy Man'})
 .then((data) => {
