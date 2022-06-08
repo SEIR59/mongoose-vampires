@@ -295,4 +295,17 @@ const title = async () => {
     mongoose.connection.close();
   }
 };
- title()
+ //title()
+
+ const notVictms = async () => {
+  try {
+    const tyt = await (await Vampire.find({ title:{ $exists: false } }))
+    console.log( tyt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+notVictms()
