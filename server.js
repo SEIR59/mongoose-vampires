@@ -489,28 +489,7 @@ const newVampires = [
 //  db.close()
 // })
 
-Vampire.updateOne( {name: 'Eve'}, { $set: { portrayed_by: 'Tilda Swinton'}} )
-// if database transaction succeeds
-.then((vampire) => {
-  console.log(vampire)
-})
-// if database transaction fails
-.catch((error) => {
-  console.log(error)
-})
-// close db connection either way
-.finally(() => {
- db.close()
-})
-
-
-
-// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
-
-
-//UPDATE
-//Update 'Guy Man' to have a gender of 'f'
-// Vampire.find( {victims: {$not: { $gt: 200}} })
+// Vampire.updateOne( {name: 'Eve'}, { $set: { portrayed_by: 'Tilda Swinton'}}, {upsert: true} )
 // // if database transaction succeeds
 // .then((vampire) => {
 //   console.log(vampire)
@@ -523,6 +502,54 @@ Vampire.updateOne( {name: 'Eve'}, { $set: { portrayed_by: 'Tilda Swinton'}} )
 // .finally(() => {
 //  db.close()
 // })
+
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+
+// Vampire.replaceOne( {name: 'Count Chocula'}, { name: 'Guy Man'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+// Vampire.updateOne( {name: 'Guy Man'}, { $set: { is_actually: 'were-lizard'}}, {upsert: true} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//UPDATE
+//Update 'Guy Man' to have a gender of 'f'
+Vampire.updateOne( {name: 'Guy Man'}, { $set: { gender: 'were-lizard'}}, {upsert: true} )
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})
 
 
 
