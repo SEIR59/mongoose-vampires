@@ -409,12 +409,86 @@ app.get("/", (req, res) => {
 //   });
 
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find({
-  $and: [
-    { loves: "fancy cloaks" },
-    { loves: { $nin: ["top hats", "virgin blood"] } },
-  ],
-})
+// Vampire.find({
+//   $and: [
+//     { loves: "fancy cloaks" },
+//     { loves: { $nin: ["top hats", "virgin blood"] } },
+//   ],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   Select all vampires that:
+
+//   love ribbons but do not have brown eyes
+// Vampire.find({
+//   $and: [{ loves: "ribbons" }, { eye_color: { $nin: ["brown"] } }],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   are not from Rome
+// Vampire.find({ location: { $nin: ["Rome, Italy"] } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({
+//   loves: {
+//     $nin: [
+//       "fancy cloaks",
+//       "frilly shirtsleeves",
+//       "appearing innocent",
+//       "being tragic",
+//       "brooding",
+//     ],
+//   },
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   have not killed more than 200 people
+Vampire.find({ victims: { $lt: 200 } })
   // if database transaction succeeds
   .then((vampires) => {
     console.log(vampires);
