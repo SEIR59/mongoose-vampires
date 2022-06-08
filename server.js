@@ -71,6 +71,16 @@ app.get('/vampires/seed', async (req, res) => {
   }
 });
 
+//? SHOW ROUTE
+app.get('/vampires/:id', async (req, res) => {
+  try {
+    const vamp = await vampire.findById(req.params.id);
+    res.render('show', { vampire: vamp });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 //? CREATE VAMPIRE
 const createVampire = async (vampData) => {
   try {

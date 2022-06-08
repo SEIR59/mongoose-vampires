@@ -1,6 +1,5 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  {% for vampire in vampires %}
   <h2>Name: {{ vampire.name }}</h2>
   <h2>Title: {{ vampire.title }}</h2>
   <h2>Hair_color: {{ vampire.hair_color }}</h2>
@@ -13,9 +12,6 @@
   <h2>Location: {{ vampire.location }}</h2>
   <h2>Gender: {{ vampire.gender }}</h2>
   <h2>Victims: {{ vampire.victims }}</h2>
-  <a href="/vampires/{{ vampire._id }}"><button>View Vampire</button></a>
-  <br />
-  <hr />
-  {% endfor %}
+  <a href="/vampires"><button>Back to Index</button></a>
 </div>
 {% endblock %}
