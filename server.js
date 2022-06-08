@@ -273,7 +273,8 @@ app.get("/vampires/seed", (request, response) => {
 // select by comparison //
 //////////////////////////
 // query to find all female vampires
-Vampire.find({gender: 'f'}).then((data) => {
+Vampire.find({gender: 'f'})
+.then((data) => {
   console.log(data)
   console.log('----------')
 })
@@ -282,7 +283,8 @@ Vampire.find({gender: 'f'}).then((data) => {
 })
 
 // query to find vampires with victims greater than 500
-Vampire.find({victims: {$gt: 500}}).then((data) => {
+Vampire.find({victims: {$gt: 500}})
+.then((data) => {
   console.log(data)
   console.log('----------')
 })
