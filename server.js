@@ -282,6 +282,13 @@ async function victimsAndTitles(){
 }
 // victimsAndTitles()
 
+// If they have victims over 1000, that means they already have victims no?
+async function largeVictims(){
+  const aLotOfVictims = await Vampire.find({victims: {$gte: 1000}})
+  console.log(aLotOfVictims)
+}
+// largeVictims()
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
