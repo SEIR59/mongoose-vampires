@@ -1,0 +1,20 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  {% for vampire in vampires %}
+  <h2>Name: {{ vampire.name }}</h2>
+  <h2>Title: {{ vampire.title }}</h2>
+  <h2>Hair_color: {{ vampire.hair_color }}</h2>
+  <h2>Eye_color: {{ vampire.eye_color }}</h2>
+  <h2>DOB: {{ vampire.dob }}</h2>
+  <h2>
+    Loves: {% for love in vampire.loves %}
+    {{ love }}, {% endfor %}
+  </h2>
+  <h2>Location: {{ vampire.location }}</h2>
+  <h2>Gender: {{ vampire.gender }}</h2>
+  <h2>Victims: {{ vampire.victims }}</h2>
+  <br />
+  <hr />
+  {% endfor %}
+</div>
+{% endblock %}

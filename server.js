@@ -47,6 +47,17 @@ app.get('/', (req, res) => {
   res.send('your server is running... better catch it.');
 });
 
+//? INDEX ROUTE
+app.get('/vampires', async (req, res) => {
+  try {
+    const vampires = await vampire.find({});
+    // res.json(vampires);
+    res.render('index', { vampires });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 //? SEED ROUTE
 app.get('/vampires/seed', async (req, res) => {
   try {
@@ -596,7 +607,9 @@ const noName12 = async () => {
 };
 // noName12();
 
-
+// Hungry for more
+// #1. Write what that does in English: Find a person whose occupation is ...
+// Answer: Find a person whose occupation is a host where lastname is equal to Ghost, age is greater than 17 and less than 66. Who likes vaporizing and talking. Limit only to 10 results and sort in descending order by occupation and only display the name and occupation fields.
 //////////////////////////////////////////////
 //! Server Listener
 //////////////////////////////////////////////
