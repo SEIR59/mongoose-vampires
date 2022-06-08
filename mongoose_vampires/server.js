@@ -49,6 +49,8 @@ const vampiresSchema = new Schema({
   location: String,
   gender: String,
   victims: { type: Number, min: 0 },
+  portrayed_by: String,
+  is_actually: String,
 });
 
 // make fruit model
@@ -488,10 +490,49 @@ app.get("/", (req, res) => {
 //   });
 
 //   have not killed more than 200 people
-Vampire.find({ victims: { $lt: 200 } })
+// Vampire.find({ victims: { $lt: 200 } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+
+// Vampire.findOneAndUpdate(
+//   { name: "Claudia" },
+//   { name: "Eve", portrayed_by: "Tilda Swinton" },
+//   { new: true }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+Vampire.findOneAndUpdate(
+  { gender: "m" },
+  { name: "Guy Man", is_actually: "were-lizard" },
+  { new: true }
+)
   // if database transaction succeeds
-  .then((vampires) => {
-    console.log(vampires);
+  .then((vampire) => {
+    console.log(vampire);
   })
   // if database transaction fails
   .catch((error) => {
