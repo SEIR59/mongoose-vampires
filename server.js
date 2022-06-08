@@ -325,7 +325,11 @@ async function notRoman(){
 }
 // notRoman()
 
-
+async function doesntLove(){
+  const nonLover = await Vampire.find({loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocents', 'being tragic', 'brooding']}})
+  console.log(nonLover)
+}
+// doesntLove()
 
 
 
