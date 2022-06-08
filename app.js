@@ -238,7 +238,7 @@ const Vampire = model("Vampire", vampireSchema);
  db.close()
 })*/
 //4. have red hair or green eyes
-Vampire.find({ $or: [{hair_color: 'red'}, { eye_color: 'green'}]})
+/*Vampire.find({ $or: [{hair_color: 'red'}, { eye_color: 'green'}]})
 .then((vampire) => {
   console.log(vampire)
 })
@@ -249,7 +249,7 @@ Vampire.find({ $or: [{hair_color: 'red'}, { eye_color: 'green'}]})
 
 .finally(() => {
  db.close()
-})
+})*/
 
 
 
