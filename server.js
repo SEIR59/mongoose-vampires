@@ -302,6 +302,16 @@ Vampire.find({victims: {$lte: 150}})
   console.log(error)
 })
 
+// query to find vampires whose victim count is not equal to 210234
+Vampire.find({victims: {$ne: 210234}})
+.then((data) => {
+  console.log(data)
+  console.log('----------')
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
