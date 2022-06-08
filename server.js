@@ -62,13 +62,6 @@ app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
 
-////////////
-// routes //
-////////////
-app.get("/", (request, response) => {
-  response.send("Server is running")
-})
-
 //////////////
 // vampires //
 //////////////
@@ -210,6 +203,13 @@ const seedData = [
     title: 'Osiris of Sewer Rats'
   }
 ]
+
+////////////
+// routes //
+////////////
+app.get("/", (request, response) => {
+  response.send("Server is running")
+})
 
 //////////////
 // listener //
