@@ -298,7 +298,7 @@ const Vampire = model("Vampire", vampireSchema);
 
 //need to finish 4
 //4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find( {$and: {loves: 'fancy cloaks'}, {loves: {$nin:['top hats','virgin blood' ]}}})
+/*Vampire.find( {$and: [{loves: 'fancy cloaks'}, {loves: {$nin:['top hats','virgin blood' ]}}]})
 // if database transaction succeeds
 .then((vampire) => {
   console.log(vampire)
@@ -310,15 +310,67 @@ Vampire.find( {$and: {loves: 'fancy cloaks'}, {loves: {$nin:['top hats','virgin 
 // close db connection either way
 .finally(() => {
  db.close()
-})
+})*/
 
 //### Negative Selection
 ////Select all vampires that:
 
 //1. love ribbons but do not have brown eyes
+/*Vampire.find({$and:[{ loves: 'ribbons'}, {eye_color: {$not:{$eq:'brown'} }}]})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
 //2. are not from Rome
+/*Vampire.find({location:{$not: {$eq: 'Rome, Italy'}}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+
 //3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+Vampire.find({loves:{$not: {$eq: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})
+
+
 //5. have not killed more than 200 people
+/*Vampire.find({victims:{$not: {$gt: '200'}}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
 //
 
 
