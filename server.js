@@ -625,7 +625,16 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
-Vampire.count({hair_color: "brown"})
+// remove all vampires with blue eyes cuz they fake af
+// Vampire.deleteMany({eye_color: 'blue'})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+Vampire.count({eye_color: 'blue'})
 .then((data) => {
   console.log(data)
 })
