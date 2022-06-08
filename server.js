@@ -475,7 +475,19 @@ const newVamps = [{
 // })
 
 // 4. Update guy mans hates array also to iunclude alarm clocks and jackalopes
-Vampire.updateOne({name: "Guy Man"}, {$push: {hates: {$each: ["testing", "testing2"]}}}, {upsert:true})
+// Vampire.updateOne({name: "Guy Man"}, {$push: {hates: {$each: ["testing", "testing2"]}}}, {upsert:true})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+//rename Eve's field to moniker
+Vampire.updateOne({name: "Eve"}, {$rename: {'name': "moniker"}})
 .then((data) =>{
     console.log(data)
 })
