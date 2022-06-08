@@ -273,255 +273,255 @@ app.get("/vampires/seed", (request, response) => {
 // select by comparison //
 //////////////////////////
 // query to find all female vampires
-Vampire.find({gender: 'f'})
-.then((data) => {
-  console.log('-----1-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({gender: 'f'})
+// .then((data) => {
+//   console.log('-----1-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires with victims greater than 500
-Vampire.find({victims: {$gt: 500}})
-.then((data) => {
-  console.log('-----2-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$gt: 500}})
+// .then((data) => {
+//   console.log('-----2-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires with fewer than or equal to 150 victims
-Vampire.find({victims: {$lte: 150}})
-.then((data) => {
-  console.log('-----3-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$lte: 150}})
+// .then((data) => {
+//   console.log('-----3-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires whose victim count is not equal to 210234
-Vampire.find({victims: {$ne: 210234}})
-.then((data) => {
-  console.log('-----4-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$ne: 210234}})
+// .then((data) => {
+//   console.log('-----4-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires greater than 150 victims and fewer than 500 victims
-Vampire.find({$and: [
-  {victims: {$gt: 150}}, 
-  {victims: {$lt: 500}}
-]})
-.then((data) => {
-  console.log('-----5-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$and: [
+//   {victims: {$gt: 150}}, 
+//   {victims: {$lt: 500}}
+// ]})
+// .then((data) => {
+//   console.log('-----5-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find all the vampires that have the key of 'title'
-Vampire.find({title: {$exists: true}})
-.then((data) => {
-  console.log('-----6-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({title: {$exists: true}})
+// .then((data) => {
+//   console.log('-----6-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find all the vampires who do not have the key of victims
-Vampire.find({victims: {$exists: false}})
-.then((data) => {
-  console.log('-----7-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$exists: false}})
+// .then((data) => {
+//   console.log('-----7-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires with a title and no victims
-Vampire.find({$and: [
-  {title: {$exists: true}}, 
-  {victims: {$exists: false}}
-]})
-.then((data) => {
-  console.log('-----8-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$and: [
+//   {title: {$exists: true}}, 
+//   {victims: {$exists: false}}
+// ]})
+// .then((data) => {
+//   console.log('-----8-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires with victims and have victims greater than 1000
-Vampire.find({$and: [
-  {victims: {$exists: true}},
-  {victims: {$gt: 1000}}
-]})
-.then((data) => {
-  console.log('-----9-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$and: [
+//   {victims: {$exists: true}},
+//   {victims: {$gt: 1000}}
+// ]})
+// .then((data) => {
+//   console.log('-----9-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that are from new york or new orleans
-Vampire.find({$or: [
-  {location: 'New York, New York, US'},
-  {location: 'New Orleans, Louisiana, US'}
-]})
-.then((data) => {
-  console.log('-----10-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$or: [
+//   {location: 'New York, New York, US'},
+//   {location: 'New Orleans, Louisiana, US'}
+// ]})
+// .then((data) => {
+//   console.log('-----10-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that love brooding or being tragic
-Vampire.find({$or: [
-  {loves: 'brooding'},
-  {loves: 'being tragic'}
-]})
-.then((data) => {
-  console.log('-----11-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$or: [
+//   {loves: 'brooding'},
+//   {loves: 'being tragic'}
+// ]})
+// .then((data) => {
+//   console.log('-----11-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that love marshmallows and has more than 1000 victims
-Vampire.find({$or: [
-  {loves: 'marshmallows'},
-  {victims: {$gt: 1000}}
-]})
-.then((data) => {
-  console.log('-----12-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$or: [
+//   {loves: 'marshmallows'},
+//   {victims: {$gt: 1000}}
+// ]})
+// .then((data) => {
+//   console.log('-----12-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires with red hair or green eyes
-Vampire.find({$or: [
-  {hair_color: 'red'},
-  {eye_color: 'green'}
-]})
-.then((data) => {
-  console.log('-----13-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$or: [
+//   {hair_color: 'red'},
+//   {eye_color: 'green'}
+// ]})
+// .then((data) => {
+//   console.log('-----13-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that love frilly shirtsleeves or frilly collars
-Vampire.find(
-  {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'}]}
-)
-.then((data) => {
-  console.log('-----14-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'}]}
+// )
+// .then((data) => {
+//   console.log('-----14-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that loves brooding
-Vampire.find(
-  {loves: 'brooding'}
-)
-.then((data) => {
-  console.log('-----15-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {loves: 'brooding'}
+// )
+// .then((data) => {
+//   console.log('-----15-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires if they love one of the following (shown below)
-Vampire.find(
-  {loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}}
-)
-.then((data) => {
-  console.log('-----16-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}}
+// )
+// .then((data) => {
+//   console.log('-----16-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find love fancy cloaks but not if they also love either top hats or virgin blood
-Vampire.find(
-  {$and: [
-    {loves: 'fancy cloaks'}, 
-    {loves: {$nin: 'top hats'}},
-    {loves: {$nin: 'virgin blood'}}]}
-  )
-.then((data) => {
-  console.log('-----17-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {$and: [
+//     {loves: 'fancy cloaks'}, 
+//     {loves: {$nin: 'top hats'}},
+//     {loves: {$nin: 'virgin blood'}}]}
+//   )
+// .then((data) => {
+//   console.log('-----17-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that love ribbons but do not have brown eyes
-Vampire.find(
-  {$and: [
-    {loves: 'ribbons'}, 
-    {eye_color: {$nin: 'brown'}}]}
-  )
-.then((data) => {
-  console.log('-----18-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {$and: [
+//     {loves: 'ribbons'}, 
+//     {eye_color: {$nin: 'brown'}}]}
+//   )
+// .then((data) => {
+//   console.log('-----18-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that are not from Rome
-Vampire.find(
-  {location: {$nin: 'Rome, Italy'}})
-.then((data) => {
-  console.log('-----19-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {location: {$nin: 'Rome, Italy'}})
+// .then((data) => {
+//   console.log('-----19-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find vampires that don't love some things
-Vampire.find(
-  {loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
-  }}
-)
-.then((data) => {
-  console.log('-----20-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find(
+//   {loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
+//   }}
+// )
+// .then((data) => {
+//   console.log('-----20-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // vampire that have not killed more than 200 people
-Vampire.find({victims: {$not: {$gt: 200}}}
-)
-.then((data) => {
-  console.log('-----21-----')
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$not: {$gt: 200}}}
+// )
+// .then((data) => {
+//   console.log('-----21-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 //////////////
 // listener //
