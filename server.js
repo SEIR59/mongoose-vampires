@@ -6,6 +6,7 @@ const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const path = require("path")
 const { response } = require("express")
+const { dividedBy } = require("liquid/lib/liquid/standard_filters")
 
 // connecting with a database
 // input set up
@@ -240,7 +241,7 @@ const myVampires = [
     loves: ['wings', 'drawing'],
     location: 'Hotel Vampiringa',
     gender: 'f',
-    victims: -3
+    victims: 0
   }
 ]
 
@@ -260,6 +261,15 @@ app.get("/vampires/seed", (request, response) => {
     })
   })
 })
+
+// inserting own vampires
+// Vampire.insertMany(myVampires)
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 //////////////
 // listener //
