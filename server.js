@@ -22,3 +22,32 @@ mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error))
+
+// pulling schemas and models from mongoose
+const Schema = mongoose.Schema
+const model = mongoose.model
+
+// making a vampire schema
+const vampireSchema = new Schema({
+  name: {
+    type: String,
+    required: [true, 'Please enter a name!']
+  },
+  title: String,
+  hair_color: {
+    type: String,
+    default: "blonde"
+  },
+  eye_color: String,
+  dob: Date,
+  loves: Array,
+  location: String,
+  gender: String,
+  victims: {
+    type: Number,
+    min: [0, 'Not a valid number of victims']
+  }
+})
+
+// make vampire model
+const Vampire = model("Vampire", vampireSchema)
