@@ -331,6 +331,11 @@ async function doesntLove(){
 }
 // doesntLove()
 
+async function smallTimeKilla(){
+  const fewVictims = await Vampire.find({victims: {$lt: 200}})
+  console.log(fewVictims)
+}
+// smallTimeKilla()
 
 
 
