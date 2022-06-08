@@ -73,10 +73,58 @@ const newVamp = [
     victims: 1
   }
 ]
-Vampire.insertMany(newVamp)
-.then((data) =>  {console.log(data)})
-.catch((error)=>{console.log(error)})
-.finally(()=>{db.close()})
+// Vampire.insertMany(newVamp)
+// .then((data) =>  {console.log(data)})
+// .catch((error)=>{console.log(error)})
+// .finally(()=>{db.close()})
 
-
-
+// Vampire.find({gender: 'f'})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({victims: { $gt :500 }})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({victims: { $lte :150 }})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({victims: { $ne :210234 }})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find( { $and:[ {victims: { $gt :150 }, victims: {$lt : 500 }}]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
