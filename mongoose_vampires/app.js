@@ -237,8 +237,18 @@ db.on("close", () => console.log("mongo disconnected"));
 //   console.log(error)
 // })
 // have fewer than or equal to 150 victims
+// Vampire.find({
+//   victims: { $eq: 150}
+// })
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// have a victim count is not equal to 210234
 Vampire.find({
-  victims: { $eq: 150}
+  victims: { $ne: 210234}
 })
 .then((vampires) => {
   console.log(vampires)
@@ -246,5 +256,10 @@ Vampire.find({
 .catch((error) => {
   console.log(error)
 })
-// have a victim count is not equal to 210234
 // have greater than 150 AND fewer than 500 victims
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
