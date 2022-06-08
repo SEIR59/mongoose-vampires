@@ -87,3 +87,14 @@ const newVamps = [
 // .then((data) =>  {console.log(data)})
 // .catch((error)=>{console.log(error)})
 // .finally(()=>{db.close()})
+
+Vampire.find({gender: 'f'})
+.then((vampire) => {
+    console.log(vampire)
+})
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+    db.close()
+})
