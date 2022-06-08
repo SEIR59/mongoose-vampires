@@ -280,6 +280,14 @@ Vampire.find({gender: 'f'}).then((data) => {
   console.log(error)
 })
 
+// query to find vampires with victims greater than 500
+Vampire.find({victims: {$gt: 500}}).then((data) => {
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
