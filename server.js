@@ -388,7 +388,17 @@ Vampire.updateOne({ name: 'Eve'}, { $rename: {name:'moniker'}}, {upsert: true} )
 // .finally(() => {
 //  db.close()
 // })
-Vampire.deleteOne( {hair_color: 'brown'} )
+// Vampire.deleteOne( {hair_color: 'brown'} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+Vampire.deleteMany( {eye_color: 'blue'} )
 .then((vampire) => {
   console.log(vampire)
 })
