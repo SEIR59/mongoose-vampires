@@ -51,3 +51,12 @@ const vampireSchema = new Schema({
 
 // make vampire model
 const Vampire = model("Vampire", vampireSchema)
+
+// creating an express application object
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
+
+// middleware
+app.use(morgan("tiny"))
+app.use(methodOverride("_method"))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static("public"))
