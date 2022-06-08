@@ -435,6 +435,18 @@ Vampire.find(
   console.log(error)
 })
 
+// query to find vampires that loves brooding
+Vampire.find(
+  {loves: 'brooding'}
+)
+.then((data) => {
+  console.log('-----15-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
