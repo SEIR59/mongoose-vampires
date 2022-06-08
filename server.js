@@ -337,6 +337,17 @@ async function smallTimeKilla(){
 }
 // smallTimeKilla()
 
+async function claudiaDies(){
+  await Vampire.updateOne({name: 'Claudia'}, {$set: {name: 'Eve'}})
+}
+
+async function evePortrayed(){
+  let update = await Vampire.findOneAndUpdate({name: 'Eve'}, {$set: {portrayed_by: 'Tilda Swinton'}})
+  console.log(update)
+}
+
+evePortrayed()
+
 
 
 
