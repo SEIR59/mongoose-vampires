@@ -83,7 +83,9 @@ const vampireSchema = new Schema({
   location: String,
   gender: String,
   victims: {type: Number, min: 0}, //no less than 0 victims
-});
+},
+{strict: false}
+);
 
 // make vampire model //new database
 const Vampire = model("Vampire", vampireSchema);
@@ -400,7 +402,94 @@ const newVampires = [
 // })
 
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find({ loves: 'fancy cloaks'}, { $or: [{loves: {$nin: ['top hats',  'virgin blood' ] }}]})
+// Vampire.find({loves: {$nin: ["fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// NEGATIVE SELECTION
+//love ribbons but do not have brown eyes
+// Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+
+// are not from Rome
+// Vampire.find( {location: {$not: { $eq: 'Rome, Italy'}} })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find( {loves: {$not: { $eq: 'fancy cloaks'}, { $eq: 'frilly shirtsleeves'}, { $eq: 'appearing innocent'}, { $eq: 'being tragic'}, { $eq: 'brooding'}} })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have not killed more than 200 people
+// Vampire.find( {victims: {$not: { $gt: 200}} })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+// REPLACE 
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.replaceOne( {name: 'Claudia'}, { name: 'Eve'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+Vampire.updateOne( {name: 'Eve'}, { $set: { portrayed_by: 'Tilda Swinton'}} )
 // if database transaction succeeds
 .then((vampire) => {
   console.log(vampire)
@@ -416,13 +505,24 @@ Vampire.find({ loves: 'fancy cloaks'}, { $or: [{loves: {$nin: ['top hats',  'vir
 
 
 
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
 
 
-
-
-
-
-
+//UPDATE
+//Update 'Guy Man' to have a gender of 'f'
+// Vampire.find( {victims: {$not: { $gt: 200}} })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
 
 
 
