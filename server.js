@@ -301,6 +301,12 @@ async function brooding(){
 }
 // brooding()
 
+async function loveAtLeast(){
+  const lovesOne = await Vampire.find({loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
+  console.log(lovesOne)
+}
+// loveAtLeast()
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
