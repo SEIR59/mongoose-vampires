@@ -198,15 +198,56 @@ const newVamp = [
 // .finally(() =>{
 //     db.close()
 // })
-Vampire.find({ $or: [{ hair_color: 'red'}, {eye_color: 'green' }]})
-.then((vampire) =>{
-   console.log(vampire)
-})
-.catch((error) =>{
-    console.log(error)
-})
-.finally(() =>{
-    db.close()
-})
+// Vampire.find({ $or: [{ hair_color: 'red'}, {eye_color: 'green' }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+
+// Vampire.find({ $or: [ { loves: 'frilly shirtsleeves'}, {loves: 'filly collars' }]})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ loves: 'Brooding'})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+// Vampire.find({ loves:{ $in:['appearing innocent','trickery','lurking in rotting mansons','R&B music' ]}})
+// .then((vampire) =>{
+//    console.log(vampire)
+// })
+// .catch((error) =>{
+//     console.log(error)
+// })
+// .finally(() =>{
+//     db.close()
+// })
+Vampire.find({$and:[{loves:{$in:['fancy cloaks']}},{loves:{$nin:['virgin blood','top hats']}}]})
+ .then((vampire) =>{
+       console.log(vampire)
+    })
+    .catch((error) =>{
+        console.log(error)
+    })
+    .finally(() =>{
+        db.close()
+    })
 
 
