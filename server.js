@@ -512,6 +512,17 @@ Vampire.find(
   console.log(error)
 })
 
+// vampirse that have not killed more than 200 people
+Vampire.find({victims: {$not: {$gt: 200}}}
+)
+.then((data) => {
+  console.log('-----21-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
