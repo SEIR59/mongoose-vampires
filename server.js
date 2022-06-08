@@ -34,6 +34,7 @@ const vampireSchema = new Schema({
     portrayed_by: String,
     is_actually: String,
     hates: [String],
+    moniker: String,
 })
 
 const Vampire = model('Vampire', vampireSchema)
@@ -365,6 +366,12 @@ async function hatesStuff() {
   let hatingThings =  await Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs', 'alarm clocks', 'jackalopes']}})
   console.log(hatingThings)
 }
+
+async function newName(){
+  let newMoniker = await Vampire.updateOne({name: 'Eve'}, {$rename: {name: 'moniker'}})
+  console.log(newMoniker)
+}
+
 
 
 
