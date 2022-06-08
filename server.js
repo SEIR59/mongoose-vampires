@@ -14,8 +14,10 @@ const vampireSchema = new Schema({
     loves: Array,
     location: String,
     gender: String,
-    victims: {type: Number, min: 0}
-})
+    victims: {type: Number, min: 0},
+},{
+    strict: false 
+    });
 //make Vampire Model
 const Vampire = model('Vampire', vampireSchema);
 
@@ -185,16 +187,16 @@ const newVamps = [
 //     db.close()
 // })
 // have victims AND the victims they have are greater than 1000
-Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
-.then((vampire) => {
-    console.log(vampire)
-})
-.catch((error) => {
-    console.log(error)
-})
-.finally(() => {
-    db.close()
-})
+// Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
 
 //SELECT WITH OR
 // are from New York, New York, US or New Orleans, Louisiana, US
@@ -354,8 +356,7 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // .finally(() => {
 //     db.close()
 // })
-
-// Vampire.findOne({name: 'Eve'})
+// Vampire.updateOne({name: 'Eve'},{ $set: {portrayed_by: 'Tilda Swinton'}})
 // .then((vampire) => {
 //     console.log(vampire)
 // })
@@ -365,3 +366,15 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // .finally(() => {
 //     db.close()
 // })
+
+Vampire.find({name: 'Eve'})
+.then((vampire) => {
+    console.log(vampire)
+})
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+    db.close()
+})
+
