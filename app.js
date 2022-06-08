@@ -19,15 +19,15 @@ const model = mongoose.model // shorthand for model function
 //
 const vampireSchema = new Schema(
   {
-    name: String,
+    name: {type: String, default: true},
     title: String,
-    hair_color: String,
+    hair_color: {type:String, default: "Blonde"},
     eye_color: String,
     dob:  Date,
     loves: Array,
     location: String,
     gender: String,
-    victims: { type: Number, default: 0 },
+    victims: Number,
     title: String,
     body: String,
     author: String,
@@ -123,7 +123,37 @@ const Vampire = model("Vampire", vampireSchema);
 
 //have greater than 150 AND fewer than 500 victims
 
-Vampire.find({ $and: [{victims: {$gt: 150}}, {victims: {$lt: 500}}]})
+/*Vampire.find({ $and: [{victims: {$gt: 150}}, {victims: {$lt: 500}}]})
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+//1. have a key of 'title'
+/*Vampire.find({ title: {$exists: true}})
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+//2. do not have a key of 'victims'(still not working)
+Vampire.find({ victims: {$exists: false}})
 
 .then((vampire) => {
   console.log(vampire)
@@ -136,6 +166,36 @@ Vampire.find({ $and: [{victims: {$gt: 150}}, {victims: {$lt: 500}}]})
 .finally(() => {
  db.close()
 })
+
+//3. have a title AND no victims
+
+/*Vampire.find({ $and: [{victims: {$eq: 0}}, {title: {$exists: true}}]})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+
+//4. have victims AND the victims they have are greater than 1000
+/*Vampire.find({ $and: [{victims: {$gt: 1000}}, {victims: {$exists: true}}]})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
 
 
 
