@@ -51,6 +51,7 @@ app.get("/", (req, res) => {
 
 // Seed database
 const seedData = require("./seed.js");
+// Insert into the database using create method??
 
 //////////////////////////////////////////////
 // Server Listener
