@@ -18,12 +18,12 @@ const CONFIG = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
+const db = mongoose.connection;
 
 // Establish Connection
 mongoose.connect(DATABASE_URL, CONFIG);
 // Events for when connection opens/disconnects/errors
-mongoose.connection
-  .on("open", () => console.log("Connected to Mongoose"))
+db.on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
 
@@ -58,7 +58,7 @@ mongoose.connection
 //     console.log(e.message);
 //   }
 // }
-create4Vampire();
+// create4Vampire();
 async function create4Vampire() {
   try {
     const v1 = await Vampire.create({
@@ -109,3 +109,67 @@ async function create4Vampire() {
     console.log(e.message);
   }
 }
+
+// Querying
+// Select by comparison
+// 1.Find all the vampires that that are females
+Vampire.find({ gender: "f" })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 2.have greater than 500 victims
+Vampire.find({ victims: { $gte: 500 } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// have fewer than or equal to 150 victims
+Vampire.find({ victims: { $lte: 150 } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// have a victim count is not equal to 210234
+Vampire.find({ victims: { $ne: 210234 } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// have greater than 150 AND fewer than 500 victims
+Vampire.where("victims")
+  .gte(150)
+  .lt(500)
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
