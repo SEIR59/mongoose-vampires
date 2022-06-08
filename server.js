@@ -47,7 +47,8 @@ const vampiresSchema = new Schema(
         gender: String,
         victims: { type: Number, min: 0 }
     },
-    { timestamps: true }
+    { timestamps: true },
+    { strict: false }
 );
 
 // make Vampire model
@@ -119,6 +120,9 @@ const seedCollection = () => {
 }
 seedCollection()
 
+
+// ********* SELECT BY COMPARISON ********
+
 //find vampires with gender F
 Vampire.find({ gender: 'f' })
 // .then(data => console.log(data))
@@ -149,6 +153,9 @@ Vampire.find({ victims: { $gt: 150, $lt: 500 } })
 // .catch(err => console.log(err))
 
 
+
+// ********* SELECT BY EXISTS OR DOES NOT EXIST ********
+
 //find vampires that have a title
 Vampire.find({ title: { $exists: true } })
 // .then(data => console.log(data))
@@ -160,11 +167,31 @@ Vampire.find({ victims: { $exists: false } })
 // .catch(err => console.log(err))
 
 // find vampires that have a title AND no victims
-Vampire.find({ title: { $exists: true }, victims: {$exists: false} })
-    // .then(data => console.log(data))
-    // .catch(err => console.log(err))
+Vampire.find({ title: { $exists: true }, victims: { $exists: false } })
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
 
 
 // find vampires that have victims and the victims are greater than 1000
-Vampire.find({ victims: { exists: true }, victims: {$gt: 1000}})
-    .then(data => console.log(data))
+Vampire.find({ victims: { exists: true }, victims: { $gt: 1000 } })
+// .then(data => console.log(data))
+
+
+// ********* SELECT WITH OR ********
+
+// select vampires from new york or new orleans
+Vampire.find({ $or: [{ location: 'New York, New York, US' }, { location: 'New Orleans, Louisiana, US' }] })
+// .then(data => console.log(data))
+// .catch(error => console.log(error))
+
+// select vampires that love brooding or being tragic
+Vampire.find({ $or: [{ loves: /brooding/ }, { loves: /being tragic/ }] })
+    // .then(data => console.log(data))
+
+// loves marshmallows or has more than 1000 victims
+Vampire.find({ $or: [{loves: /marshmallow/}, {victims: {$gt: 1000}}]})
+    // .then(data => console.log(data))
+
+// red hair or green eyes
+Vampire.find({ $or: [{hair_color: 'red'}, {eye_color: 'green'}]})
+    // .then(data => console.log(data))
