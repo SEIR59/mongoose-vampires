@@ -212,6 +212,14 @@ app.get("/", (request, response) => {
   response.send("Server is running")
 })
 
+// seed route
+app.get("/vampires/seed", (request, response) => {
+  Vampire.deleteMany({}).then((data) => {
+    Vampire.create(seedData).then((data) => {
+      response.json(data)
+    })
+  })
+})
 
 //////////////
 // listener //
