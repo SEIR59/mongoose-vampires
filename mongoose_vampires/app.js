@@ -216,8 +216,19 @@ db.on("close", () => console.log("mongo disconnected"));
 // Querying
 // Select by comparison
 // Find all the vampires that that are females
-Vampire.find( {
-  gender: "f"
+// Vampire.find( {
+//   gender: "f"
+// })
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// have greater than 500 victims
+Vampire.find({
+  victims: { $gt: 500}
 })
 .then((vampires) => {
   console.log(vampires)
@@ -225,8 +236,6 @@ Vampire.find( {
 .catch((error) => {
   console.log(error)
 })
-
-// have greater than 500 victims
 // have fewer than or equal to 150 victims
 // have a victim count is not equal to 210234
 // have greater than 150 AND fewer than 500 victims
