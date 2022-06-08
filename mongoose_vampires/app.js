@@ -295,18 +295,28 @@ db.on("close", () => console.log("mongo disconnected"));
 //   console.log(error)
 // })
 // have a title AND no victims
+// Vampire.find({ $and: [
+//   {title: { $exists: true}},
+//   {$or: [
+//     {victims: 0},
+//     {victims: { $exists: false}}
+//   ]}
+//   ]
+// })
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// have victims AND the victims they have are greater than 1000
 Vampire.find({ $and: [
-  {title: { $exists: true}},
-  {$or: [
-    {victims: 0},
-    {victims: { $exists: false}}
-  ]}
-  ]
-})
+    {victims: { $exists: true}},
+    {victims: {$gt: 1000}}
+  ]})
 .then((vampires) => {
   console.log(vampires)
 })
 .catch((error) => {
   console.log(error)
 })
-// have victims AND the victims they have are greater than 1000
