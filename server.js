@@ -25,13 +25,58 @@ const vampireSchema = new Schema({
 })
 const Vampire = model("Vampire", vampireSchema)
 
-Vampire.insertMany(vampireArray)
+/*Vampire.insertMany(vampireArray)
 .then((data) =>{
   console.log(data)
 })
 .catch((error) =>{
   console.log(error)
 })
-.finally(() =>{db.close()})
+.finally(() =>{db.close()})*/
+
+const newVamp = [
+  {
+    name: 'Vamp One',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1971, 2, 13, 7, 47),
+    loves: ['cereal','marshmallows'],
+    location: 'Minneapolis, Minnesota, US',
+    gender: 'm',
+    victims: 3
+  } ,{
+    name: 'Vamp Two',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1971, 2, 13, 7, 47),
+    loves: ['cereal','marshmallows'],
+    location: 'Minneapolis, Minnesota, US',
+    gender: 'M',
+    victims: 5
+  }, {
+    name: 'Vamp Three',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1971, 2, 13, 7, 47),
+    loves: ['cereal','marshmallows'],
+    location: 'Minneapolis, Minnesota, US',
+    gender: 'F',
+    victims: 4
+  }, {
+    name: 'Vamp Four',
+    hair_color: 'brown',
+    eye_color: 'brown',
+    dob: new Date(1971, 2, 13, 7, 47),
+    loves: ['cereal','marshmallows'],
+    location: 'Minneapolis, Minnesota, US',
+    gender: 'F',
+    victims: 1
+  }
+]
+Vampire.insertMany(newVamp)
+.then((data) =>  {console.log(data)})
+.catch((error)=>{console.log(error)})
+.finally(()=>{db.close()})
+
 
 
