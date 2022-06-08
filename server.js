@@ -384,6 +384,19 @@ Vampire.find({$or: [
   console.log(error)
 })
 
+// query to find vampires that love brooding or being tragic
+Vampire.find({$or: [
+  {loves: 'brooding'},
+  {loves: 'being tragic'}
+]})
+.then((data) => {
+  console.log('-----11-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 
 //////////////
 // listener //
