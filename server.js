@@ -87,7 +87,7 @@ app.get("/", (req, res) => {
 //         // seed starter vampires
 //         Vampire.create(vampires).then((data) => {
 //             // send created vampires as response to confirm creation
-//             res.json(data)
+//             // res.json(data)
 //         })
 //     })
 //     Vampire.insertMany(vampires)
@@ -97,7 +97,63 @@ app.get("/", (req, res) => {
 //         .catch((error) => {
 //             console.log(error)
 //         })
+
+//     const customVampires = [
+//         {
+//             name: 'Kenny A',
+//             dob: new Date(1834, 9, 23, 1, 0),
+//             hair_color: 'brown',
+//             eye_color: 'hazel',
+//             loves: ['apples', 'ardvarks', 'express applications'],
+//             location: 'Turku, Finland',
+//             gender: 'm',
+//             victims: 122
+//         },
+//         {
+//             name: 'Kenny B',
+//             dob: new Date(1901, 2, 12, 3, 0),
+//             hair_color: 'blonde',
+//             eye_color: 'blue',
+//             loves: ['Super Smash Brothers', 'top hats', 'Baltimore Ravens'],
+//             location: 'Baltimore, Maryland, USA',
+//             gender: 'm',
+//             victims: 3728
+//         }, {
+//             name: 'Kendra C',
+//             dob: new Date(666, 8, 24, 13, 0),
+//             hair_color: 'bald',
+//             eye_color: 'green',
+//             loves: ['Harry Potter', 'Lord of the Rings'],
+//             location: 'Transylvania, Romania',
+//             gender: 'f',
+//             victims: 10
+//         },
+//         {
+//             name: 'Kendra D',
+//             dob: new Date(1896, 7, 24, 4, 0),
+//             hair_color: 'silver',
+//             eye_color: 'hazel',
+//             loves: ['Nothing at all'],
+//             location: 'Stockholm, Sweden,',
+//             gender: 'f',
+//             victims: 1235678
+//         }
+//     ]
+//     Vampire.create(customVampires)
+//         .then((data) => {
+//             // send created customVampires as response to confirm creation
+//             res.json(data)
+//         })
+//     Vampire.insertMany(customVampires)
+//         .then((data) => {
+//             console.log(data)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
 // })
+
+
 
 //////////////////////////////////////////////
 // Server Listener
