@@ -247,7 +247,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 
 // Select objects that match one of several values
 // love either frilly shirtsleeves or frilly collars
-Vampire.find({$or: [{loves:'frilly shirtsleeves'},{loves:'frilly collars'}]})
+// Vampire.find({$or: [{loves:'frilly shirtsleeves'},{loves:'frilly collars'}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// love brooding
+Vampire.find({$or: [{loves:'brooding'},{loves:'brooding'}]})
 .then((vampire) => {
     console.log(vampire)
 })
