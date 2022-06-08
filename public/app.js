@@ -526,7 +526,7 @@ const createVampire = async (v) => {
   }); */
 
 // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
-Vampire.updateMany(
+/* Vampire.updateMany(
   { gender: "f" },
   {
     $set: { gender: "fems" },
@@ -540,7 +540,28 @@ Vampire.updateMany(
   })
   .finally(() => {
     db.close();
-  });
+  }); */
 // Remove
 // Remove a single document wherein the hair_color is 'brown'
+/* Vampire.deleteOne({ hair: "brown" })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); */
+
 // We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+Vampire.deleteMany({ eye_color: "blue" })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
