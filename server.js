@@ -7,22 +7,26 @@ const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path")
+const VampireArray = require("./model/vampire.js"); //my array
 
+
+/////////////////////////////////////////////
+// Global Configuration
+/////////////////////////////////////////////// const mongoURI = "YOUR MONGODB URL"; //this is the url - where you want to go
+const mongoURI = "mongodb://localhost/vampires"; //this is the url - where you want to go
+const db = mongoose.connection;
 
 
 /////////////////////////////////////////////
 // Database Connection
 /////////////////////////////////////////////
-// Setup inputs for our connect function
-const DATABASE_URL = process.env.DATABASE_URL;
-const CONFIG = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
 
 // Establish Connection
-mongoose.connect(DATABASE_URL, CONFIG);
+// Setup inputs for our connect function
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+
+// Connection Error/Success
 // Events for when connection opens/disconnects/errors
 mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
@@ -30,7 +34,12 @@ mongoose.connection
   .on("error", (error) => console.log(error));
 
 
-  const vampire = {
+////////////////////////////////////////////////
+// Create Document
+////////////////////////////////////////////////
+
+
+  const newVampire = {
       name: 'Chocula',
       title: 'Count',
       hair_color: 'brown',
@@ -52,9 +61,6 @@ const { Schema, model } = mongoose;
 const vampireSchema = new Schema({
   name: {type: String, required: true },
   title: String,
-  readyToEat: Boolean,
-  name: String,
-  title: String,
   hair_color: {type: String, default: 'blonde'},
   eye_color: String,
   dob: Date,
@@ -68,6 +74,11 @@ const vampireSchema = new Schema({
 const Vampire = model("Vampire", vampireSchema);
 
 
+// ----------
+// Vampire.insertMany(VampireArray)
+// .then((data) =>  {console.log(data)})
+// .catch((error)=>{console.log(error)})
+// .finally(()=>{db.close()})
 
 
 
