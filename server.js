@@ -641,4 +641,31 @@ const notk = async () => {
     mongoose.connection.close();
   }
 };
-notk()
+// notk()
+
+/////////////////////////////////////
+
+const broskis = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Eve'}, { $set: {portrayed_by: 'Tilda Swinton'}}, {upsert: true}))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//broskis()
+
+const brus = async () => {
+  try {
+    const b = await (await Vampire.updateOne({ name: 'Count Chocula'}, { name: 'Guy Man'}))
+    console.log( b );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// brus()
+
