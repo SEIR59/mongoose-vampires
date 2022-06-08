@@ -289,6 +289,11 @@ async function largeVictims(){
 }
 // largeVictims()
 
+async function frilly(){
+  const frillyStuff = await Vampire.find({$or: [{loves: 'frilly collars'}, {loves: 'frilly shirtsleeves'}]})
+  console.log(frillyStuff)
+}
+// frilly()
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
