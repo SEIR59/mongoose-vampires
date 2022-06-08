@@ -294,6 +294,13 @@ async function frilly(){
   console.log(frillyStuff)
 }
 // frilly()
+
+async function brooding(){
+  const lovesBrooding = await Vampire.find({loves: 'brooding'})
+  console.log(lovesBrooding)
+}
+// brooding()
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
