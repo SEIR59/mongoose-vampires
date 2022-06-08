@@ -335,9 +335,20 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // love brooding or being tragic
+// Vampire.find({ $or: [
+//   {loves: /brooding/ },
+//   {loves: /being tragic/ }
+// ]})
+// .then((vampires) => {
+// console.log(vampires)
+// })
+// .catch((error) => {
+// console.log(error)
+// })
+// have more than 1000 victims or love marshmallows
 Vampire.find({ $or: [
-  {loves: /brooding/ },
-  {loves: /being tragic/ }
+  {victims: {$gt: 1000} },
+  {loves: /marshmallows/ }
 ]})
 .then((vampires) => {
 console.log(vampires)
@@ -345,5 +356,4 @@ console.log(vampires)
 .catch((error) => {
 console.log(error)
 })
-// have more than 1000 victims or love marshmallows
 // have red hair or green eyes
