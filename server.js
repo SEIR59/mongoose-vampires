@@ -195,3 +195,16 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 .finally(() => {
     db.close()
 })
+
+//SELECT WITH OR
+// are from New York, New York, US or New Orleans, Louisiana, US
+Vampire.find({$or: [{location: 'New York, New York, US'},{location: 'New Orleans, Louisiana, US' }]})
+.then((vampire) => {
+    console.log(vampire)
+})
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+    db.close()
+})
