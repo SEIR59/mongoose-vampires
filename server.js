@@ -399,14 +399,50 @@ const newVamps = [
 // .finally(() => {
 //     db.close()
 // })
-Vampire.find({name: 'Guy Man'})
+// Vampire.find({name: 'Guy Man'})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+
+// Update
+// Update 'Guy Man' to have a gender of 'f'
+// Vampire.updateOne( {name: 'Guy Man'}, { gender: 'f'} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+// Vampire.find({name: 'Guy Man'})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+//Update 'Eve' to have a gender of 'm'
+Vampire.updateOne( {name: 'Eve'}, { gender: 'm'} )
 .then((vampire) => {
-    console.log(vampire)
+  console.log(vampire)
 })
 .catch((error) => {
-    console.log(error)
+  console.log(error)
 })
 .finally(() => {
-    db.close()
+ db.close()
 })
-
