@@ -13,7 +13,7 @@ const VampireArray = require("./model/vampire.js"); //my array
 /////////////////////////////////////////////
 // Global Configuration
 /////////////////////////////////////////////// const mongoURI = "YOUR MONGODB URL"; //this is the url - where you want to go
-const mongoURI = "mongodb://localhost/vampires"; //this is the url - where you want to go
+const mongoURI = "mongodb://127.0.0.1/vampires"; //this is the url - where you want to go
 const db = mongoose.connection;
 
 
@@ -34,12 +34,27 @@ mongoose.connection
   .on("error", (error) => console.log(error));
 
 
+
+/////////////////////////////////////////////////
+// Create our Express Application Object Bind Liquid Templating Engine
+/////////////////////////////////////////////////
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
+
+/////////////////////////////////////////////////////
+// Middleware
+/////////////////////////////////////////////////////
+app.use(morgan("tiny")); //logging
+app.use(methodOverride("_method")); // override for put and delete requests from forms
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+app.use(express.static("public")); // serve files from public statically
+
+
 ////////////////////////////////////////////////
 // Create Document
 ////////////////////////////////////////////////
 
 
-  const newVampire = {
+  const OGVampire = {
       name: 'Chocula',
       title: 'Count',
       hair_color: 'brown',
@@ -80,22 +95,56 @@ const Vampire = model("Vampire", vampireSchema);
 // .catch((error)=>{console.log(error)})
 // .finally(()=>{db.close()})
 
+// ---------------
+const newVampires = [
+    {
+        name: 'Merlin',
+        title: 'Viceroy',
+        hair_color: 'blonde',
+        eye_color: 'blue',
+        dob: new Date(1952, 2, 13, 7, 47),
+        loves: ['books','cats'],
+        location: 'Chicago, Illinois, US',
+        gender: 'm',
+        victims: 90,
+      },
+      {
+        name: 'Cecilia',
+        title: 'Duchess of Aragon',
+        hair_color: 'brown',
+        eye_color: 'hazel',
+        dob: new Date(1967, 2, 14, 7, 47),
+        loves: ['corgies','rock climbing'],
+        location: 'London, England, UK',
+        gender: 'f',
+        victims: 52,
+      },
+      {
+        name: 'Thomas',
+        title: 'Captain',
+        hair_color: 'black',
+        eye_color: 'brown',
+        dob: new Date(1941, 2, 13, 6, 47),
+        loves: ['high tea','cricket'],
+        location: 'London, England, UK',
+        gender: 'm',
+        victims: 1100,
+      },
+      {
+        name: 'Eloise',
+        title: 'Lady',
+        hair_color: 'brown',
+        eye_color: 'blue',
+        dob: new Date(1991, 3, 26, 7, 47),
+        loves: ['music','long walks'],
+        location: 'Glendora, California, US',
+        gender: 'f',
+        victims: 260,
+      }
+]
 
-
-/////////////////////////////////////////////////
-// Create our Express Application Object Bind Liquid Templating Engine
-/////////////////////////////////////////////////
-const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
-
-
-
-
-
-
-/////////////////////////////////////////////////////
-// Middleware
-/////////////////////////////////////////////////////
-app.use(morgan("tiny")); //logging
-app.use(methodOverride("_method")); // override for put and delete requests from forms
-app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
-app.use(express.static("public")); // serve files from public statically
+// ----------
+Vampire.insertMany(newVampires)
+.then((data) =>  {console.log(data)})
+.catch((error)=>{console.log(error)})
+.finally(()=>{db.close()})
