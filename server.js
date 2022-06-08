@@ -598,10 +598,17 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
+// rename 'Eve's' name field to 'moniker'
+// Vampire.updateOne({name: 'Eve'}, {$rename: {'name': 'moniker'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 
-
-Vampire.find({name: 'Guy Man'})
+Vampire.find({moniker: "Eve"})
 .then((data) => {
   console.log(data)
 })
