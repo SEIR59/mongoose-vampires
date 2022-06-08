@@ -35,7 +35,9 @@ const vampireSchema = new Schema({
 
 const Vampire = model('Vampire', vampireSchema)
 
-const vampires = await Vampire.create([
+//runVamps()
+async function runVamps() {
+  const vampires = await Vampire.create([
         {
         name: 'Count Chocula',
         hair_color: 'brown',
@@ -173,6 +175,74 @@ const vampires = await Vampire.create([
         title: 'Osiris of Sewer Rats'
       }
 ])
+}
+
+let newVamps = [
+  {
+    name: 'Robert Pattinson',
+    hair_color: 'blond',
+    eye_color: 'blue',
+    dob: new Date(1986, 5, 13, 12, 12),
+    loves: ['being a bat', 'making movies'],
+    location: 'London, England, UK',
+    gender: 'm',
+    title: 'the Batman'
+  },
+  {
+    name: 'Christian Bale',
+    hair_color: 'blond',
+    eye_color: 'blue',
+    dob: new Date(1974, 1, 30, 12, 52),
+    loves: ['modifying weight'],
+    location: 'Haverfordwest, England, UK',
+    gender: 'm',
+    title: 'American Psycho',
+    victims: 21
+  },
+  {
+    name: 'Victoria Tan',
+    hair_color: 'black',
+    eye_color: 'brown',
+    dob: new Date(1996, 9, 2, 2, 20),
+    love: ['dancing with the devil in the pale moonlight'],
+    location: 'Brooklyn, New York, US',
+    gender: 'f',
+    title: 'the Duke of Edinburgh',
+    victims: 420
+  },
+  {
+    name: 'Jelly Bear',
+    hair_color: 'light brown',
+    eye_color: 'brown',
+    dob: new Date(2016, 1, 30, 12, 30),
+    loves: ['licking couches', 'eating sweet potato'],
+    location: 'Brooklyn, New York, US',
+    gender: 'f',
+    title: 'Chubby bear',
+    victims: 1
+  }
+]
+
+let robertPattinson = {
+  name: 'Robert Pattinson',
+  hair_color: 'blond',
+  eye_color: 'blue',
+  dob: new Date(1986, 5, 13, 12, 12),
+  loves: ['being a bat', 'making movies'],
+  location: 'London, England, UK',
+  gender: 'm',
+  title: 'the Batman'
+}
+async function findDocs(){
+  const find = await Vampire.find({gender:'f'})
+  console.log(find)
+}
+// findDocs()
+// Vampire.insertMany(newVamps, function(error){
+//   if (error) console.log(error)
+//   console.log('Documents inserted into Vampire collection')
+// })
+
 
 
 // Vampire.insertMany(seedData)
