@@ -209,8 +209,7 @@ const createVampire = async (v) => {
 //   });
 
 // have victims AND the victims they have are greater than 1000
-
-Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+/* Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
   .then((v) => {
     console.log("have a title AND no victims:");
     console.log(v);
@@ -220,4 +219,96 @@ Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
   })
   .finally(() => {
     db.close();
+  }); */
+
+// Select with OR
+// are from New York, New York, US or New Orleans, Louisiana, US
+/* Vampire.find({
+  $or: [
+    { location: "New York, New York, US" },
+    { location: "New Orleans, Louisiana, US" },
+  ],
+})
+  .then((v) => {
+    console.log("from New York, New York, US or New Orleans, Louisiana, US");
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); */
+
+// love brooding or being tragic
+// NOTE: mongoose create an empty array []
+/* Vampire.find({
+  loves: { $in: ["brooding", "being tragic"] },
+})
+  .then((v) => {
+    console.log("love brooding or being tragic");
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); */
+// have more than 1000 victims or love marshmallows
+/* Vampire.find({
+  $or: [{ victims: { $gt: 1000 } }, { loves: "marshmallows" }],
+})
+  .then((v) => {
+    console.log("have more than 1000 victims or love marshmallows: ");
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); */
+
+// have red hair or green eyes
+Vampire.find({
+  $or: [{ hair_color: "red" }, { eye_color: "green" }],
+})
+  .then((v) => {
+    console.log("have red hair or green eyes: ");
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
   });
+
+// Select objects that match one of several values
+// love either frilly shirtsleeves or frilly collars
+// love brooding
+// love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+// love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+
+// Negative Selection
+// love ribbons but do not have brown eyes
+// are not from Rome
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// have not killed more than 200 people
+
+// Replace
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+
+// Update
+// Update 'Guy Man' to have a gender of 'f'
+// Update 'Eve' to have a gender of 'm'
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Rename 'Eve's' name field to 'moniker'
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+
+// Remove
+// Remove a single document wherein the hair_color is 'brown'
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
