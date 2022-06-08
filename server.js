@@ -325,6 +325,16 @@ Vampire.find({$and: [
   console.log(error)
 })
 
+// query to find all the vampires that have the key of 'title'
+Vampire.find({title: {$exists: true}})
+.then((data) => {
+  console.log('-----6-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 
 //////////////
 // listener //
