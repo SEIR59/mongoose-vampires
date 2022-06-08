@@ -459,6 +459,21 @@ Vampire.find(
   console.log(error)
 })
 
+// query to find love fancy cloaks but not if they also love either top hats or virgin blood
+Vampire.find(
+  {$and: [
+    {loves: 'fancy cloaks'}, 
+    {loves: {$nin: 'top hats'}},
+    {loves: {$nin: 'virgin blood'}}]}
+  )
+.then((data) => {
+  console.log('-----17-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
