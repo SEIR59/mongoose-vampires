@@ -54,7 +54,7 @@ app.use(express.static("public")); // serve files from public statically
 ////////////////////////////////////////////////
 
 
-  const OGVampire = {
+  const ogVampire = {
       name: 'Chocula',
       title: 'Count',
       hair_color: 'brown',
@@ -85,7 +85,7 @@ const vampireSchema = new Schema({
   victims: {type: Number, min: 0}, //no less than 0 victims
 });
 
-// make vampire model
+// make vampire model //new database
 const Vampire = model("Vampire", vampireSchema);
 
 
@@ -144,7 +144,89 @@ const newVampires = [
 ]
 
 // ----------
-Vampire.insertMany(newVampires)
-.then((data) =>  {console.log(data)})
-.catch((error)=>{console.log(error)})
-.finally(()=>{db.close()})
+// Vampire.insertMany(newVampires)
+// .then((data) =>  {console.log(data)})
+// .catch((error)=>{console.log(error)})
+// .finally(()=>{db.close()})
+
+////////////////////////////////////////////////
+// Queries
+////////////////////////////////////////////////
+
+//SELECT BY COMPARISON
+// // Find all the vampires that that are females
+// Vampire.find({ gender: 'f'}) //just find female vampires
+// // if database transaction succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// // if database transaction fails
+// .catch ((error) => {
+//     console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//     db.close()
+// })
+
+//have greater than 500 victims
+// Vampire.find({ victims: { $gte: 500 } })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have fewer than or equal to 150 victims
+// Vampire.find({ victims: { $lt: 150 } })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have a victim count is not equal to 210234
+// Vampire.find({ victims: { $ne: 210234 } })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have greater than 150 AND fewer than 500 victims
+Vampire.find( {$and:  [{victims: {$gte: 150}, victims: {$lt: 500} }] })
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})
+
+
