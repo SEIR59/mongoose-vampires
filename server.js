@@ -283,4 +283,16 @@ const gtle = async () => {
     mongoose.connection.close();
   }
 };
-gtle()
+//gtle()
+
+const title = async () => {
+  try {
+    const tyt = await (await Vampire.find({ title:{ $exists: true } }))
+    console.log( tyt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+ title()
