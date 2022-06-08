@@ -47,7 +47,7 @@ const vampireSchema = new Schema({
     type: Number,
     min: [0, 'Not a valid number of victims']
   }
-})
+}, {strict: false})
 
 // make vampire model
 const Vampire = model("Vampire", vampireSchema)
@@ -517,6 +517,24 @@ app.get("/vampires/seed", (request, response) => {
 // )
 // .then((data) => {
 //   console.log('-----21-----')
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// replace vampire called 'Claudia' with vampire called 'Eve'
+// Vampire.updateOne({name: 'Claudia'}, {$set: {name: 'Eve'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne({name: 'Eve'}, {$set: {portrayed_by: 'Tilda Swinton'}})
+// .then((data) => {
 //   console.log(data)
 // })
 // .catch((error) => {
