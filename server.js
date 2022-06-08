@@ -238,6 +238,13 @@ async function findDocs(){
   console.log(find)
 }
 // findDocs()
+
+async function find500(){
+  const findOver = await Vampire.find({victims: {$gte: 500}})
+  console.log(findOver)
+}
+//find500()
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
