@@ -158,14 +158,14 @@ db.on("close", () => console.log("mongo disconnected"));
 
 // Vampire.create(startVampires)
 // .then((vampies) => {
-  //     console.log(vampies)
-  // })
-  // .catch((error) => {
-    //     console.log(error)
-    // })
-    
-    
-    // Add some new vampire data
+//     console.log(vampies)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+
+
+// Add some new vampire data
 // Vampire.create(
 //   {
 //     name: "Spongbob",
@@ -247,19 +247,26 @@ db.on("close", () => console.log("mongo disconnected"));
 //   console.log(error)
 // })
 // have a victim count is not equal to 210234
-Vampire.find({
-  victims: { $ne: 210234}
-})
-.then((vampires) => {
-  console.log(vampires)
-})
-.catch((error) => {
-  console.log(error)
-})
-// have greater than 150 AND fewer than 500 victims
+// Vampire.find({
+//   victims: { $ne: 210234}
+// })
 // .then((vampires) => {
 //   console.log(vampires)
 // })
 // .catch((error) => {
 //   console.log(error)
 // })
+// have greater than 150 AND fewer than 500 victims
+Vampire.find(
+  {
+    $and: [
+      { victims: { $gt: 150 } },
+      { victims: { $lt: 500 } }
+    ]
+  })
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
