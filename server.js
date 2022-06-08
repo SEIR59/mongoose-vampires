@@ -607,8 +607,16 @@ app.get("/vampires/seed", (request, response) => {
 //   console.log(error)
 // })
 
+// 'f' be fems
+// Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
-Vampire.find({moniker: "Eve"})
+Vampire.find({gender: "fems"})
 .then((data) => {
   console.log(data)
 })
