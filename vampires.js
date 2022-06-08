@@ -1,41 +1,25 @@
-/////////////////////////////////////////////
-// Import Our Dependencies
-/////////////////////////////////////////////
-const express = require("express"); // import express
-const methodOverride = require("method-override");
-const mongoose = require("mongoose");
-const path = require("path")
-
-
-
-
 ////////////////////////////////////////////////
-// Our Models
+// Our Model
 ////////////////////////////////////////////////
 // pull schema and model from mongoose
 const { Schema, model } = mongoose;
 
 // make vampire schema
 
-const vampire = new Schema ({
-    name: 'String',
+const vampireSchema = new Schema({
+    name: { type: String, require: true },
     title: 'String',
-    hair_color: 'String',
+    hair_color: { type: String, require: "Blonde" },
     eye_color: 'String',
-    dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['String','String'],
+    dob: { type: Date },
+    loves: Array,
     location: 'String',
     gender: 'String',
-    victims: 2,
-  })
-// make fruit model
-const Vampire = model("Vampire", fruitsSchema);
+    victims: { type: Number, min: 0 },
+})
+// make vampire model
+const Vampire = model("Vampire", vampireSchema);
 
 
 
-
-//////////////////////////////////////////////
-// Server Listener
-//////////////////////////////////////////////
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
+modules.exports = Vampire
