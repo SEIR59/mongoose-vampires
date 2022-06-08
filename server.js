@@ -397,6 +397,18 @@ Vampire.find({$or: [
   console.log(error)
 })
 
+// query to find vampires that love marshmallows and has more than 1000 victims
+Vampire.find({$or: [
+  {loves: 'marshmallows'},
+  {victims: {$gt: 1000}}
+]})
+.then((data) => {
+  console.log('-----12-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
 
 //////////////
 // listener //
