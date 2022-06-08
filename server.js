@@ -162,7 +162,19 @@ const newVamps = [
 // })
 
 // do not have a key of 'victims'
-Vampire.find({title: {$exists: false}})
+// Vampire.find({title: {$exists: false}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// have a title AND no victims
+Vampire.find({$and: [{title: {$exists: true}},{victims: {$exists: false}}]})
 .then((vampire) => {
     console.log(vampire)
 })
