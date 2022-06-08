@@ -460,7 +460,19 @@ const newVamps = [
 // })
 
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
-Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['alarm clocks', 'jackalopes']}} )
+// Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['alarm clocks', 'jackalopes']}} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//Rename 'Eve's' name field to 'moniker'
+Vampire.updateOne( {name: 'Eve'}, { $rename: { name: 'moniker'}}, {upsert: true} )
 .then((vampire) => {
   console.log(vampire)
 })
