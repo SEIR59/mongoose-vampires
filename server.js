@@ -219,5 +219,31 @@ Vampire.find({$and: [
     {loves: {$nin: 'virgin blood'}}
 ]
 })
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
 
+
+// *********  NEGATIVE SELECTION *********
+
+// vampires that love ribbons but do not have brown eyes
+Vampire.find({$and: [
+    {loves: 'ribbons'},
+    {eye_color: {$nin: 'brown'}}
+]
+})
+    // .then(data => console.log(data))
+
+// vampires that are not from Rome
+Vampire.find({location: {$nin: /Rome/}})
+    // .then(data => console.log(data))
+
+// vampires that do not love any of the following: 
+// [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+Vampire.find({ loves: {$nin: 
+    ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
+}
+})
+    // .then(data => console.log(data))
+
+// have not killed more than 200 people
+Vampire.find({ victims: {$not: {$gt: 200}}})
+    .then(data => console.log(data))
