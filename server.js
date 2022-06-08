@@ -474,6 +474,20 @@ Vampire.find(
   console.log(error)
 })
 
+// query to find vampires that love ribbons but do not have brown eyes
+Vampire.find(
+  {$and: [
+    {loves: 'ribbons'}, 
+    {eye_color: {$nin: 'brown'}}]}
+  )
+.then((data) => {
+  console.log('-----18-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
