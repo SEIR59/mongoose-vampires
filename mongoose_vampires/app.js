@@ -392,21 +392,20 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
-Vampire.find({
-  loves: { $in: [/appearing innocent/, /trickery/, /lurking in rotting mansions/, /R&B music/ ]} 
-})
-  .then((vampires) => {
-    console.log(vampires)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-// love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
 // Vampire.find({
-//   $or: [
-//     { loves: /red/ },
-//     { loves: /green/ }
-//   ]
+//   loves: { $in: [/appearing innocent/, /trickery/, /lurking in rotting mansions/, /R&B music/ ]} 
+// })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+// Vampire.find({ $and: [
+//   {loves: { $in: [/fancy cloaks/] }},
+//   {loves: { $nin: [/top hats/,/virgin blood/] }}
+// ]
 // })
 //   .then((vampires) => {
 //     console.log(vampires)
