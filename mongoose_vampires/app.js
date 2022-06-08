@@ -158,56 +158,75 @@ db.on("close", () => console.log("mongo disconnected"));
 
 // Vampire.create(startVampires)
 // .then((vampies) => {
-//     console.log(vampies)
-// })
-// .catch((error) => {
-//     console.log(error)
-// })
+  //     console.log(vampies)
+  // })
+  // .catch((error) => {
+    //     console.log(error)
+    // })
+    
+    
+    // Add some new vampire data
+// Vampire.create(
+//   {
+//     name: "Spongbob",
+//     title: "Mr",
+//     hair_color: "none",
+//     eye_color: "blue",
+//     dob: new Date(1800, 4, 12, 1, 2, 3) ,
+//     loves: ["Jellyfishing", "making Krabby Patties"],
+//     location: "Under the sea",
+//     gender: "m",
+//     victims: 14000000
+//   },
+//   {
+//     name: "Patrick",
+//     title: "",
+//     hair_color: "Pink",
+//     eye_color: "Brown",
+//     dob: new Date(1500, 7, 4, 1, 2, 3, 4) ,
+//     loves: ["Doing nothing", "Eating"],
+//     location: "Under the sea",
+//     gender: "m",
+//     victims: 207
+//   },
+//   {
+//     name: "Pearl",
+//     title: "Miss",
+//     hair_color: "Yellow",
+//     eye_color: "Blue",
+//     dob: new Date(1988, 7, 4, 6, 4, 1, 3),
+//     loves: ["Money", "Items"],
+//     location: "Under the sea",
+//     gender: "f",
+//     victims: 0
+//   },
+//   {
+//     name: "Sandy",
+//     title: "Mrs",
+//     hair_color: "Brown",
+//     eye_color: "Brown",
+//     dob: new Date(4000),
+//     loves: ["Karate", "Trees"],
+//     location: "Texas",
+//     gender: "f",
+//     victims: 1000000
+//   }
+// )
 
+// Querying
+// Select by comparison
+// Find all the vampires that that are females
+Vampire.find( {
+  gender: "f"
+})
+.then((vampires) => {
+  console.log(vampires)
+})
+.catch((error) => {
+  console.log(error)
+})
 
-Vampire.create(
-  {
-    name: "Spongbob",
-    title: "Mr",
-    hair_color: "none",
-    eye_color: "blue",
-    dob: new Date(1800, 4, 12, 1, 2, 3) ,
-    loves: ["Jellyfishing", "making Krabby Patties"],
-    location: "Under the sea",
-    gender: "m",
-    victims: 14000000
-  },
-  {
-    name: "Patrick",
-    title: "",
-    hair_color: "Pink",
-    eye_color: "Brown",
-    dob: new Date(1500, 7, 4, 1, 2, 3, 4) ,
-    loves: ["Doing nothing", "Eating"],
-    location: "Under the sea",
-    gender: "m",
-    victims: 207
-  },
-  {
-    name: "Pearl",
-    title: "Miss",
-    hair_color: "Yellow",
-    eye_color: "Blue",
-    dob: new Date(1988, 7, 4, 6, 4, 1, 3),
-    loves: ["Money", "Items"],
-    location: "Under the sea",
-    gender: "f",
-    victims: 0
-  },
-  {
-    name: "Sandy",
-    title: "Mrs",
-    hair_color: "Brown",
-    eye_color: "Brown",
-    dob: new Date(4000),
-    loves: ["Karate", "Trees"],
-    location: "Texas",
-    gender: "f",
-    victims: 1000000
-  }
-)
+// have greater than 500 victims
+// have fewer than or equal to 150 victims
+// have a victim count is not equal to 210234
+// have greater than 150 AND fewer than 500 victims
