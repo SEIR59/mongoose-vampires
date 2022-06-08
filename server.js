@@ -1,29 +1,30 @@
-const mongoose = require('mongoose')
-const mongoURI = "mongodb://127.0.0.1/vampires"
-const db = mongoose.connection
-const vampireArray = require('./vampire.js')
+const mongoose = require("mongoose");
+const mongoURI = "mongodb://127.0.0.1/vampires";
+const db = mongoose.connection;
+const vampireArray = require("./vampire.js");
 
-mongoose.connect(mongoURI,  {useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-const { Schema , model } = mongoose
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+const { Schema, model } = mongoose;
 mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
-  .on("error", (error) => console.log(error))
+  .on("error", (error) => console.log(error));
 
 const vampireSchema = new Schema({
-        name: { type: String, require: true},
-        title: String,
-        hair_color: { type: String, require: 'Blonde'}, 
-        eye_color: String,
-        dob:  Date,
-        loves: Array,
-        location: String,
-        gender: String,
-        victims: { type: Number, min:0 }
-})
-const Vampire = model("Vampire", vampireSchema)
+  name: { type: String, require: true },
+  title: String,
+  hair_color: { type: String, require: "Blonde" },
+  eye_color: String,
+  dob: Date,
+  loves: Array,
+  location: String,
+  gender: String,
+  victims: { type: Number, min: 0 },
+  
+}, {
+strict: false 
+});
+const Vampire = model("Vampire", vampireSchema);
 
 /*Vampire.insertMany(vampireArray)
 .then((data) =>{
@@ -36,43 +37,46 @@ const Vampire = model("Vampire", vampireSchema)
 
 const newVamp = [
   {
-    name: 'Vamp One',
-    hair_color: 'brown',
-    eye_color: 'brown',
+    name: "Vamp One",
+    hair_color: "brown",
+    eye_color: "brown",
     dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['cereal','marshmallows'],
-    location: 'Minneapolis, Minnesota, US',
-    gender: 'm',
-    victims: 3
-  } ,{
-    name: 'Vamp Two',
-    hair_color: 'brown',
-    eye_color: 'brown',
+    loves: ["cereal", "marshmallows"],
+    location: "Minneapolis, Minnesota, US",
+    gender: "m",
+    victims: 3,
+  },
+  {
+    name: "Vamp Two",
+    hair_color: "brown",
+    eye_color: "brown",
     dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['cereal','marshmallows'],
-    location: 'Minneapolis, Minnesota, US',
-    gender: 'M',
-    victims: 5
-  }, {
-    name: 'Vamp Three',
-    hair_color: 'brown',
-    eye_color: 'brown',
+    loves: ["cereal", "marshmallows"],
+    location: "Minneapolis, Minnesota, US",
+    gender: "M",
+    victims: 5,
+  },
+  {
+    name: "Vamp Three",
+    hair_color: "brown",
+    eye_color: "brown",
     dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['cereal','marshmallows'],
-    location: 'Minneapolis, Minnesota, US',
-    gender: 'F',
-    victims: 4
-  }, {
-    name: 'Vamp Four',
-    hair_color: 'brown',
-    eye_color: 'brown',
+    loves: ["cereal", "marshmallows"],
+    location: "Minneapolis, Minnesota, US",
+    gender: "F",
+    victims: 4,
+  },
+  {
+    name: "Vamp Four",
+    hair_color: "brown",
+    eye_color: "brown",
     dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['cereal','marshmallows'],
-    location: 'Minneapolis, Minnesota, US',
-    gender: 'F',
-    victims: 1
-  }
-]
+    loves: ["cereal", "marshmallows"],
+    location: "Minneapolis, Minnesota, US",
+    gender: "F",
+    victims: 1,
+  },
+];
 // Vampire.insertMany(newVamp)
 // .then((data) =>  {console.log(data)})
 // .catch((error)=>{console.log(error)})
@@ -239,7 +243,12 @@ const newVamp = [
 // .finally(() =>{
 //     db.close()
 // })
-Vampire.find({$and:[{loves:{$in:['fancy cloaks']}},{loves:{$nin:['virgin blood','top hats']}}]})
+// Vampire.find({
+//   $and: [
+//     { loves: { $in: ["fancy cloaks"] } },
+//     { loves: { $nin: ["virgin blood", "top hats"] } },
+//   ],
+// });
 //  .then((vampire) =>{
 //        console.log(vampire)
 //     })
@@ -289,3 +298,33 @@ Vampire.find({$and:[{loves:{$in:['fancy cloaks']}},{loves:{$nin:['virgin blood',
 // .finally(() =>{
 //    db.close()
 // })
+// Vampire.updateOne({name:'Claudia'}, {$set:{name:'Eve'}})
+// .then((vampire) =>{
+//   console.log(vampire)
+// })
+// .catch((error) =>{
+//    console.log(error)
+// })
+// .finally(() =>{
+//    db.close()
+// })
+// Vampire.updateOne({ name: "Eve" }, { $set: { portrayed_by: "Tilda Swinton" } })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+Vampire.findOneAndUpdate({gender:'m'}, { $set: {name: 'Guy Man'}})
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
