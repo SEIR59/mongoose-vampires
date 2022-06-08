@@ -240,10 +240,18 @@ async function findDocs(){
 // findDocs()
 
 async function find500(){
-  const findOver = await Vampire.find({victims: {$gte: 500}})
+  const findOver = await Vampire.find({victims: {$gt: 500}})
   console.log(findOver)
 }
 //find500()
+
+async function findFew(){
+  const find150 = await Vampire.find({victims: {$lte: 150}})
+  console.log(find150)
+}
+// findFew()
+
+
 
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
