@@ -365,16 +365,16 @@ const newVamps = [{
 // })
 
 // 4. Have not killed more than 200 
-Vampire.find({victims: {$not: {$gt: 200}}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// Vampire.find({victims: {$not: {$gt: 200}}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
 //////////////////////
 // REPLACE     //////
@@ -391,17 +391,26 @@ Vampire.find({victims: {$not: {$gt: 200}}})
 //     db.close();
 // })
 // 1.////
-// Vampire.updateOne({name:"Claudia"},{$set:{name:"Eve"} ,$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
-// .then((data) =>{
-//     console.log(data)
-// })
-// .catch((error) => {
-//     console.log(data)
-// })
-// .finally(() => {
-//     db.close();
-// })
-
+Vampire.updateOne({name:"Claudia"}, {$set:{name:"Eve"}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+Vampire.updateOne({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
 //2. 
 // Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
 // .then((data) =>{
