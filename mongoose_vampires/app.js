@@ -371,23 +371,10 @@ db.on("close", () => console.log("mongo disconnected"));
 // Select objects that match one of several values
 // Select all the vampires that:
 // love either frilly shirtsleeves or frilly collars
-Vampire.find({
-  $or: [
-    { loves: /frilly shirtsleeves/ },
-    { loves: /frilly collars/ }
-  ]
-})
-  .then((vampires) => {
-    console.log(vampires)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-// love brooding
 // Vampire.find({
 //   $or: [
-//     { hair_color: /red/ },
-//     { eye_color: /green/ }
+//     { loves: /frilly shirtsleeves/ },
+//     { loves: /frilly collars/ }
 //   ]
 // })
 //   .then((vampires) => {
@@ -396,11 +383,19 @@ Vampire.find({
 //   .catch((error) => {
 //     console.log(error)
 //   })
+// love brooding
+Vampire.find({ loves: /brooding/ })
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 // love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
 // Vampire.find({
 //   $or: [
-//     { hair_color: /red/ },
-//     { eye_color: /green/ }
+//     { loves: /red/ },
+//     { loves: /green/ }
 //   ]
 // })
 //   .then((vampires) => {
@@ -412,8 +407,8 @@ Vampire.find({
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
 // Vampire.find({
 //   $or: [
-//     { hair_color: /red/ },
-//     { eye_color: /green/ }
+//     { loves: /red/ },
+//     { loves: /green/ }
 //   ]
 // })
 //   .then((vampires) => {
