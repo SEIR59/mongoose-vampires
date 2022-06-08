@@ -57,7 +57,7 @@ const vampireSchema = new Schema({
         type: Number,
         min: 1
     }
-})
+}, {strict:false})
 
 
 //Make Vampire model
@@ -364,17 +364,17 @@ const newVamps = [{
 //     db.close();
 // })
 
-// // 4. Have not killed more than 200 
-// Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
-// .then((data) =>{
-//     console.log(data)
-// })
-// .catch((error) => {
-//     console.log(data)
-// })
-// .finally(() => {
-//     db.close();
-// })
+// 4. Have not killed more than 200 
+Vampire.find({victims: {$not: {$gt: 200}}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
 
 //////////////////////
 // REPLACE     //////
@@ -390,8 +390,8 @@ const newVamps = [{
 // .finally(() => {
 //     db.close();
 // })
-
-// Vampire.update({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
+// 1.////
+// Vampire.updateOne({name:"Claudia"},{$set:{name:"Eve"} ,$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
 // .then((data) =>{
 //     console.log(data)
 // })
@@ -419,38 +419,38 @@ const newVamps = [{
 ///////////////////////
 
 //1. Update guy man to have a gender f
-Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: "f"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: "f"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
-//2. Update Eve to have a gender of m
-Vampire.updateOne({name: 'Eve'}, {$set: {gender: "m"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// //2. Update Eve to have a gender of m
+// Vampire.updateOne({name: 'Eve'}, {$set: {gender: "m"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
-//6.
-Vampire.updateMany({gender: 'f'}, {$set: {gender: "fems"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// //6.
+// Vampire.updateMany({gender: 'f'}, {$set: {gender: "fems"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
