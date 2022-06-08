@@ -320,4 +320,16 @@ const vAndt  = async () => {
     mongoose.connection.close();
   }
 };
- vAndt()
+ //vAndt()
+
+ const vAndvgr  = async () => {
+  try {
+    const vt = await (await Vampire.find({$and: [{ title:{ $exists: true } },{ victims:{$gt:1000}}]}))
+    console.log( vt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+ vAndvgr()
