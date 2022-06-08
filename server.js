@@ -445,4 +445,4 @@ Vampire.updateOne( {name: 'Eve'}, { gender: 'm'} )
 })
 .finally(() => {
  db.close()
-})
+});
