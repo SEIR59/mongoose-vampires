@@ -207,9 +207,11 @@ const seedData = [
 ////////////
 // routes //
 ////////////
+// default route
 app.get("/", (request, response) => {
   response.send("Server is running")
 })
+
 
 //////////////
 // listener //
