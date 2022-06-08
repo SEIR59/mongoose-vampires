@@ -640,6 +640,38 @@ Vampire.updateMany({ gender: "f" }, { $set: { gender: "fems" } })
     db.close();
   });
 
+// //   Remove a single document wherein the hair_color is 'brown'
+
+// Vampire.findOneAndRemove({ hair_color: "brown" })
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+
+// Vampire.deleteMany({ eye_color: "blue" })
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
 //////////////////////////////////////////////
 // Server Listener
 //////////////////////////////////////////////
