@@ -264,6 +264,12 @@ async function fewerAndGreater(){
 }
 // fewerAndGreater()
 
+async function hasTitle(){
+  const hasATitle = await Vampire.find({title: {$exists: true}})
+  console.log(hasATitle)
+}
+// hasTitle()
+
 
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
