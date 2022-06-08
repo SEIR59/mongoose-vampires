@@ -429,3 +429,60 @@ const gtle = async () => {
   }
 };
 //gtle()
+
+
+
+const title = async () => {
+  try {
+    const tyt = await (await Vampire.find({ title:{ $exists: true } }))
+    console.log( tyt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// title()
+
+
+const victims  = async () => {
+  try {
+    const vic = await (await Vampire.find({victims:{ $exists: false } }))
+    console.log( vic );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+// victims()
+
+
+const vAndt  = async () => {
+  try {
+    const vt = await (await Vampire.find({$and: [{victims:{ $exists: false } },{ title:{ $exists: true } }]}))
+    console.log( vt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// vAndt()
+
+
+const vAndvgr  = async () => {
+  try {
+    const vt = await (await Vampire.find({$and: [{ title:{ $exists: true } },{ victims:{$gt:1000}}]}))
+    console.log( vt );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// vAndvgr()
+
+
+
