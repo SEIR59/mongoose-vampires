@@ -488,6 +488,17 @@ Vampire.find(
   console.log(error)
 })
 
+// query to find vampires that are not from Rome
+Vampire.find(
+  {location: {$nin: 'Rome, Italy'}})
+.then((data) => {
+  console.log('-----19-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
