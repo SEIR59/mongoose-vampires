@@ -283,7 +283,20 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find({loves: {$nin: ['top hats', 'virgin blood']} })
+// Vampire.find({loves: {$nin: ['top hats', 'virgin blood']} })
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// Negative Selection
+// love ribbons but do not have brown eyes
+Vampire.find({$and: [{loves: 'ribbons'},{eye_color: {$not:{ $eq:'brown'}}}]})
 .then((vampire) => {
     console.log(vampire)
 })
