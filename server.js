@@ -5,6 +5,7 @@ const morgan = require("morgan")
 const methodOverride = require("method-override")
 const mongoose = require("mongoose")
 const path = require("path")
+const { response } = require("express")
 
 // connecting with a database
 // input set up
@@ -60,3 +61,18 @@ app.use(morgan("tiny"))
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
+
+////////////
+// routes //
+////////////
+app.get("/", (request, response) => {
+  response.send("Server is running")
+})
+
+//////////////
+// listener //
+//////////////
+const PORT = process.env.PORT
+app.listen(PORT, ()=>{
+  console.log(`Listening on port ${PORT}`)
+})
