@@ -484,7 +484,20 @@ const newVamps = [
 // })
 
 //We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
-Vampire.updateMany( {gender: 'f'}, { gender: 'fems'}, {upsert: true} )
+// Vampire.updateMany( {gender: 'f'}, { gender: 'fems'}, {upsert: true} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//REMOVE
+//Remove a single document wherein the hair_color is 'brown'
+Vampire.deleteOne( {hair_color: 'brown'} )
 .then((vampire) => {
   console.log(vampire)
 })
