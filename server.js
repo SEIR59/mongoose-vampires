@@ -345,6 +345,20 @@ Vampire.find({victims: {$exists: false}})
   console.log(error)
 })
 
+// query to find vampires with a title and no victims
+Vampire.find({$and: [
+  {title: {$exists: true}}, 
+  {victims: {$exists: false}}
+]})
+.then((data) => {
+  console.log('-----8-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
+
 //////////////
 // listener //
 //////////////
