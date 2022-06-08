@@ -51,6 +51,7 @@ const vampiresSchema = new Schema({
   victims: { type: Number, min: 0 },
   portrayed_by: String,
   is_actually: String,
+  hates: [],
 });
 
 // make fruit model
@@ -525,11 +526,107 @@ app.get("/", (req, res) => {
 //   });
 
 // replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
-Vampire.findOneAndUpdate(
-  { gender: "m" },
-  { name: "Guy Man", is_actually: "were-lizard" },
-  { new: true }
-)
+// Vampire.findOneAndUpdate(
+//   { gender: "m" },
+//   { name: "Guy Man", is_actually: "were-lizard" },
+//   { new: true }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//   Update 'Guy Man' to have a gender of 'f'
+// Vampire.updateMany({ name: "Guy Man" }, { $set: { gender: "f" } })
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Update 'Eve' to have a gender of 'm'
+// Vampire.updateMany({ name: "Eve" }, { $set: { gender: "m" } })
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateMany(
+//   { name: "Guy Man" },
+//   { $set: { hates: ["clothes", "jobs"] } }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.updateMany(
+//   { name: "Guy Man" },
+//   { $push: { hates: { $each: ["alarm clocks", "jackalopes"] } } }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Rename 'Eve's' name field to 'moniker'
+// Vampire.findOneAndUpdate({ name: "Eve" }, { $set: { name: "moniker" } })
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+Vampire.updateMany({ gender: "f" }, { $set: { gender: "fems" } })
   // if database transaction succeeds
   .then((vampire) => {
     console.log(vampire);
