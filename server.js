@@ -32,7 +32,8 @@ const vampireSchema = new Schema({
     gender: String,
     victims: {type: Number, min: 0},
     portrayed_by: String,
-    is_actually: String
+    is_actually: String,
+    hates: [String],
 })
 
 const Vampire = model('Vampire', vampireSchema)
@@ -359,6 +360,12 @@ async function changeGender(){
   let newGenderM = await Vampire.updateOne({name: 'Eve'}, {$set: {gender: 'm'}})
   console.log(newGenderM)
 }
+
+async function hatesStuff() {
+  let hatingThings =  await Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs', 'alarm clocks', 'jackalopes']}})
+  console.log(hatingThings)
+}
+
 
 
 
