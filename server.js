@@ -358,6 +358,19 @@ Vampire.find({$and: [
   console.log(error)
 })
 
+// query to find vampires with victims and have victims greater than 1000
+Vampire.find({$and: [
+  {victims: {$exists: true}},
+  {victims: {$gt: 1000}}
+]})
+.then((data) => {
+  console.log('-----8-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 
 //////////////
 // listener //
