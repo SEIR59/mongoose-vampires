@@ -310,13 +310,30 @@ db.on("close", () => console.log("mongo disconnected"));
 //   console.log(error)
 // })
 // have victims AND the victims they have are greater than 1000
-Vampire.find({ $and: [
-    {victims: { $exists: true}},
-    {victims: {$gt: 1000}}
-  ]})
-.then((vampires) => {
-  console.log(vampires)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({ $and: [
+//     {victims: { $exists: true}},
+//     {victims: {$gt: 1000}}
+//   ]})
+// .then((vampires) => {
+//   console.log(vampires)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// Select with OR
+// Select all the vampires that:
+
+// are from New York, New York, US or New Orleans, Louisiana, US
+Vampire.find({ $or: [
+      {location: "New York, New York, US" },
+      {location: "New Orleans, Louisiana, US" }
+    ]})
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+// love brooding or being tragic
+// have more than 1000 victims or love marshmallows
+// have red hair or green eyes
