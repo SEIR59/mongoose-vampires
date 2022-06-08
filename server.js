@@ -352,7 +352,15 @@ async function maleLizard(){
   let newGuy = await Vampire.findOneAndUpdate({gender: 'm'}, {name: 'Guy Man', is_actually: 'were-lizard'}, {new: true})
   console.log(newGuy)
 }
-maleLizard()
+
+async function changeGender(){
+  let newGenderF = await Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'f'}})
+  console.log(newGenderF)
+  let newGenderM = await Vampire.updateOne({name: 'Eve'}, {$set: {gender: 'm'}})
+  console.log(newGenderM)
+}
+
+
 
 
 
