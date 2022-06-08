@@ -328,44 +328,82 @@ const newVamps = [{
 // Negative Selection  ////////////
 //////////////////////////////////
 
-//1. love ribbons but do not have brown eyes
-Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// //1. love ribbons but do not have brown eyes
+// Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
-// //2. Are not from Rome
-Vampire.find({location: {$ne: "Rome"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// // //2. Are not from Rome
+// Vampire.find({location: {$ne: "Rome"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
-//3. DO NOT LOVE ANU OF THE FOLLOWING []
-Vampire.find({loves: {$nin: ["fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// //3. DO NOT LOVE ANU OF THE FOLLOWING []
+// Vampire.find({loves: {$nin: ["fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
-// 4. Have not killed more than 200 
-Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
+// // 4. Have not killed more than 200 
+// Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+//////////////////////
+// REPLACE     //////
+////////////////////////////
+// //1.
+// Vampire.updateOne({name:'Claudia'} ,{$set: { name: "Eve"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// Vampire.update({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+//2. 
+Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
 .then((data) =>{
     console.log(data)
 })
