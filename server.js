@@ -391,28 +391,7 @@ const newVamps = [{
 //     db.close();
 // })
 // 1.////
-Vampire.updateOne({name:"Claudia"}, {$set:{name:"Eve"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
-Vampire.updateOne({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
-//2. 
-// Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
+// Vampire.updateOne({name:"Claudia"}, {$set:{name:"Eve"}})
 // .then((data) =>{
 //     console.log(data)
 // })
@@ -422,6 +401,38 @@ Vampire.updateOne({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert
 // .finally(() => {
 //     db.close();
 // })
+// Vampire.updateOne({name:"Eve"}, {$set: {portrayed_by: "Tilda Swinton"}}, {upsert: true})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+//2. 
+Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+Vampire.updateOne({name: "Guy Man"}, {$set: {is_actually: "were-lizard"}}, {upsert:true})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
 
 /////////////////////////
 /// Update /////////////
