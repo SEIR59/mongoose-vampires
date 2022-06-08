@@ -222,7 +222,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // have more than 1000 victims or love marshmallows
-Vampire.find({$or: [{loves:'marshmallows'},{victims: {$gt: 1000}}]})
+// Vampire.find({$or: [{loves:'marshmallows'},{victims: {$gt: 1000}}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// have red hair or green eyes
+Vampire.find({$or: [{eye_color:'green'},{hair_color:'red'}]})
 .then((vampire) => {
     console.log(vampire)
 })
