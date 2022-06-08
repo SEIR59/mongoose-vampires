@@ -331,13 +331,37 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // have not killed more than 200 people
-Vampire.find({victims: {$not:{$gt: 200}}})
-.then((vampire) => {
-    console.log(vampire)
-})
-.catch((error) => {
-    console.log(error)
-})
-.finally(() => {
-    db.close()
-})
+// Vampire.find({victims: {$not:{$gt: 200}}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// Replace
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne({name: 'Claudia'},{ $set: {name: 'Eve'}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// Vampire.findOne({name: 'Eve'})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
