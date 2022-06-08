@@ -234,7 +234,20 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // have red hair or green eyes
-Vampire.find({$or: [{eye_color:'green'},{hair_color:'red'}]})
+// Vampire.find({$or: [{eye_color:'green'},{hair_color:'red'}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// Select objects that match one of several values
+// love either frilly shirtsleeves or frilly collars
+Vampire.find({$or: [{loves:'frilly shirtsleeves'},{loves:'frilly collars'}]})
 .then((vampire) => {
     console.log(vampire)
 })
