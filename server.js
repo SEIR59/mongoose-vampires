@@ -319,7 +319,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-Vampire.find({loves: {$not: {$eq: {$nin: ['fancy cloaks', 'frilly shirtlsleeves', 'appearing innocent', 'being tragic', 'brooding']}}}})
+// Vampire.find({loves: {$not: {$eq: {$gt: ['fancy cloaks', 'frilly shirtlsleeves', 'appearing innocent', 'being tragic', 'brooding']}}}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// have not killed more than 200 people
+Vampire.find({victims: {$not:{$gt: 200}}})
 .then((vampire) => {
     console.log(vampire)
 })
