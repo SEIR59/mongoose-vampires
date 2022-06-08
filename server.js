@@ -403,7 +403,23 @@ const newVamps = [{
 // })
 
 //2. 
-Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
+// Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+/////////////////////////
+/// Update /////////////
+///////////////////////
+
+//1. Update guy man to have a gender f
+Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: "f"}})
 .then((data) =>{
     console.log(data)
 })
@@ -413,3 +429,28 @@ Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
 .finally(() => {
     db.close();
 })
+
+//2. Update Eve to have a gender of m
+Vampire.updateOne({name: 'Eve'}, {$set: {gender: "m"}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
+//6.
+Vampire.updateMany({gender: 'f'}, {$set: {gender: "fems"}})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
