@@ -76,14 +76,66 @@ app.get("/", (req, res) => {
 });
 
 // Seed Starter Fruits
-Vampire.create(startVampires)
-  .then((vampires) => {
-    // send created fruits as response to confirm creation
-    console.log(vampires);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// Vampire.create(startVampires)
+//   .then((vampires) => {
+//     // send created fruits as response to confirm creation
+//     console.log(vampires);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// insert new vampires
+// const newVampires = [
+//   {
+//     name: "Tom",
+//     hair_color: "black",
+//     eye_color: "brown",
+//     dob: new Date(1989, 2, 13, 7, 47),
+//     loves: ["chocolate", "candy"],
+//     location: "Boston, MA, US",
+//     gender: "m",
+//     victims: 2,
+//   },
+//   {
+//     name: "Jerry",
+//     dob: new Date(1990, 0, 24, 13, 0),
+//     hair_color: "brown",
+//     eye_color: "blue",
+//     loves: ["video games"],
+//     location: "Newton, MA, US",
+//     gender: "m",
+//     victims: 1234,
+//   },
+//   {
+//     name: "Apple",
+//     dob: new Date(1991, 8, 7, 22, 10),
+//     hair_color: "brown",
+//     eye_color: "brown",
+//     loves: ["cheese"],
+//     location: "Waltham, MA, US",
+//     gender: "f",
+//     victims: 980,
+//   },
+//   {
+//     name: "Orange",
+//     dob: new Date(1988, 11, 9, 18, 44),
+//     hair_color: "blonde",
+//     eye_color: "blue",
+//     loves: ["udon", "sushi"],
+//     location: "Needham, MA, US",
+//     gender: "f",
+//     victims: 324,
+//   },
+// ];
+
+// Vampire.insertMany(newVampires)
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 //////////////////////////////////////////////
 // Server Listener
