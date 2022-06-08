@@ -463,12 +463,24 @@ const newVamps = [{
 // })
 
 //3. Update 'Guy Man to have an array called Hates that includes clothes and jobs
-Vampire.updateOne({name: "Guy Man"}, {$set: {hates: ["clothes", "jobs"]}}, {upsert:true})
+// Vampire.updateOne({name: "Guy Man"}, {$set: {hates: ["clothes", "jobs"]}}, {upsert:true})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+// 4. Update guy mans hates array also to iunclude alarm clocks and jackalopes
+Vampire.updateOne({name: "Guy Man"}, {$push: {hates: {$each: ["testing", "testing2"]}}}, {upsert:true})
 .then((data) =>{
     console.log(data)
 })
 .catch((error) => {
-    console.log(data)
+    console.log(error)
 })
 .finally(() => {
     db.close();
