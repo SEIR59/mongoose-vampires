@@ -210,7 +210,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 // })
 
 // love brooding or being tragic
-Vampire.find({$or: [{loves: 'brooding'},{loves: 'being tragic' }]})
+// Vampire.find({$or: [{loves: 'brooding'},{loves: 'being tragic' }]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// have more than 1000 victims or love marshmallows
+Vampire.find({$or: [{loves:'marshmallows'},{victims: {$gt: 1000}}]})
 .then((vampire) => {
     console.log(vampire)
 })
