@@ -88,7 +88,7 @@ const newVamps = [
 // .catch((error)=>{console.log(error)})
 // .finally(()=>{db.close()})
 
-// Find all the vampires that that are females
+// 1.Find all the vampires that that are females
 // Vampire.find({gender: 'f'})
 // .then((vampire) => {
 //     console.log(vampire)
@@ -100,7 +100,7 @@ const newVamps = [
 //     db.close()
 // })
 
-// have greater than 500 victims
+// 2.have greater than 500 victims
 // Vampire.find({victims: {$gt: 500}})
 // .then((vampire) => {
 //     console.log(vampire)
@@ -112,8 +112,20 @@ const newVamps = [
 //     db.close()
 // })
 
-// have fewer than or equal to 150 victims
-Vampire.find({victims: {$lte: 150}})
+// 3.have fewer than or equal to 150 victims
+// Vampire.find({victims: {$lte: 150}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// 4.have a victim count is not equal to 210234
+Vampire.find({victims: {$ne: 210234}})
 .then((vampire) => {
     console.log(vampire)
 })
@@ -123,4 +135,3 @@ Vampire.find({victims: {$lte: 150}})
 .finally(() => {
     db.close()
 })
-
