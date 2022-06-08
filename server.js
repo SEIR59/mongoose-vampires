@@ -364,7 +364,7 @@ Vampire.find({$and: [
   {victims: {$gt: 1000}}
 ]})
 .then((data) => {
-  console.log('-----8-----')
+  console.log('-----9-----')
   console.log(data)
 })
 .catch((error) => {
