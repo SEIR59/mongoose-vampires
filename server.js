@@ -82,9 +82,9 @@ app.get('/vampires/:id', async (req, res) => {
 });
 
 //? CREATE VAMPIRE
-const createVampire = async (vampData) => {
+const createVampires = async (vampData) => {
   try {
-    const vamp = await vampire.create(vampData);
+    const vamp = await vampire.insertMany(vampData);
     console.log(vamp);
   } catch (error) {
     console.log(error);
@@ -93,16 +93,46 @@ const createVampire = async (vampData) => {
   }
 };
 
-// createVampire({
-//   name: 'Tian Zheng',
-//   dob: new Date(1560, 8, 6, 22, 10),
+// createVampires([{
+//   name: 'Anita Chan',
+//   dob: new Date(1560, 8, 6, 23, 10),
 //   hair_color: 'black',
 //   eye_color: 'brown',
-//   loves: ['Playing Video Games', 'Building PC', 'Chinese Food'],
+//   loves: ['KPOP', 'KDRAMA', 'Chinese Food'],
+//   location: 'Brooklyn, NY',
+//   gender: 'f',
+//   victims: 1000,
+// },
+// {
+//   name: 'Jose Zambrano',
+//   dob: new Date(1998, 8, 20, 22, 10),
+//   hair_color: 'black',
+//   eye_color: 'brown',
+//   loves: ['Playing Video Games', 'Hot Sauce', 'Mexican food'],
 //   location: 'Brooklyn, NY',
 //   gender: 'm',
-//   victims: 50,
-// });
+//   victims: 200,
+// },
+// {
+//   name: 'Melissa Diaz',
+//   dob: new Date(1997, 8, 6, 22, 10),
+//   hair_color: 'black',
+//   eye_color: 'brown',
+//   loves: ['Fashion', 'Money', 'Mexican food'],
+//   location: 'Brooklyn, NY',
+//   gender: 'f',
+//   victims: 500,
+// },
+// {
+//   name: 'Cristina Madueno',
+//   dob: new Date(1995, 8, 6, 22, 10),
+//   hair_color: 'black',
+//   eye_color: 'brown',
+//   loves: ['Mexican food', 'Working', 'KPOP'],
+//   location: 'Brooklyn, NY',
+//   gender: 'f',
+//   victims: 2000,
+// }]);
 
 // (Select by comparison)
 // #1. Find all the vampires that that are females
