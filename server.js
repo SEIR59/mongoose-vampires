@@ -486,20 +486,17 @@ const newVamps = [{
 //     db.close();
 // })
 
-//rename Eve's field to moniker
-Vampire.updateOne({name: "Eve"}, {$rename: {'name': "moniker"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(error)
-})
-.finally(() => {
-    db.close();
-})
-
-
-
+//5.rename Eve's field to moniker
+// Vampire.updateOne({name: "Eve"}, {$rename: {'name': "moniker"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
 // //6.
 // Vampire.updateMany({gender: 'f'}, {$set: {gender: "fems"}})
@@ -513,3 +510,19 @@ Vampire.updateOne({name: "Eve"}, {$rename: {'name': "moniker"}})
 //     db.close();
 // })
 
+///////////////////////////////////
+//Remove                   ///////
+///////////////////////////////////
+
+//1.Remove a single document wherein the hair_color is brown
+
+Vampire.deleteOne({hair_color: "brown"})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+    db.close();
+})
