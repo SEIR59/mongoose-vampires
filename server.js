@@ -499,6 +499,19 @@ Vampire.find(
   console.log(error)
 })
 
+// query to find vampires that don't love some things
+Vampire.find(
+  {loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
+  }}
+)
+.then((data) => {
+  console.log('-----20-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 //////////////
 // listener //
 //////////////
