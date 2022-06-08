@@ -485,4 +485,53 @@ const vAndvgr  = async () => {
 // vAndvgr()
 
 
+const neyorl = async () => {
+  try {
+    const on = await (await Vampire.find({$or: [{ location: 'New York, New York, US' },{location: 'New Orleans, Louisiana, US' }]}))
+    console.log( on );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
 
+
+// neyorl()
+
+const love = async () => {
+  try {
+    const bro = await (await Vampire.find({$or: [{ loves: 'brooding' },{loves: 'being tragic' }]}))
+    console.log( bro );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// love()
+
+
+const more = async () => {
+  try {
+    const than = await (await Vampire.find({$or: [{ victims: {$gte:1000}},{loves: 'marshmallows' }]}))
+    console.log( than );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// more()
+
+const hair = async () => {
+  try {
+    const color = await (await Vampire.find({$or: [{ hair_color: 'red' },{eye_color: 'green' }]}))
+    console.log( color );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+hair()
