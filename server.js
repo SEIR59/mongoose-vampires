@@ -251,6 +251,11 @@ async function findFew(){
 }
 // findFew()
 
+async function findNotEqual(){
+  const notNumber = await Vampire.find({victims: {$ne: 210234}})
+  console.log(notNumber)
+}
+//findNotEqual()
 
 
 // Vampire.insertMany(newVamps, function(error){
