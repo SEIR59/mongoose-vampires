@@ -100,15 +100,14 @@ const createVampire = async (v) => {
     console.log(e.message);
   }
 };
-createVampire(v1);
-createVampire(v2);
-createVampire(v3);
-createVampire(v4);
+// createVampire(v1);
+// createVampire(v2);
+// createVampire(v3);
+// createVampire(v4);
 
 // Querying
 // Select by comparison
 // 1.Find all the vampires that that are females
-
 // Vampire.find({ gender: "f" })
 //   .then((v) => {
 //     console.log(v);
@@ -184,5 +183,41 @@ createVampire(v4);
 //   });
 
 // do not have a key of 'victims'
+// Vampire.find({ victims: { $exists: false } })
+//   .then((v) => {
+//     console.log("Do not have a key of 'victims':");
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
 // have a title AND no victims
+// Vampire.find({ victims: { $exists: false }, title: { $exists: true } })
+//   .then((v) => {
+//     console.log("have a title AND no victims:");
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
 // have victims AND the victims they have are greater than 1000
+
+Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+  .then((v) => {
+    console.log("have a title AND no victims:");
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
