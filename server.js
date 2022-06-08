@@ -195,3 +195,29 @@ Vampire.find({ $or: [{loves: /marshmallow/}, {victims: {$gt: 1000}}]})
 // red hair or green eyes
 Vampire.find({ $or: [{hair_color: 'red'}, {eye_color: 'green'}]})
     // .then(data => console.log(data))
+
+
+// ******** OBJECTS THAT MATCH ONE OF SEVERAL VALUES ********
+
+// love either frilly shirtsleeves or frilly collars
+Vampire.find({ loves: {$in: ['frilly shirtsleeves', 'frilly collars']}})
+    // .then(data => console.log(data))
+
+// love brooding
+Vampire.find({ loves: 'brooding'})
+    // .then(data => console.log(data))
+
+// love at least one of the following: 
+// appearing innocent, trickery, lurking in rotting mansions, R&B music
+Vampire.find({ loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
+    // .then(data => console.log(data))
+
+// query to find love fancy cloaks but not if they also love either top hats or virgin blood
+Vampire.find({$and: [
+    {loves: 'fancy cloaks'}, 
+    {loves: {$nin: 'top hats'}},
+    {loves: {$nin: 'virgin blood'}}
+]
+})
+    .then(data => console.log(data))
+
