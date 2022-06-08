@@ -27,14 +27,14 @@ const vampireSchema = new Schema(
     loves: Array,
     location: String,
     gender: String,
-    victims: Number,
+    victims:{type: Number, min: 1},
     title: String,
     body: String,
     author: String,
     likes: { type: Number, default: 0 },
     sponsored: { type: Boolean, default: false },
   },
-  { timestamps: true }
+  { strict: false }
 );
 const Vampire = model("Vampire", vampireSchema);
 
@@ -251,6 +251,75 @@ const Vampire = model("Vampire", vampireSchema);
  db.close()
 })*/
 
+//1. love either frilly shirtsleeves or frilly collars
+/*Vampire.find({ $or: [{loves: 'frilly shirtsleeves'}, { loves: 'frilly collars'}]})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+//2. love brooding
+/*Vampire.find({ loves: 'brooding'})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+
+
+//3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+/*Vampire.find( {$or: [{loves: ' appearing innocent'}, {loves: 'trickery'}, {loves: 'lurking in rotting mansions'} , {loves: 'R&B music'}] })
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})*/
+
+//need to finish 4
+//4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+Vampire.find( {$and: {loves: 'fancy cloaks'}, {loves: {$nin:['top hats','virgin blood' ]}}})
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})
+
+//### Negative Selection
+////Select all vampires that:
+
+//1. love ribbons but do not have brown eyes
+//2. are not from Rome
+//3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+//5. have not killed more than 200 people
+//
 
 
 
