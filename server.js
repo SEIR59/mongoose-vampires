@@ -447,8 +447,20 @@ const newVamps = [
 //  db.close()
 // });
 
-// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
-Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['clothes', 'jobs']}} )
+// // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['clothes', 'jobs']}} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['alarm clocks', 'jackalopes']}} )
 .then((vampire) => {
   console.log(vampire)
 })
