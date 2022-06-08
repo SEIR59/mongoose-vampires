@@ -257,16 +257,33 @@ db.on("close", () => console.log("mongo disconnected"));
 //   console.log(error)
 // })
 // have greater than 150 AND fewer than 500 victims
-Vampire.find(
-  {
-    $and: [
-      { victims: { $gt: 150 } },
-      { victims: { $lt: 500 } }
-    ]
-  })
-  .then((vampires) => {
-    console.log(vampires)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+// Vampire.find(
+//   {
+//     $and: [
+//       { victims: { $gt: 150 } },
+//       { victims: { $lt: 500 } }
+//     ]
+//   })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+// Select by exists or does not exist
+// Select all the vampires that:
+
+// have a key of 'title'
+Vampire.find({
+  title: { $exists: true}
+})
+.then((vampires) => {
+  console.log(vampires)
+})
+.catch((error) => {
+  console.log(error)
+})
+// do not have a key of 'victims'
+// have a title AND no victims
+// have victims AND the victims they have are greater than 1000
