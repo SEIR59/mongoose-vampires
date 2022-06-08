@@ -240,14 +240,52 @@ const newVamp = [
 //     db.close()
 // })
 Vampire.find({$and:[{loves:{$in:['fancy cloaks']}},{loves:{$nin:['virgin blood','top hats']}}]})
- .then((vampire) =>{
-       console.log(vampire)
-    })
-    .catch((error) =>{
-        console.log(error)
-    })
-    .finally(() =>{
-        db.close()
-    })
-
-
+//  .then((vampire) =>{
+//        console.log(vampire)
+//     })
+//     .catch((error) =>{
+//         console.log(error)
+//     })
+//     .finally(() =>{
+//         db.close()
+//     })
+// Vampire.find({$and:[{loves:{$in:['ribbons']}}, {eye_color:{$ne:'brown'}}]})
+// .then((vampire) =>{
+//   console.log(vampire)
+// })
+// .catch((error) =>{
+//    console.log(error)
+// })
+// .finally(() =>{
+//    db.close()
+// })
+// Vampire.find({location: {$ne:'Rome Italy'}})
+// .then((vampire) =>{
+//   console.log(vampire)
+// })
+// .catch((error) =>{
+//    console.log(error)
+// })
+// .finally(() =>{
+//    db.close()
+// })
+// Vampire.find({loves:{$nin:['fancy cloaks','frilly shirtsleeves','appearing innocent','being tragic','brooding']}})
+// .then((vampire) =>{
+//   console.log(vampire)
+// })
+// .catch((error) =>{
+//    console.log(error)
+// })
+// .finally(() =>{
+//    db.close()
+// })
+// Vampire.find({victims:{$lt:200}})
+// .then((vampire) =>{
+//   console.log(vampire)
+// })
+// .catch((error) =>{
+//    console.log(error)
+// })
+// .finally(() =>{
+//    db.close()
+// })
