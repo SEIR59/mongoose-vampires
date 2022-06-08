@@ -381,7 +381,12 @@ async function removeBrown(){
   let deleteBrown = await Vampire.deleteOne({hair_color: 'brown'})
   console.log(deleteBrown)
 }
-removeBrown()
+
+async function blueEyedFakes(){
+  let deleteBlues = await Vampire.deleteMany({eye_color: 'blue'})
+  console.log(deleteBlues)
+}
+
 
 
 
