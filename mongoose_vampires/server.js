@@ -263,8 +263,81 @@ app.get("/", (req, res) => {
 //   });
 
 // have victims AND the victims they have are greater than 1000
+// Vampire.find({
+//   $and: [{ victims: { $gt: 1000 } }, { victims: { $exists: true } }],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Select all the vampires that:
+
+// are from New York, New York, US or New Orleans, Louisiana, US
+// Vampire.find({
+//   $or: [
+//     { location: "New York, New York, US" },
+//     { location: "New Orleans, Louisiana, US" },
+//   ],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// love brooding or being tragic
+// Vampire.find({
+//   $or: [{ loves: "brooding" }, { loves: "being tragic" }],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have more than 1000 victims or love marshmallows
+// Vampire.find({
+//   $or: [{ loves: "marshmallows" }, { victims: { $gt: 1000 } }],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have red hair or green eyes
 Vampire.find({
-  $and: [{ victims: { $gt: 1000 } }, { victims: { $exists: true } }],
+  $or: [{ hair_color: "red" }, { eye_color: "green" }],
 })
   // if database transaction succeeds
   .then((vampires) => {
