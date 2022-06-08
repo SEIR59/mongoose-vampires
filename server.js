@@ -472,7 +472,19 @@ const newVamps = [
 // })
 
 //Rename 'Eve's' name field to 'moniker'
-Vampire.updateOne( {name: 'Eve'}, { $rename: { name: 'moniker'}}, {upsert: true} )
+// Vampire.updateOne( {name: 'Eve'}, { $rename: { name: 'moniker'}}, {upsert: true} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+Vampire.updateMany( {gender: 'f'}, { gender: 'fems'}, {upsert: true} )
 .then((vampire) => {
   console.log(vampire)
 })
