@@ -114,37 +114,42 @@ const seedCollection = () => {
         Vampire.insertMany(vampiresArray)
             .then((data) => console.log('vampiresArray inserted'))
             .catch((error) => console.log(error))
-            .finally(() => db.close())
+            // .finally(() => db.close())
     })
 }
 seedCollection()
 
-// Vampire.find({gender: 'f'})
+//find vampires with gender F
+Vampire.find({gender: 'f'})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-// .finally(() => db.close())
 
-// Vampire.find({victims: {$gt: 500}})
+
+//find vampires with more than 500 victims
+Vampire.find({victims: {$gt: 500}})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-// .finally(() => db.close())
 
-// Vampire.find({victims: {$lte: 150}})
+
+// find vampires with less than 150 victims
+Vampire.find({victims: {$lte: 150}})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-// .finally(() => db.close())
 
-// Vampire.find({victims: {$ne: 212340}})
+
+// find vampires with victims not equal to 212340
+Vampire.find({victims: {$ne: 212340}})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-// .finally(() => db.close())
 
-// Vampire.find({victims: {$gt: 150, $lt: 500}})
+
+// find vampires with victims greater than 150 and less than 500
+Vampire.find({victims: {$gt: 150, $lt: 500}})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-// .finally(() => db.close())
 
-Vampire.find({}, 'title')
+
+//find vampires that have a title
+Vampire.find({title: { $exists: true } })
     .then(data => console.log(data))
     .catch(err => console.log(err))
-    .finally(() => db.close())
