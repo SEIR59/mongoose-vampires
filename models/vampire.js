@@ -7,22 +7,24 @@ const vampireSchema = new Schema({
     required: true,
   },
   title: String,
-  hairColor: {
+  hair_color: {
     type: String,
     default: 'blonde',
   },
-  eyeColor: String,
+  eye_color: String,
   dob: Date,
   loves: [String],
   location: String,
   gender: {
     type: String,
-    enum: ['m', 'f'],
   },
   victims: {
     type: Number,
     min: 1,
   },
+  portrayed_by: String,
+  is_actually: String,
+  hates: [String],
 });
 
 module.exports = model('Vampire', vampireSchema);
