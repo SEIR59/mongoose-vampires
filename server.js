@@ -371,6 +371,19 @@ Vampire.find({$and: [
   console.log(error)
 })
 
+// query to find vampires that are from new york or new orleans
+Vampire.find({$or: [
+  {location: 'New York, New York, US'},
+  {location: 'New Orleans, Louisiana, US'}
+]})
+.then((data) => {
+  console.log('-----10-----')
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
+
 
 //////////////
 // listener //
