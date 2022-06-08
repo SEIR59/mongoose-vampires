@@ -118,7 +118,7 @@ const newVampires = [
   }
 ]
 
-
+//Add some new vampire data
 // Vampire.insertMany(newVampires)
 // // if database transaction succeeds
 // .then((vampire) => {
@@ -134,7 +134,42 @@ const newVampires = [
 // })
 
 
-Vampire.find({gender:'f'})
+
+//1.Find all the vampires that that are females
+// Vampire.find({gender:'f'})
+// // if database transaction succeeds
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//2.have greater than 500 victims
+
+// Vampire.find({victims:{$gte:500}})
+// // if database transaction succeeds
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//3.have fewer than or equal to 150 victims
+
+Vampire.find({victims:{$lte:150}})
 // if database transaction succeeds
 .then((Vampire) => {
   console.log(Vampire)
@@ -147,7 +182,6 @@ Vampire.find({gender:'f'})
 .finally(() => {
  db.close()
 })
-
 
 
 
