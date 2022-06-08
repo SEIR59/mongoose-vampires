@@ -380,5 +380,54 @@ const hair = async () => {
     mongoose.connection.close();
   }
 };
-hair()
+//hair()
 
+// Objects that match one of several values 
+const frilly = async () => {
+  try {
+    const t = await (await Vampire.find({$or: [{ loves: 'frilly shirtsleeves'},{loves: 'frilly collars' }]}))
+    console.log( t );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//frilly()
+
+const brod = async () => {
+  try {
+    const y = await (await Vampire.find( { loves: 'brooding'}))
+    console.log( y );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+//brod()
+
+const brody = async () => {
+  try {
+    const t = await (await Vampire.find( {$or: [{loves: ' appearing innocent'}, {loves: 'trickery'}, {loves: 'lurking in rotting mansions'} , {loves: 'R&B music'}] }))
+    console.log( t );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//brody()
+
+const broski = async () => {
+  try {
+    const z = await (await Vampire.find({ $and: [{loves: 'fancy cloaks'}, {  loves: {$nin: ['top hats',  'virgin blood' ] }}]}))
+    console.log( z );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+broski()
