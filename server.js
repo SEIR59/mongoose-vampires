@@ -30,7 +30,9 @@ const vampireSchema = new Schema({
     loves: [String],
     location: String,
     gender: String,
-    victims: {type: Number, min: 0}
+    victims: {type: Number, min: 0},
+    portrayed_by: String,
+    is_actually: String
 })
 
 const Vampire = model('Vampire', vampireSchema)
@@ -350,6 +352,7 @@ async function maleLizard(){
   let newGuy = await Vampire.findOneAndUpdate({gender: 'm'}, {name: 'Guy Man', is_actually: 'were-lizard'}, {new: true})
   console.log(newGuy)
 }
+maleLizard()
 
 
 
