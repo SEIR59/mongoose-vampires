@@ -7,7 +7,7 @@ const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const path = require("path")
-const Vampires = require('./models/vampires')
+const vampires = require('./models/vampires')
 
 /////////////////////////////////////////////////
 // Create our Express Application Object
@@ -77,8 +77,27 @@ app.use(express.static("public")); // serve files from public statically
 ////////////////////////////////////////////
 app.get("/", (req, res) => {
     res.send("your server is running... better catch it.");
-    //   console.log(Vampires)
+    //   console.log(vampires)
 });
+
+// // seed database
+// app.get("/vampires/seed", (req, res) => {
+//     // delete all vampires
+//     Vampire.deleteMany({}).then((data) => {
+//         // seed starter vampires
+//         Vampire.create(vampires).then((data) => {
+//             // send created vampires as response to confirm creation
+//             res.json(data)
+//         })
+//     })
+//     Vampire.insertMany(vampires)
+//         .then((data) => {
+//             console.log(data)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+// })
 
 //////////////////////////////////////////////
 // Server Listener
