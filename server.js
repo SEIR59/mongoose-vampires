@@ -534,4 +534,111 @@ const hair = async () => {
     mongoose.connection.close();
   }
 };
-hair()
+// hair()
+///////////////////////////////////////
+
+
+
+// Objects that match one of several values 
+const frilly = async () => {
+  try {
+    const t = await (await Vampire.find({$or: [{ loves: 'frilly shirtsleeves'},{loves: 'frilly collars' }]}))
+    console.log( t );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//frilly()
+
+const brod = async () => {
+  try {
+    const y = await (await Vampire.find( { loves: 'brooding'}))
+    console.log( y );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+//brod()
+
+const brody = async () => {
+  try {
+    const t = await (await Vampire.find( {$or: [{loves: ' appearing innocent'}, {loves: 'trickery'}, {loves: 'lurking in rotting mansions'} , {loves: 'R&B music'}] }))
+    console.log( t );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//brody()
+
+const broski = async () => {
+  try {
+    const z = await (await Vampire.find({ $and: [{loves: 'fancy cloaks'}, {  loves: {$nin: ['top hats',  'virgin blood' ] }}]}))
+    console.log( z );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// broski()
+
+
+//////////////////////////////////////
+
+const ribbrown = async () => {
+  try {
+    const rbb = await (await Vampire.find({loves: "ribbons", eye_color: {$ne: "brown"}}))
+    console.log( rbb );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// ribbrown()
+
+
+const  rome = async () => {
+  try {
+    const rm  = await (await Vampire.find({$not:{location:"Rome"}}))
+    console.log( rm );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// rome()
+
+
+const nolove = async () => {
+  try {
+    const nol  = await (await Vampire.find({loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocents', 'being tragic', 'brooding']}}))
+    console.log( nol );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+
+// nolove()
+
+const notk = async () => {
+  try {
+    const nk = await (await Vampire.find({victims:{$lt:200} }))
+    console.log( nk );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+notk()
