@@ -199,7 +199,73 @@ app.get("/", (req, res) => {
 //   });
 
 // have greater than 150 AND fewer than 500 victims
-Vampire.find({ $and: [{ victims: { $gt: 150 } }, { victims: { $lt: 500 } }] })
+// Vampire.find({ $and: [{ victims: { $gt: 150 } }, { victims: { $lt: 500 } }] })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Select all the vampires that:
+
+// have a key of 'title'
+// Vampire.find({ title: { $exists: true } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// do not have a key of 'victims'
+// Vampire.find({ victims: { $exists: false } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have a title AND no victims
+// Vampire.find({
+//   $and: [{ title: { $exists: true } }, { victims: { $exists: false } }],
+// })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have victims AND the victims they have are greater than 1000
+Vampire.find({
+  $and: [{ victims: { $gt: 1000 } }, { victims: { $exists: true } }],
+})
   // if database transaction succeeds
   .then((vampires) => {
     console.log(vampires);
