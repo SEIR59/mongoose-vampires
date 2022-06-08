@@ -377,6 +377,11 @@ async function femUpdate(){
   console.log(newFems)
 }
 
+async function removeBrown(){
+  let deleteBrown = await Vampire.deleteOne({hair_color: 'brown'})
+  console.log(deleteBrown)
+}
+removeBrown()
 
 
 
