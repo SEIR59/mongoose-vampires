@@ -215,7 +215,113 @@ const newVampires = [
 // })
 
 //have greater than 150 AND fewer than 500 victims
-Vampire.find( {$and:  [{victims: {$gte: 150}, victims: {$lt: 500} }] })
+// Vampire.find( {$and:  [{victims: {$gte: 150}, victims: {$lt: 500} }] })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+//Select by exists or does not exist
+//have a key of 'title'
+// Vampire.find( {$exists: [{location: 'New York, New York, US', location: 'New Orleans, Louisiana, US' }] })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SELECT WITH OR
+//are from New York, New York, US or New Orleans, Louisiana, US
+// Vampire.find( {$or: [{location: 'New York, New York, US', location: 'New Orleans, Louisiana, US' }] })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//love brooding or being tragic
+// Vampire.find( {$or: [{loves: 'brooding', loves: 'being tragic' }] })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have more than 1000 victims or love marshmallows
+// Vampire.find( {$or: [{victims: { $gte: 1000}}, {loves: 'marshmallows'} ] })
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//have red hair or green eyes
+Vampire.find( {$or: [{hair_color: 'red'}, {eye_color: 'green'} ] })
 // if database transaction succeeds
 .then((vampire) => {
   console.log(vampire)
@@ -228,5 +334,4 @@ Vampire.find( {$and:  [{victims: {$gte: 150}, victims: {$lt: 500} }] })
 .finally(() => {
  db.close()
 })
-
 
