@@ -276,6 +276,12 @@ async function noVictims(){
 }
 // noVictims()
 
+async function victimsAndTitles(){
+  const ifNoVictimsAndTitles = await Vampire.find({$and: [{victims: {$exists: false}}, {title: {$exists: true}}]})
+  console.log(ifNoVictimsAndTitles)
+}
+// victimsAndTitles()
+
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
 //   console.log('Documents inserted into Vampire collection')
