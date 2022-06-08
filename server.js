@@ -137,7 +137,20 @@ const newVamps = [
 // })
 
 // 5. have greater than 150 AND fewer than 500 victims
-Vampire.find({$and: [{victims:{$gt: 150}},{victims:{$lt: 500}}]})
+// Vampire.find({$and: [{victims:{$gt: 150}},{victims:{$lt: 500}}]})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+//Exist or Does not Exist
+//have a key of 'title'
+Vampire.find({title: {$exists: true}})
 .then((vampire) => {
     console.log(vampire)
 })
