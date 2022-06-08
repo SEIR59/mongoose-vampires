@@ -23,6 +23,7 @@ const CONFIG = {
 
 // Establish Connection
 mongoose.connect(DATABASE_URL, CONFIG);
+const db = mongoose.connection;
 
 // Events for when connection opens/disconnects/errors
 mongoose.connection
@@ -136,6 +137,81 @@ app.get("/", (req, res) => {
 //   .catch((error) => {
 //     console.log(error);
 //   });
+
+// Find all the vampires that that are females
+// Vampire.find({ gender: "f" })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have greater than 500 victims
+// Vampire.find({ victims: { $gt: 500 } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have fewer than or equal to 150 victims
+// Vampire.find({ victims: { $lt: 150 } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have a victim count is not equal to 210234
+// Vampire.find({ victims: { $ne: 210234 } })
+//   // if database transaction succeeds
+//   .then((vampires) => {
+//     console.log(vampires);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// have greater than 150 AND fewer than 500 victims
+Vampire.find({ $and: [{ victims: { $gt: 150 } }, { victims: { $lt: 500 } }] })
+  // if database transaction succeeds
+  .then((vampires) => {
+    console.log(vampires);
+  })
+  // if database transaction fails
+  .catch((error) => {
+    console.log(error);
+  })
+  // close db connection either way
+  .finally(() => {
+    db.close();
+  });
 
 //////////////////////////////////////////////
 // Server Listener
