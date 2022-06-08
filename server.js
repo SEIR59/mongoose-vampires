@@ -307,7 +307,19 @@ Vampire.find({$and: [{victims: {$gt: 1000}},{victims: {$exists: true}}]})
 //     db.close()
 // })
 // are not from Rome
-Vampire.find({location: {$not:{ $eq:'Rome, Italy'}}})
+// Vampire.find({location: {$not:{ $eq:'Rome, Italy'}}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+Vampire.find({loves: {$not: {$eq: {$nin: ['fancy cloaks', 'frilly shirtlsleeves', 'appearing innocent', 'being tragic', 'brooding']}}}})
 .then((vampire) => {
     console.log(vampire)
 })
