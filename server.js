@@ -270,6 +270,11 @@ async function hasTitle(){
 }
 // hasTitle()
 
+async function noVictims(){
+  const ifNoVictims = await Vampire.find({victims: {$exists: false}})
+  console.log(ifNoVictims)
+}
+// noVictims()
 
 // Vampire.insertMany(newVamps, function(error){
 //   if (error) console.log(error)
