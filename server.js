@@ -318,13 +318,83 @@ const newVamp = [
 //   .finally(() => {
 //     db.close();
 //   });
-Vampire.findOneAndUpdate({gender:'m'}, { $set: {name: 'Guy Man'}})
-  .then((vampire) => {
-    console.log(vampire);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+// Vampire.findOneAndUpdate({gender:'m'}, { $set: {name: 'Guy Man'}})
+  // .then((vampire) => {
+  //   console.log(vampire);
+  // })
+  // .catch((error) => {
+  //   console.log(error);
+  // })
+  // .finally(() => {
+  //   db.close();
+  // });
+// Vampire.updateOne({ name: 'Guy Man'}, { $set: {gender: "f"}})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+// Vampire.updateOne({ name: 'Eve'}, { $set: {gender: 'm'}})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+// Vampire.updateOne({ name: 'Guy Man'}, { $set: {hates: ['clothes', 'jobs']}})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+// Vampire.updateOne({ name: 'Guy Man'}, { $push: {hates: ['alarm clocks', 'jackalopes']}})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+Vampire.updateOne({ name: 'Eve'}, { $rename: {name:'moniker'}}, {upsert: true} )
+.then((vampire) => {
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
+// Vampire.updateMany( {gender: 'f'}, { gender: 'fems'}, {upsert: true} )
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+Vampire.deleteOne( {hair_color: 'brown'} )
+.then((vampire) => {
+  console.log(vampire)
+})
+.catch((error) => {
+  console.log(error)
+})
+.finally(() => {
+ db.close()
+})
