@@ -412,26 +412,26 @@ const newVamps = [{
 //     db.close();
 // })
 //2. 
-Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
-Vampire.updateOne({name: "Guy Man"}, {$set: {is_actually: "were-lizard"}}, {upsert:true})
-.then((data) =>{
-    console.log(data)
-})
-.catch((error) => {
-    console.log(data)
-})
-.finally(() => {
-    db.close();
-})
+// Vampire.findOneAndUpdate({gender: "m"}, {$set: {name: "Guy Man"}})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
+// Vampire.updateOne({name: "Guy Man"}, {$set: {is_actually: "were-lizard"}}, {upsert:true})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(data)
+// })
+// .finally(() => {
+//     db.close();
+// })
 
 
 /////////////////////////
@@ -461,6 +461,21 @@ Vampire.updateOne({name: "Guy Man"}, {$set: {is_actually: "were-lizard"}}, {upse
 // .finally(() => {
 //     db.close();
 // })
+
+//3. Update 'Guy Man to have an array called Hates that includes clothes and jobs
+Vampire.updateOne({name: "Guy Man"}, {$set: {hates: ["clothes", "jobs"]}}, {upsert:true})
+.then((data) =>{
+    console.log(data)
+})
+.catch((error) => {
+    console.log(data)
+})
+.finally(() => {
+    db.close();
+})
+
+
+
 
 // //6.
 // Vampire.updateMany({gender: 'f'}, {$set: {gender: "fems"}})
