@@ -346,7 +346,10 @@ async function evePortrayed(){
   console.log(update)
 }
 
-evePortrayed()
+async function maleLizard(){
+  let newGuy = await Vampire.findOneAndUpdate({gender: 'm'}, {name: 'Guy Man', is_actually: 'were-lizard'}, {new: true})
+  console.log(newGuy)
+}
 
 
 
