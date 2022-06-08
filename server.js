@@ -516,12 +516,25 @@ const newVamps = [{
 
 //1.Remove a single document wherein the hair_color is brown
 
-Vampire.deleteOne({hair_color: "brown"})
+// Vampire.deleteOne({hair_color: "brown"})
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close();
+// })
+
+//kill blue eyes vamps
+
+Vampire.deleteMany({eye_color: "blue"})
 .then((data) =>{
     console.log(data)
 })
 .catch((error) => {
-    console.log(error)
+    console.log(data)
 })
 .finally(() => {
     db.close();
