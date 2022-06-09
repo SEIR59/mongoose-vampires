@@ -114,6 +114,12 @@ async function findFemale(){
 }
 //findFemale();
 
+async function findVictimsGT500(){
+    const findingVGT500 = await Vampire.find({victims: {$gt: 500}})
+    console.log(findingVGT500);
+}
+//findVictimsGT500();
+
 
 //Listen on port set in .env
 const PORT = process.env.PORT
