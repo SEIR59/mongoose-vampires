@@ -269,3 +269,61 @@ const ladyVamps = [
 //   .finally(() => {
 //     db.close();
 //   });
+
+// Vampire.find({
+//   $or: [{ loves: "frilly shirtsleeves" }, { loves: "frilly collars" }],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({ loves: "brooding" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({
+//   $or: [
+//     { loves: "appearing innocent" },
+//     { loves: "trickery" },
+//     { loves: "lurking in rotting mansions" },
+//     { loves: "R&B music" },
+//   ],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({
+//   $and: [
+//     { loves: "fancy cloaks" },
+//     { loves: { $nin: ["top hats", "virgin blood"] } },
+//   ],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
