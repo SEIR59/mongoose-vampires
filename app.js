@@ -398,7 +398,19 @@ const addMoreVamps = [
 // });
 
 // have more than 1000 victims or love marshmallows
-Vampire.find( { $or: [ { victims: { $gt: 1000 } }, { loves: 'marshmallows' } ] } )
+// Vampire.find( { $or: [ { victims: { $gt: 1000 } }, { loves: 'marshmallows' } ] } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// have red hair or green eyes
+Vampire.find( { $or: [ { hair_color: 'red' }, { eye_color: 'green' } ] } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -408,8 +420,6 @@ Vampire.find( { $or: [ { victims: { $gt: 1000 } }, { loves: 'marshmallows' } ] }
 .finally(() => {
   db.close();
 });
-
-// have red hair or green eyes
 
 
 
