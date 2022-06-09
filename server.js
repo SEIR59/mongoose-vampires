@@ -249,24 +249,96 @@ const newVampires = [
 //      db.close()
 //  })
 
- Vampire.find({
-    $and: [{
-        victims: { $exists: true },
-        victims: { $gt: 1000 }
-    }]
-})
-// if succeeds
-.then((vampire) => {
-console.log(vampire)
-})
-  // if fails
+//  Vampire.find({
+//     $and: [{
+//         victims: { $exists: true },
+//         victims: { $gt: 1000 }
+//     }]
+// })
+// // if succeeds
+// .then((vampire) => {
+// console.log(vampire)
+// })
+//   // if fails
+// .catch ((error) => {
+// console.log(error)
+// })
+// // // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+// **Select by OR**
+
+// Vampire.find({
+//     $or: [{ location: "New York, New York, US" },
+//           { location: "New Orleans, Louisiana, US" }]
+// })
+   
+// // if succeeds
+// .then((vampire) => {
+// console.log(vampire)
+// })
+//   // if fails
+// .catch ((error) => {
+// console.log(error)
+// })
+// // // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+// Vampire.find({
+//     $or: [{ loves: "brooding" },
+//           { loves: "being tragic" }]
+// })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+//  Vampire.find({
+//      $or: [{ victims: { $gt: 1000 } },
+//           { loves: "marshmallows" }]
+//  })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+Vampire.find({
+         $or: [{ hair_color: "red" },
+              { eye_color: "green" }]
+     })
+    // if succeeds
+ .then((vampire) => {
+    console.log(vampire)
+ })
+      // if fails
 .catch ((error) => {
-console.log(error)
-})
+   console.log(error)
+ })
 // // close db connection either way
-.finally(() => {
- db.close()
-})
+ .finally(() => {
+     db.close()
+ })
+
 
 
 
