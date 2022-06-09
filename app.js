@@ -426,18 +426,29 @@ const addMoreVamps = [
 // Select all the vampires that:
 
 // love either frilly shirtsleeves or frilly collars
-Vampire.find( { $or: [ { loves: 'frilly shirtsleeves' }, { loves: 'frilly collars' } ] } )
-.then((vampire) => {
-  console.log(vampire);
-})
-.catch((error) => {
-  console.log(error);
-})
-.finally(() => {
-  db.close();
-});
+// Vampire.find( { $or: [ { loves: 'frilly shirtsleeves' }, { loves: 'frilly collars' } ] } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
 // love brooding
+// Vampire.find( { loves: 'brooding' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
 // love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
 
