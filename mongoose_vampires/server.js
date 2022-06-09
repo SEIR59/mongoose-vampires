@@ -166,3 +166,51 @@ const ladyVamps = [
 //   .finally(() => {
 //     db.close();
 //   });
+
+// Vampire.find({ title: { $exists: true } })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({ victims: { $exists: false } })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({
+//   $and: [{ title: { $exists: true } }, { victims: { $exists: false } }],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({
+//   $and: [{ victims: { $gt: 1000 } }, { victims: { $exists: true } }],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
