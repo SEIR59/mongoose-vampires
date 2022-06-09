@@ -322,8 +322,20 @@ const addMoreVamps = [
 // Select all the vampires that:
 
 // have a key of 'title'
+// Vampire.find( { title: {$exists: true} } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
-Vampire.find( { title: {$exists: true} } )
+
+// do not have a key of 'victims'
+Vampire.find( { victims: {$exists: false} } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -333,9 +345,6 @@ Vampire.find( { title: {$exists: true} } )
 .finally(() => {
   db.close();
 });
-
-
-// do not have a key of 'victims'
 // have a title AND no victims
 // have victims AND the victims they have are greater than 1000
 
