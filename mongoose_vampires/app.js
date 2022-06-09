@@ -126,6 +126,12 @@ async function findVictimsLTE150(){
 }
 //findVictimsLTE150();
 
+async function notEqual210234(){
+    const notEquals210234 = await Vampire.find({victims: {$ne: 210234}})
+    console.log(notEquals210234);
+}
+notEqual210234();
+
 
 //Listen on port set in .env
 const PORT = process.env.PORT
