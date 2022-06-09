@@ -268,14 +268,19 @@ const newVampires = [
 
 // ========Update=======
 // Update 'Guy Man' to have a gender of 'f'
-// Vampire.updateOne(
-//   //find Claudia
-//   {name:'Guy Man'}, 
-//   //Update found data
-//   {$set: {
-//     gender: 'f'
-//   }}
-// )
+
+
+
+// new: true to return the new value of Eve we just updated.
+// strict: false to let user overwrite schema 
+Vampire.findOneAndUpdate({ name: 'Claudia'}, {$set: { name: 'Eve', portrayed_by: 'Tilda Swinton'}}, {new: true, strict: false})
+.then((data) => {console.log(data)})
+
+
+// Vampire.find({name:'Barnabas Spenser'})
+//   .then((res) => {
+//     console.log(res)
+//   })
 
 // Update 'Eve' to have a gender of 'm'
 // Vampire.updateOne(
@@ -336,14 +341,11 @@ const newVampires = [
 // })
 
 // We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
-Vampire.deleteMany({eye_color:'blue'})
-.then((res) => {
-  console.log(res)
-})
-  // Vampire.find({gender:'fems'})
-  // .then((res) => {
-  //   console.log(res)
-  // })
+// Vampire.deleteMany({eye_color:'blue'})
+// .then((res) => {
+//   console.log(res)
+// })
+  
 
 app.listen(port, () => {
   console.log("port 3000 listens");
