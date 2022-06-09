@@ -199,21 +199,68 @@ const newVampires = [
 // })
 
 //5.have greater than 150 AND fewer than 500 victims
-Vampire.find({$and: [{victims: {$gt:150}},{victims:{$lt:500}}]})
-// if database transaction succeeds
+// Vampire.find({$and: [{victims: {$gt:150}},{victims:{$lt:500}}]})
+// // if database transaction succeeds
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+//6.have a key of 'title'
+// Vampire.find({title:{$exists:true}})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//7.do not have a key of 'victims'
+// Vampire.find({victims:{$exists:false}})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//8.have a title AND no victims
+// Vampire.find({$and:[{title:{$exists:true}},{victims:{$exists:false}}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+
+//9.have a title AND no victims
+Vampire.find({$and:[{victims:{$gt:1000}},{victims:{$exists:true}}]})
 .then((Vampire) => {
   console.log(Vampire)
 })
-// if database transaction fails
 .catch((error) => {
   console.log(error)
 })
-// close db connection either way
 .finally(() => {
  db.close()
 })
-
-
 
 ////////////////////////////////////////////
 // Add the vampire data that we gave you
