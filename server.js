@@ -278,13 +278,21 @@ async function findDocs() {
   const find = await Vampire.find({ gender: "f" })
   console.log(find)
 }
+// findDocs()
 // find kill count
 async function find500() {
   const findOver = await Vampire.find({ victims: { $gt: 500 } })
   console.log(findOver)
 }
+// find500()
 // find kill count lte 150
-async function findFew(){
-  const find150 = await Vampire.find({victims: {$lte: 150}})
+async function findFew() {
+  const find150 = await Vampire.find({ victims: { $lte: 150 } })
   console.log(find150)
 }
+// findFew()
+async function findNotEqual() {
+  const notNumber = await Vampire.find({ victims: { $ne: 210234 } })
+  console.log(notNumber)
+}
+//findNotEqual()
