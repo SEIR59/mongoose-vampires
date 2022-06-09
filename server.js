@@ -77,6 +77,67 @@ app.get("/", (req, res) => {
       }
 ]
 
+// //Find Females
+// Vampire.find({ gender: "f" })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+ //Greater than 500 victims
+Vampire.find({ victims: { $gte: 500 } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// // Fewer than or equal to 150 victims
+// Vampire.find({ victims: { $lte: 150 } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// // Not equal 210234
+// Vampire.find({ victims: { $ne: 210234 } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// // Greater than 150 and fewer than 500
+// Vampire.where("victims")
+//   .gte(150)
+//   .lt(500)
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 app.listen(PORT, () => console.log("Listening on Port 3000"));
 
