@@ -442,10 +442,28 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // replace vampire called 'Claudia' with vampire called 'Eve'
-Vampire.updateOne({name: 'Claudia'}, {$set: {name: 'Eve'}})
-.then((data) => {
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.updateOne({name: 'Claudia'}, {$set: {name: 'Eve'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// update Guy Man to have a gender of 'f'
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'f'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// update Eve has a gender of 'm'
+// Vampire.updateOne({name: 'Eve'}, {$set: {gender: 'm'}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
