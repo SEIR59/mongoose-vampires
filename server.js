@@ -251,16 +251,16 @@ const newVampires = [
 
 
 //9.have a title AND no victims
-Vampire.find({$and:[{victims:{$gt:1000}},{victims:{$exists:true}}]})
-.then((Vampire) => {
-  console.log(Vampire)
-})
-.catch((error) => {
-  console.log(error)
-})
-.finally(() => {
- db.close()
-})
+// Vampire.find({$and:[{victims:{$gt:1000}},{victims:{$exists:true}}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
 
 ////////////////////////////////////////////
 // Add the vampire data that we gave you
@@ -270,5 +270,54 @@ Vampire.find({$and:[{victims:{$gt:1000}},{victims:{$exists:true}}]})
 // .catch((error)=>{console.log(error)})
 // .finally(()=>{db.close()})
 
+/////////////////////////////////
+//Select with OR
+/////////////////////////////////
 
-//Add some new vampire data
+//1.are from New York, New York, US or New Orleans, Louisiana, US
+// Vampire.find({$or:[{location:'New York, New York, US'},{location:'New Orleans, Louisiana, US'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//2.love brooding or being tragic
+// Vampire.find({$or:[{loves:'brooding'},{loves:'being tragic'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//3.have more than 1000 victims or love marshmallows
+// Vampire.find({$or:[{victims:{$gt:1000}},{loves:'marshmallows'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//4.have red hair or green eyes
+Vampire.find({$or:[{hair_color:'red'},{eye_color:'green'}]})
+.then((Vampire) => {
+  console.log(Vampire)
+})
+.catch((error) => {
+  console.log(error)
+})
+.finally(() => {
+ db.close()
+})
