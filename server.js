@@ -136,12 +136,19 @@ const newVampires = [
 // })
 
 // have more than 1000 victims or love marshmallows
+// Vampire.find({
+//   $or: [
+//     {victims: {$gt:1000}},
+//     {loves: {$in: ['marshmallows']}}
+//   ]
+// })
+
+// have red hair or green eyes
 Vampire.find({
-  $or: loves: {
-    $in: [
-      'brooding', 'being tragic'
-    ]
-  }
+  $or: [
+    {hair_color: 'red'},
+    {eye_color: 'green'}
+  ]
 })
 .then((res) => {
     console.log(res)
