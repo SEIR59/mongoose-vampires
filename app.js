@@ -553,13 +553,24 @@ const vampireFamily = [
 //                     db.close()
 //                 })
 
-Vampire.updateOne({ name: 'Guy Man'}, { $push: { hates: ['alarm clocks', 'jackalopes']}})
+// Vampire.updateOne({ name: 'Guy Man'}, { $push: { hates: ['alarm clocks', 'jackalopes']}})
+//                 .then((data) => {
+//                     console.log(data)
+//                 })
+//                 .catch((error) => {
+//                     console.log(error)
+//                 })
+//                 .finally(() => {
+//                     db.close()
+//                 })
+
+Vampire.updateOne({name: 'Eve' }, { $set:{ gender: 'm'} })
                 .then((data) => {
-                    console.log(data)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-                .finally(() => {
-                    db.close()
-                })
+                console.log(data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
