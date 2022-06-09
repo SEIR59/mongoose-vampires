@@ -273,12 +273,18 @@ let robertPattinson = {
 //   console.log("Documents inserted into Vampire collection")
 // })
 
+// find female
 async function findDocs() {
   const find = await Vampire.find({ gender: "f" })
   console.log(find)
 }
-
+// find kill count
 async function find500() {
   const findOver = await Vampire.find({ victims: { $gt: 500 } })
   console.log(findOver)
+}
+// find kill count lte 150
+async function findFew(){
+  const find150 = await Vampire.find({victims: {$lte: 150}})
+  console.log(find150)
 }
