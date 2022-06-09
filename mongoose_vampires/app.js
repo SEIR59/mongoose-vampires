@@ -510,15 +510,24 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   }) 
 // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
-Vampire.updateOne({ name: "Guy Man" }, { hates: ["clothes","jobs"] })
+// Vampire.updateOne({ name: "Guy Man" }, { hates: ["clothes","jobs"] })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+Vampire.updateOne({ name: "Guy Man" }, 
+  { $push: 
+    { hates: { $each: ["alarm clocks","jackalopes"]} }
+  })
   .then((vampires) => {
     console.log(vampires)
   })
   .catch((error) => {
     console.log(error)
   })
-
-// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
 
 // Rename 'Eve's' name field to 'moniker'
 
