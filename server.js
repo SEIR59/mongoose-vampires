@@ -5,7 +5,8 @@ require("dotenv").config(); // Load ENV Variables
 const express = require("express"); // import express
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
-const path = require("path")
+const path = require("path");
+const vampire = require("./models/vampires.js");
 const vampires = require("./models/vampires.js");
 
 /////////////////////////////////////////////
@@ -175,25 +176,97 @@ const newVampires = [
 //  })
 
 // **Greater than 150 fewer than 500**
-Vampire.find({
+// Vampire.find({
+//     $and: [{
+//         victims: { $gte: 150 },
+//         victims: { $lt: 500 }
+//     }]
+// })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// **Select by exists or no**
+// key of title
+// Vampire.find( {
+//     title: { $exists: true }
+// } )
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+//  **Not key of victims**
+// Vampire.find( {
+//         victims: { $exists: false}
+// })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.find({
+//         $and: [{
+//             title: { $exists: true },
+//             victims: { $eq: 0 }
+//         }]
+//     })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+ Vampire.find({
     $and: [{
-        victims: { $gte: 150 },
-        victims: { $lt: 500 }
+        victims: { $exists: true },
+        victims: { $gt: 1000 }
     }]
 })
 // if succeeds
 .then((vampire) => {
-    console.log(vampire)
- })
-      // if fails
+console.log(vampire)
+})
+  // if fails
 .catch ((error) => {
-   console.log(error)
- })
+console.log(error)
+})
 // // close db connection either way
- .finally(() => {
-     db.close()
- })
-
+.finally(() => {
+ db.close()
+})
 
 
 
