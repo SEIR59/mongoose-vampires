@@ -463,11 +463,25 @@ db.on("close", () => console.log("mongo disconnected"));
 // Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
 
 // replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne(
+//   { name: "Claudia" },
+//   {
+//     name: "Eve",
+//     portrayed_by: "Tilda Swinton"
+//   }
+// )
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
 Vampire.updateOne(
-  { name: "Claudia" },
+  { gender: "m" },
   {
-    name: "Eve",
-    portrayed_by: "Tilda Swinton"
+    name: "Guy Man",
+    is_actually: "were-lizard"
   }
 )
   .then((vampires) => {
@@ -476,4 +490,3 @@ Vampire.updateOne(
   .catch((error) => {
     console.log(error)
   })
-// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
