@@ -4,6 +4,8 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const port = 3000
 const rowdy = require('rowdy-logger')
+const path = require('path')
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
 const routesReport = rowdy.begin(app)
 const Vampire = require('./models/vampire.js')
 // const db = mongoose.connection
@@ -28,7 +30,6 @@ mongoose.connection
 /////////////////////////////////////////////////
 // Create our Express Application Object
 /////////////////////////////////////////////////
-const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
 
 /////////////////////////////////////////////////////
 // Middleware
@@ -47,6 +48,9 @@ app.get("/", (req, res) => {
 app.get('/', (req,res) => {
     res.send("Mongoose-Vampires Homepage")
 })
+
+// Seed connection
+const seedData = require("./models/seed.js")
 
 const newVampires = [
     {
@@ -101,5 +105,41 @@ const newVampires = [
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     routesReport.print()
-    console.log(`Now Listening on port ${PORT}`
+    console.log(`Now Listening on port ${port}`
 )});
+
+// Setup complete above, answers below
+
+// Query - Select by comparison
+
+//Female
+
+Vampire.find({ gender: 'f'})
+.then((data) => {console.log(data)})
+.catch((error) => {console.log(error)})
+.finally(() => {db.close()})
+
+//Victim Greater Than 500
+Vampire.find({victims: {$gt: 500}})
+.then((data) => {console.log(data)})
+.catch((error) => {console.log(error)})
+.finally(() => {db.close()})
+
+//Victims less than or equal to 150
+Vampire.find({victim: {$lte: 150}})
+.then((data) => {console.log(data)})
+.catch((error) => {console.log(error)})
+.finally(() => {db.close()})
+
+//Victims not equal to 210234
+Vampire.find({victim: {$ne: 210234}})
+.then((data) => {console.log(data)})
+.catch((error) => {console.log(error)})
+.finally(() => {db.close()})
+
+//Victims greater than 150 AND fewer than 500
+Vampire.find({victim: {$gt: 150, $lt: 500}})
+.then((data) => {console.log(data)})
+.catch((error) => {console.log(error)})
+.finally(() => {db.close()})
+
