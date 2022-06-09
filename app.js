@@ -342,7 +342,18 @@ const vampireFamily = [
 //                    db.close()
 //                })
 
-Vampire.find({ $and: [{ "title": { $exists: true }}, { victims: { $exists: false}}]})
+// Vampire.find({ $and: [{ "title": { $exists: true }}, { victims: { $exists: false}}]})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+Vampire.find({ $and: [{ victims: { $exists: true }}, { victims: { $gt: 1000}}]})
 .then((data) =>  {
             console.log(data)
             })
