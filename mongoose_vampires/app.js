@@ -130,8 +130,13 @@ async function notEqual210234(){
     const notEquals210234 = await Vampire.find({victims: {$ne: 210234}})
     console.log(notEquals210234);
 }
-notEqual210234();
+//notEqual210234();
 
+async function gt150ft500(){
+    const thegt150ft500 = await Vampire.find({victims: {$gt: 150, $lt: 500}})
+    console.log(thegt150ft500);
+}
+gt150ft500();
 
 //Listen on port set in .env
 const PORT = process.env.PORT
