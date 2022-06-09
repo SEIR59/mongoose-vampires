@@ -520,13 +520,24 @@ const vampireFamily = [
 //         db.close()
 //     })
 
-Vampire.updateOne( { name: 'Guy Man' }, { $set: { is_actually: 'were-lizard' } } )
-      .then((data) => {
-            console.log(data)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-        .finally(() => {
-            db.close()
-        })
+// Vampire.updateOne( { name: 'Guy Man' }, { $set: { is_actually: 'were-lizard' } } )
+//       .then((data) => {
+//             console.log(data)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+//         .finally(() => {
+//             db.close()
+//         })
+
+Vampire.updateOne({name: 'Guy Man' }, { $set:{ gender: 'f'} })
+                .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
