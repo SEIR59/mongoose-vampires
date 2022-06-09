@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-
 const { Schema, model } = mongoose;
 
-const vampireSchema = new Schema({
+const vampireSchema = new Schema(
+    {
     name: {type: String, required:true},
     title: String,
     hair_color: {type: String, default: 'blonde'},
@@ -12,9 +12,11 @@ const vampireSchema = new Schema({
     loves: [String],
     location: String,
     gender: String,
-    victims: {type: Number, default: 1}
+    victims: {type: Number, min: 0}
 
 })
+
+
 
 const Vampires = model('Vampires', vampireSchema)
 
