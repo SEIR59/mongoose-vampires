@@ -515,18 +515,85 @@ const addMoreVamps = [
 // });
 
 // have not killed more than 200 people
-Vampire.find( { victims: { $lte: 200 } } )
-.then((vampire) => {
-  console.log(vampire);
-})
-.catch((error) => {
-  console.log(error);
-})
-.finally(() => {
-  db.close();
-});
+// Vampire.find( { victims: { $lte: 200 } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
+// Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
 
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne( { name: 'Claudia' }, { $set: { name: 'Eve' } })
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
+// Vampire.updateOne( { name: 'Eve' }, { $set: { portrayed_by: 'Tilda Swinton' } }, { upsert: true } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { name: 'Eve' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+// Vampire.updateOne( { gender: 'm' }, { $set: { name: 'Guy Man' } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.updateOne( { name: 'Guy Man' }, { $set: { is_actually: 'were-lizard' } }, { upsert: true } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { name: 'Guy Man' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
 

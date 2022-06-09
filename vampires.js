@@ -24,6 +24,9 @@ const vapiresSchema = new Schema({
             type: Number,
             min: 1
         }
+    }, 
+    {
+        strict: false
     }
 )
 
