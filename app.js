@@ -151,16 +151,16 @@ const newVampires = (
 
 
 
-  Vampire.insertMany(newVampires)
-  .then((vampire) => {
-    console.log(vampire)
-  })
-  // if database transaction fails
-  .catch((error) => {
-    console.log(error)
-  })
-  // close db connection either way
-  .finally(() => {
-   db.close()
-  })
+//   Vampire.insertMany(newVampires)
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//    db.close()
+//   })
   
