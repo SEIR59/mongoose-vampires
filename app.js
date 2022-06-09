@@ -448,8 +448,22 @@ const vampireFamily = [
 //             })
 
 
-Vampire.find({ $and: [ {loves: { $in: ['fancy cloaks'] }}, {loves: { $nin: ['top hats','virgin blood'] }}]})
-.then((data) =>  {
+// Vampire.find({ $and: [ {loves: { $in: ['fancy cloaks'] }}, {loves: { $nin: ['top hats','virgin blood'] }}]})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+
+// Negative Selection
+
+Vampire.find({ $and: [ {loves: { $in: ['ribbons'] }}, {eye_color: { $ne:'brown' }}]})
+            .then((data) =>  {
             console.log(data)
             })
             .catch((error) => {
@@ -463,3 +477,13 @@ Vampire.find({ $and: [ {loves: { $in: ['fancy cloaks'] }}, {loves: { $nin: ['top
 
 
 
+
+                // .then((data) =>  {
+                // console.log(data)
+                // })
+                // .catch((error) => {
+                // console.log(error)
+                // })
+                // .finally(() => {
+                //     db.close()
+                // })
