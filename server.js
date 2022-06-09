@@ -47,7 +47,7 @@ const vampiresSchema = new Schema(
         gender: String,
         victims: { type: Number, min: 0 }
     },
-     // commenting this out, I believe it's affecting my ability to update vampires { timestamps: true },
+    // commenting this out, I believe it's affecting my ability to update vampires { timestamps: true },
     { strict: false }
 );
 
@@ -186,67 +186,71 @@ Vampire.find({ $or: [{ location: 'New York, New York, US' }, { location: 'New Or
 
 // select vampires that love brooding or being tragic
 Vampire.find({ $or: [{ loves: /brooding/ }, { loves: /being tragic/ }] })
-    // .then(data => console.log(data))
+// .then(data => console.log(data))
 
 // loves marshmallows or has more than 1000 victims
-Vampire.find({ $or: [{loves: /marshmallow/}, {victims: {$gt: 1000}}]})
-    // .then(data => console.log(data))
+Vampire.find({ $or: [{ loves: /marshmallow/ }, { victims: { $gt: 1000 } }] })
+// .then(data => console.log(data))
 
 // red hair or green eyes
-Vampire.find({ $or: [{hair_color: 'red'}, {eye_color: 'green'}]})
-    // .then(data => console.log(data))
+Vampire.find({ $or: [{ hair_color: 'red' }, { eye_color: 'green' }] })
+// .then(data => console.log(data))
 
 
 // ******** OBJECTS THAT MATCH ONE OF SEVERAL VALUES ********
 
 // love either frilly shirtsleeves or frilly collars
-Vampire.find({ loves: {$in: ['frilly shirtsleeves', 'frilly collars']}})
-    // .then(data => console.log(data))
+Vampire.find({ loves: { $in: ['frilly shirtsleeves', 'frilly collars'] } })
+// .then(data => console.log(data))
 
 // love brooding
-Vampire.find({ loves: 'brooding'})
-    // .then(data => console.log(data))
+Vampire.find({ loves: 'brooding' })
+// .then(data => console.log(data))
 
 // love at least one of the following: 
 // appearing innocent, trickery, lurking in rotting mansions, R&B music
-Vampire.find({ loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
-    // .then(data => console.log(data))
+Vampire.find({ loves: { $in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music'] } })
+// .then(data => console.log(data))
 
 // query to find love fancy cloaks but not if they also love either top hats or virgin blood
-Vampire.find({$and: [
-    {loves: 'fancy cloaks'}, 
-    {loves: {$nin: 'top hats'}},
-    {loves: {$nin: 'virgin blood'}}
-]
+Vampire.find({
+    $and: [
+        { loves: 'fancy cloaks' },
+        { loves: { $nin: 'top hats' } },
+        { loves: { $nin: 'virgin blood' } }
+    ]
 })
-    // .then(data => console.log(data))
+// .then(data => console.log(data))
 
 
 // *********  NEGATIVE SELECTION *********
 
 // vampires that love ribbons but do not have brown eyes
-Vampire.find({$and: [
-    {loves: 'ribbons'},
-    {eye_color: {$nin: 'brown'}}
-]
+Vampire.find({
+    $and: [
+        { loves: 'ribbons' },
+        { eye_color: { $nin: 'brown' } }
+    ]
 })
-    // .then(data => console.log(data))
+// .then(data => console.log(data))
 
 // vampires that are not from Rome
-Vampire.find({location: {$nin: /Rome/}})
-    // .then(data => console.log(data))
+Vampire.find({ location: { $nin: /Rome/ } })
+// .then(data => console.log(data))
 
 // vampires that do not love any of the following: 
 // [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-Vampire.find({ loves: {$nin: 
-    ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
-}
+Vampire.find({
+    loves: {
+        $nin:
+            ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']
+    }
 })
-    // .then(data => console.log(data))
+// .then(data => console.log(data))
 
 // have not killed more than 200 people
-Vampire.find({ victims: {$not: {$gt: 200}}})
-    // .then(data => console.log(data))
+Vampire.find({ victims: { $not: { $gt: 200 } } })
+// .then(data => console.log(data))
 
 
 // ******** REPLACE *********
@@ -263,3 +267,38 @@ Vampire.find({ victims: {$not: {$gt: 200}}})
 // Vampire.findOneAndUpdate({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-lizard'}})
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
+
+// ******** UPDATE *********
+
+//update guy man to gender 'f'
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'f'}})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+
+//update Eve to 'm'
+// Vampire.updateOne({name: 'Eve'}, {$set: {gender: 'm'}})
+// .then(data => console.log(data))
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs']}})
+// .then(data => console.log(data))
+
+// Vampire.updateOne({ name: 'Guy Man' },
+//     {
+//         $push: {
+//             hates:
+//                 { $each: ['alarm clocks', 'jackalopes'] }
+//         }
+//     })
+//     .then(data => console.log(data))
+
+//rename Eve's name field to 'moniker'
+// Vampire.updateOne({name: 'Eve'}, {$rename: {name: 'moniker'}})
+// .then(data => console.log(data))
+
+//rename all females to gender 'fems'
+Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}})
+.then(data => console.log(data))
+
+Vampire.find({gender: 'fems'})
+.then(data => console.log(data))
