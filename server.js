@@ -745,4 +745,28 @@ const fems = async () => {
 //fems()
 
 
+///////////////////////
 
+const remo = async () => {
+  try {
+    const a = await (await Vampire.deleteOne({hair_color: 'brown'} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//remo()
+
+const remoBlue = async () => {
+  try {
+    const a = await (await Vampire.deleteMany({eye_color: 'blue'} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//remoBlue()
