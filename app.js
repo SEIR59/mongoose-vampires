@@ -1,5 +1,6 @@
 // Dependencies
 const mongoose = require('mongoose')
+const { remove } = require('./vampires.js')
 const Vampire = require('./vampires.js')
 
 // Global Configuration
@@ -586,13 +587,27 @@ const vampireFamily = [
 //             db.close()
 //         })
 
-Vampire.updateMany( { gender: 'f' }, { $set: { gender: 'fems' } } )
-      .then((data) => {
-            console.log(data)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-        .finally(() => {
-            db.close()
-        })
+// Vampire.updateMany( { gender: 'f' }, { $set: { gender: 'fems' } } )
+//       .then((data) => {
+//             console.log(data)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+//         .finally(() => {
+//             db.close()
+//         })
+
+// Remove
+ 
+Vampire.deleteOne({ hair_color: 'brown'})
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
+ 
