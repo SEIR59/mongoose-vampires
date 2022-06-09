@@ -475,10 +475,37 @@ app.get("/", (req, res) => {
 //   }); 
 
 // Rename 'Eve's' name field to 'moniker'
- Vampire.updateOne(
-  { name: "Eve" },
-  {$set: { name: "moniker" },}
-)
+//  Vampire.updateOne(
+//   { name: "Eve" },
+//   {$set: { name: "moniker" },}
+// )
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+  // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+// Vampire.updateMany(
+//     { gender: "f" },
+//     { $set: { gender: "fems" },}
+//   )
+//     .then((v) => {
+//       console.log(v);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       db.close();
+//     });
+
+// Remove a single document wherein the hair_color is 'brown'
+Vampire.deleteOne({ hair: "brown" })
   .then((v) => {
     console.log(v);
   })
@@ -489,20 +516,18 @@ app.get("/", (req, res) => {
     db.close();
   });
 
-  // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
-Vampire.updateMany(
-    { gender: "f" },
-    { $set: { gender: "fems" },}
-  )
-    .then((v) => {
-      console.log(v);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(() => {
-      db.close();
-    });
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+Vampire.deleteMany({ eye_color: "blue" })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
 
 
 
