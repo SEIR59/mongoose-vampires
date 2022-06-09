@@ -311,13 +311,72 @@ const newVampires = [
 // })
 
 //4.have red hair or green eyes
-Vampire.find({$or:[{hair_color:'red'},{eye_color:'green'}]})
-.then((Vampire) => {
-  console.log(Vampire)
-})
-.catch((error) => {
-  console.log(error)
-})
-.finally(() => {
- db.close()
-})
+// Vampire.find({$or:[{hair_color:'red'},{eye_color:'green'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//////////////////////////////////////////////////
+//Select objects that match one of several values
+//////////////////////////////////////////////////
+
+//1.have red hair or green eyes
+// Vampire.find({$or:[{loves:'frilly shirtsleeves'},{loves:'frilly collars'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//2.love brooding
+// Vampire.find({loves:'brooding'})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+//3.love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+
+// Vampire.find({$or:[
+//     {loves:'appearing innocent'},
+//     {loves:'trickery'},
+//     {loves:'lurking in rotting mansions'},
+//     {loves:'R&B music'}
+// ]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+
+//4.love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+// Vampire.find({$and:[{loves:{$nin:['top hats','virgin blood']}},{loves:'fancy cloaks'}]})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
