@@ -331,14 +331,24 @@ const vampireFamily = [
 //                })
 
 
-Vampire.find({ "victims": { $exists: false}})
-              .then((data) =>  {
-               console.log(data)
-               })
-               .catch((error) => {
-               console.log(error)
-               })
-               .finally(() => {
-                   db.close()
-               })
+// Vampire.find({ "victims": { $exists: false}})
+//               .then((data) =>  {
+//                console.log(data)
+//                })
+//                .catch((error) => {
+//                console.log(error)
+//                })
+//                .finally(() => {
+//                    db.close()
+//                })
 
+Vampire.find({ $and: [{ "title": { $exists: true }}, { victims: { $exists: false}}]})
+.then((data) =>  {
+            console.log(data)
+            })
+            .catch((error) => {
+            console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
