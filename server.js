@@ -603,7 +603,50 @@ const newVampires = [
 //           db.close();
 //         });
 
-        Vampire.find({})
+
+//////////////////////////////////////////////////
+//Remove
+//////////////////////////////////////////////////
+
+//1.Remove a single document wherein the hair_color is 'brown'
+
+// Vampire.findOneAndRemove(
+//     { hair_color: "brown" },
+//     )
+// // if database transaction succeeds
+// .then((article) => {
+//   console.log(article)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+// 2.We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+// Vampire.remove(
+//     { eye_color: "blue" },
+//     )
+// // if database transaction succeeds
+// .then((article) => {
+//   console.log(article)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
+
+
+//Checking - console.log
+        Vampire.find({ })
         .then((vampire) => {
             console.log(vampire);
           })
