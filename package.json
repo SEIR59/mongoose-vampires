@@ -1,0 +1,23 @@
+{
+  "name": "mongoose-vampires",
+  "version": "1.0.0",
+  "description": "For this lab, you will be using some of the mongoose commands that you learned today and you will be **reading the documents** to find **new** queries to complete the following activities. Researching queries and implementing them is a big part of this lab!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrbreeden/mongoose-vampires.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrbreeden/mongoose-vampires/issues"
+  },
+  "homepage": "https://github.com/jrbreeden/mongoose-vampires#readme",
+  "dependencies": {
+    "mongoose": "^6.3.6"
+  }
+}
