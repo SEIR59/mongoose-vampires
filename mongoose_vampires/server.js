@@ -431,3 +431,75 @@ const ladyVamps = [
 //   .finally(() => {
 //     db.close();
 //   });
+
+// Vampire.findOneAndUpdate({ name: "Guy Man" }, { gender: "f" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate({ name: "Eve" }, { gender: "m" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate({ name: "Guy Man" }, { hates: ["clothes", "jobs"] })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate(
+//   { name: "Guy Man" },
+//   { hates: ["alarm clocks", "jackalopes"] }
+// )
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate(
+//   { name: "Guy Man" },
+//   { $push: { hates: ["clothes", "jobs"] } }
+// )
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.updateMany({ gender: "f" }, { gender: "fems" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
