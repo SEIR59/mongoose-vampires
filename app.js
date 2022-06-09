@@ -450,6 +450,16 @@ const addMoreVamps = [
 // });
 
 // love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+Vampire.find( { $or: [ { loves: 'appearing innocent' }, { loves: 'trickery' }, { loves: 'lurking in rotting mansions' }, { loves: 'R&B music' } ] } )
+.then((vampire) => {
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
 
 
