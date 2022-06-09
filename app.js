@@ -575,7 +575,18 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.updateOne( { name: 'Eve' }, { $set: { name: 'moniker' } } )
+// Vampire.updateOne( { name: 'Eve' }, { $set: { name: 'moniker' } } )
+//       .then((data) => {
+//             console.log(data)
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+//         .finally(() => {
+//             db.close()
+//         })
+
+Vampire.updateMany( { gender: 'f' }, { $set: { gender: 'fems' } } )
       .then((data) => {
             console.log(data)
         })
