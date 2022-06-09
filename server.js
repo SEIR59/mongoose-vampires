@@ -188,10 +188,99 @@ app.get("/", (req, res) => {
 //   });
 
 // From New York, New York, US or New Orleans, Louisiana, US
-Vampire.find({
+// Vampire.find({
+//   $or: [
+//     { location: "New York, New York, US" },
+//     { location: "New Orleans, Louisiana, US" },
+//   ],
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// Brooding or being tragic
+// Vampire.find({
+//   loves: { $in: ["brooding", "being tragic"] },
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// More than 1000 victims or love marshmallows
+// Vampire.find({
+//   $or: [{ victims: { $gt: 1000 } }, { loves: "marshmallows" }],
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+//Red hair or green eyes
+// Vampire.find({
+//     $or: [{ hair_color: "red" }, { eye_color: "green" }],
+//   })
+//     .then((v) => {
+//       console.log(v);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       db.close();
+//     });
+
+// Frilly shirtsleeves or frilly collars
+// Vampire.find({
+//   $or: [{ loves: "frilly shirtsleeves" }, { loves: "frilly collars" }],
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+ 
+// Brooding
+//  Vampire.find({
+//   loves: "brooding",
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// Love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+ Vampire.find({
   $or: [
-    { location: "New York, New York, US" },
-    { location: "New Orleans, Louisiana, US" },
+    { loves: "appearing innocent" },
+    { loves: "trickery" },
+    { loves: "lurking in rotting mansions" },
+    { loves: "R&B music" },
   ],
 })
   .then((v) => {
@@ -204,47 +293,24 @@ Vampire.find({
     db.close();
   }); 
 
-// Brooding or being tragic
-Vampire.find({
-  loves: { $in: ["brooding", "being tragic"] },
-})
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  }); 
+// love fancy cloaks but not if they also love either top hats or virgin blood
+// Vampire.find({
+//     $and: [
+//       { loves: "fancy cloaks" },
+//       { loves: { $nin: ["top hats", "virgin blood"] } },
+//     ],
+//   })
+//     .then((v) => {
+//       console.log(v);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       db.close();
+//     });
 
-// More than 1000 victims or love marshmallows
-Vampire.find({
-  $or: [{ victims: { $gt: 1000 } }, { loves: "marshmallows" }],
-})
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
 
-//Red hair or green eyes
-Vampire.find({
-    $or: [{ hair_color: "red" }, { eye_color: "green" }],
-  })
-    .then((v) => {
-      console.log(v);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(() => {
-      db.close();
-    });
 
 
 app.listen(PORT, () => console.log("Listening on Port 3000"));
