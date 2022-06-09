@@ -298,3 +298,9 @@ async function hasTitle() {
   console.log(hasATitle)
 }
 // hasTitle()
+
+async function noVictims() {
+  const ifNoVictims = await Vampire.find({ victims: { $exists: false } })
+  console.log(ifNoVictims)
+}
+// noVictims()
