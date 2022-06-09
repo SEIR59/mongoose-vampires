@@ -89,17 +89,17 @@ app.get("/", (req, res) => {
 //     db.close();
 //   });
 
- //Greater than 500 victims
-Vampire.find({ victims: { $gte: 500 } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+//  //Greater than 500 victims
+// Vampire.find({ victims: { $gte: 500 } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // // Fewer than or equal to 150 victims
 // Vampire.find({ victims: { $lte: 150 } })
@@ -138,6 +138,56 @@ Vampire.find({ victims: { $gte: 500 } })
 //   .finally(() => {
 //     db.close();
 //   });
+
+//Key of title
+Vampire.find({ title: { $exists: true } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// Do not have key of victim
+Vampire.find({ victims: { $exists: false } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// Title and no victims
+Vampire.find({ victims: { $exists: false }, title: { $exists: true } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// Great than 1000 victims
+Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+
 
 app.listen(PORT, () => console.log("Listening on Port 3000"));
 
