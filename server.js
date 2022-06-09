@@ -257,13 +257,21 @@ app.get("/vampires/seed", (request, response) => {
 })
 
 
-Vampire.insertMany(seedData)
-.then((data) => {
+// Vampire.insertMany(seedData)
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//   db.close()
+// })
+
+// query to find all female vampires
+Vampire.find({gender: 'f'}).then((data) => {
   console.log(data)
 })
 .catch((error) => {
   console.log(error)
-})
-.finally(() => {
-  db.close()
 })
