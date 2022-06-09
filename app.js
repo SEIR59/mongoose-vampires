@@ -251,7 +251,18 @@ const vampireFamily = [
     
 ]
 
-Vampire.insertMany(vampireFamily)
+// Vampire.insertMany(vampireFamily)
+// .then((data) =>  {
+// console.log(data)
+// })
+// .catch((error) => {
+// console.log(error)
+// })
+// .finally(() => { 
+//     db.close()
+// })
+
+Vampire.find({gender: "f"})
 .then((data) =>  {
 console.log(data)
 })
