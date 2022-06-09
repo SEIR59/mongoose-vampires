@@ -33,6 +33,49 @@ app.get("/", (req, res) => {
     res.send("Here");
   });
   
+  const newVampires = [
+    {
+        name: 'Michael',
+        title: 'Duke',
+        hair_color: 'blonde',
+        eye_color: 'blue',
+        dob: new Date(1998, 3, 13, 7, 47),
+        loves: ['sucking blood','stakes'],
+        location: 'New York, New York, US',
+        gender: 'm',
+        victims: 902,
+      },
+      {
+        name: 'Rob',
+        hair_color: 'black',
+        eye_color: 'black',
+        dob: new Date(1937, 2, 14, 7, 47),
+        loves: ['cats','baseball'],
+        location: 'San Fran, California, US',
+        gender: 'm',
+        victims: 523,
+      },
+      {
+        name: 'Fiona',
+        hair_color: 'black',
+        eye_color: 'brown',
+        dob: new Date(1995, 2, 13, 6, 47),
+        loves: ['horse riding','cars'],
+        location: 'Guangzhou, China',
+        gender: 'f',
+        victims: 110,
+      },
+      {
+        name: 'Sam',
+        hair_color: 'brown',
+        eye_color: 'blue',
+        dob: new Date(1891, 3, 26, 7, 47),
+        loves: ['books'],
+        location: 'LA, California, US',
+        gender: 'f',
+        victims: 260,
+      }
+]
 
 
 app.listen(PORT, () => console.log("Listening on Port 3000"));
