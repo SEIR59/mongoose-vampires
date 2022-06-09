@@ -39,7 +39,7 @@ var vampire = {
 //   .finally(() => {
 //      db.close()
 //    })
-
+// Insert into the database using create method:
 
 const moreVampires = [
     {
@@ -205,7 +205,7 @@ const moreVampires = [
 //     db.close()
 // })
 
-
+// Add some new vampire data
 
 const vampireFamily = [
     {
@@ -262,6 +262,8 @@ const vampireFamily = [
 //     db.close()
 // })
 
+// Select by comparison
+
 // Vampire.find({gender: "f"})
 // .then((data) =>  {
 // console.log(data)
@@ -273,7 +275,7 @@ const vampireFamily = [
 //     db.close()
 // })
 
-Vampire.find({  victims: { $gte: 500 }})
+Vampire.find({  victims: { $gt: 500 }})
 .then((data) =>  {
 console.log(data)
 })
@@ -283,3 +285,5 @@ console.log(error)
 .finally(() => { 
     db.close()
 })
+
+// 
