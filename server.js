@@ -467,7 +467,72 @@ const newVampires = [
 //      db.close()
 //  })
 
-Vampire.find({ victims: { $lte: 200 } })
+// Vampire.find({ victims: { $lte: 200 } })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// ** Replace **
+
+// Vampire.updateOne({
+//      name:'Claudia' },
+//       { $set: { name: 'Eve' }
+        
+//     })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.updateOne({ name: 'Eve' },
+//                   {$set: { portrayed_by: 'Tilda Swinton' }}, {upsert: true})
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.findOneAndUpdate({ gender: 'm' },
+//                         { $set: { name: 'Guy Man' } })
+                         
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+  
+ Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually: 'were lizard' }}, {upsert: true})
 // if succeeds
 .then((vampire) => {
     console.log(vampire)
@@ -480,11 +545,6 @@ Vampire.find({ victims: { $lte: 200 } })
  .finally(() => {
      db.close()
  })
-
-
-
-
-
 
 
 
