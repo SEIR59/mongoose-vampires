@@ -509,15 +509,24 @@ const vampireFamily = [
 
 // Replace
 
-Vampire.updateOne({ name: "Claudia" },{ name: "Eve", portrayed_by: "Tilda Swinton"})
-    .then((data) => {
-        console.log(data)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-    .finally(() => {
-        db.close()
-    })
+// Vampire.updateOne({ name: "Claudia" },{ name: "Eve", portrayed_by: "Tilda Swinton"})
+//     .then((data) => {
+//         console.log(data)
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     })
+//     .finally(() => {
+//         db.close()
+//     })
 
-    
+Vampire.updateOne( { name: 'Guy Man' }, { $set: { is_actually: 'were-lizard' } } )
+      .then((data) => {
+            console.log(data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            db.close()
+        })
