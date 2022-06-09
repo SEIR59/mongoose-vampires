@@ -518,9 +518,22 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
-Vampire.updateOne({ name: "Guy Man" }, 
-  { $push: 
-    { hates: { $each: ["alarm clocks","jackalopes"]} }
+// Vampire.updateOne({ name: "Guy Man" }, 
+//   { $push: 
+//     { hates: { $each: ["alarm clocks","jackalopes"]} }
+//   })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+// Rename 'Eve's' name field to 'moniker'
+Vampire.updateOne({ name: "Guy Man" },
+  {
+    $pull:
+      { hates: ["alarm clocks", "jackalopes"] }
   })
   .then((vampires) => {
     console.log(vampires)
@@ -528,7 +541,5 @@ Vampire.updateOne({ name: "Guy Man" },
   .catch((error) => {
     console.log(error)
   })
-
-// Rename 'Eve's' name field to 'moniker'
 
 // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
