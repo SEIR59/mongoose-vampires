@@ -111,6 +111,11 @@ const newVampires = [
 //     console.log(res)
 // })
 
+
+// FROM NOW DOWN, PLUG THIS CODE ON AFTER Vampire.find()
+// .then((res) => {
+//   console.log(res)
+// })
 // ========select with or=======
 // OR IN OBJECT
 // are from New York, New York, US or New Orleans, Louisiana, US
@@ -211,12 +216,55 @@ const newVampires = [
 // })
 
 // have not killed more than 200 people
-Vampire.find({
-  victims: {$lt: 200}
-})
-.then((res) => {
-    console.log(res)
-})
+// Vampire.find({
+//   victims: {$lt: 200}
+// })
+// .then((res) => {
+//   console.log(res)
+// })
+
+// ========Replace=======
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Claudia'}, 
+//   //Update found data
+//   {$set: {
+//     name:'Eve',
+//     potrayed_by: 'Tilda Switch'
+//   }}
+// )
+// .then((res) => {
+//   console.log(res)
+// })
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+// Vampire.updateOne(
+//   //find Claudia
+//   {gender:'m'}, 
+//   //Update found data
+//   {
+//     $set:{name: 'Guy Man'}
+//   }
+// )
+// .then((res) => {
+//   console.log(res)
+// })
+// Vampire.updateOne(
+//   //find Claudia
+//   {name: 'Guy Man'}, 
+//   //Update found data
+//   {
+//     $set:{is_actually: 'were-lizard'}
+//   }
+// )
+// .then((res) => {
+//   Vampire.find({name:'Guy Man'})
+//   .then((res) => {
+//     console.log(res)
+//   })
+  
+// })
 
 app.listen(port, () => {
   console.log("port 3000 listens");
