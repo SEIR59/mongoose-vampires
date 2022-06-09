@@ -554,8 +554,18 @@ db.on("close", () => console.log("mongo disconnected"));
 // Remove
 
 // Remove a single document wherein the hair_color is 'brown'
-Vampire.deleteOne(
-  { hair_color: "brown" }
+// Vampire.deleteOne(
+//   { hair_color: "brown" }
+// )
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+Vampire.deleteMany(
+  { eye_color: "blue" }
 )
   .then((vampires) => {
     console.log(vampires)
@@ -563,4 +573,3 @@ Vampire.deleteOne(
   .catch((error) => {
     console.log(error)
   })
-// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
