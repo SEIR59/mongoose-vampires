@@ -226,3 +226,8 @@ async function findDocs() {
   const find = await Vampire.find({ gender: "f" })
   console.log(find)
 }
+
+async function find500() {
+  const findOver = await Vampire.find({ victims: { $gt: 500 } })
+  console.log(findOver)
+}
