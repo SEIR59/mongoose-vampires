@@ -611,18 +611,40 @@ const addMoreVamps = [
 //   db.close();
 // });
 
-Vampire.find( { name: 'Guy Man' } )
-.then((vampire) => {
-  console.log(vampire);
-})
-.catch((error) => {
-  console.log(error);
-})
-.finally(() => {
-  db.close();
-});
+// Vampire.find( { name: 'Guy Man' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
 
 // Update 'Eve' to have a gender of 'm'
+// Vampire.updateOne( { name: 'Eve' }, { $set: { gender: 'm' } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { name: 'Eve' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
 // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
 // Rename 'Eve's' name field to 'moniker'
