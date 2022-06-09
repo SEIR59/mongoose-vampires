@@ -108,10 +108,93 @@ const newVampires = [
     }
 ]
 
-Vampire.insertMany(newVampires)
-.then((data) =>  {console.log(data)})
-.catch((error)=>{console.log(error)})
-.finally(()=>{db.close()})
+// Vampire.insertMany(newVampires)
+// .then((data) =>  {console.log(data)})
+// .catch((error)=>{console.log(error)})
+// .finally(()=>{db.close()})
+
+// Search by Comparison
+// Find female
+// Vampire.find({ gender: 'f'})
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// // if fails
+// .catch ((error) => {
+//     console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//     db.close()
+// })
+
+// **more then 500**
+// Vampire.find({ victims: { $gte: 500 } })
+//  // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// **Less than or equal 150**
+// Vampire.find({ victims: { $lte: 150 } })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// **Not equal to 210234**
+// Vampire.find({ victims: { $ne: 210234 } })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// **Greater than 150 fewer than 500**
+Vampire.find({
+    $and: [{
+        victims: { $gte: 150 },
+        victims: { $lt: 500 }
+    }]
+})
+// if succeeds
+.then((vampire) => {
+    console.log(vampire)
+ })
+      // if fails
+.catch ((error) => {
+   console.log(error)
+ })
+// // close db connection either way
+ .finally(() => {
+     db.close()
+ })
+
+
 
 
 
