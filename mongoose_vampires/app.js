@@ -542,11 +542,25 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
-Vampire.updateMany({ gender: "f" },
-  { gender: "fems" })
+// Vampire.updateMany({ gender: "f" },
+//   { gender: "fems" })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+// Remove
+
+// Remove a single document wherein the hair_color is 'brown'
+Vampire.deleteOne(
+  { hair_color: "brown" }
+)
   .then((vampires) => {
     console.log(vampires)
   })
   .catch((error) => {
     console.log(error)
   })
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
