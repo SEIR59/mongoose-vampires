@@ -1,33 +1,33 @@
 // Dependencies
 const mongoose = require('mongoose')
 const Vampire = require('./vampires.js')
-
+ 
 // Global Configuration
 const mongoURI = "mongodb://localhost/vampires"
 const db = mongoose.connection
-
+ 
 // Connect to Mongo
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-
+ 
 // Connection Error/Success
 // Define callback functions for various events
 db.on("error", (err) => console.log(err.message + " is mongod not running?"));
 db.on("open", () => console.log("mongo connected: ", mongoURI));
 db.on("close", () => console.log("mongo disconnected"));
-
+ 
 // intial data
 var vampire = {
-    name: 'Chocula',
-    title: 'Count',
-    hair_color: 'brown',
-    eye_color: 'brown',
-    dob: new Date(1971, 2, 13, 7, 47),
-    loves: ['cereal','marshmallows'],
-    location: 'Minneapolis, Minnesota, US',
-    gender: 'm',
-    victims: 2,
-  }
-
+   name: 'Chocula',
+   title: 'Count',
+   hair_color: 'brown',
+   eye_color: 'brown',
+   dob: new Date(1971, 2, 13, 7, 47),
+   loves: ['cereal','marshmallows'],
+   location: 'Minneapolis, Minnesota, US',
+   gender: 'm',
+   victims: 2,
+ }
+ 
 // Vampire.create(vampire)
 // .then((vampire) => {
 //     console.log(vampire)
@@ -39,10 +39,11 @@ var vampire = {
 //   .finally(() => {
 //      db.close()
 //    })
-// Insert into the database using create method:
 
+
+// Insert into the database using create method:
 const moreVampires = [
-    {
+     {
     name: 'Count Chocula',
     hair_color: 'brown',
     eye_color: 'brown',
@@ -191,22 +192,21 @@ const moreVampires = [
     location: 'New York, New York, US',
     gender: 'm',
     title: 'Osiris of Sewer Rats'
-  },
+  }
   ]
 
-//Vampire.insertMany(moreVampires)
+//  Vampire.insertMany(moreVampires)
 // .then((data) =>  {
 // console.log(data)
 // })
 // .catch((error) => {
 // console.log(error)
 // })
-// .finally(() => { 
+// .finally(() => {
 //     db.close()
 // })
 
 // Add some new vampire data
-
 const vampireFamily = [
     {
     name: 'Ambrosia Johnson',
@@ -248,7 +248,6 @@ const vampireFamily = [
     gender: 'm',
     victims: 112
   },
-    
 ]
 
 // Vampire.insertMany(vampireFamily)
@@ -258,12 +257,11 @@ const vampireFamily = [
 // .catch((error) => {
 // console.log(error)
 // })
-// .finally(() => { 
+// .finally(() => {
 //     db.close()
 // })
 
 // Select by comparison
-
 // Vampire.find({gender: "f"})
 // .then((data) =>  {
 // console.log(data)
@@ -271,7 +269,7 @@ const vampireFamily = [
 // .catch((error) => {
 // console.log(error)
 // })
-// .finally(() => { 
+// .finally(() => {
 //     db.close()
 // })
 
@@ -282,7 +280,7 @@ const vampireFamily = [
 // .catch((error) => {
 // console.log(error)
 // })
-// .finally(() => { 
+// .finally(() => {
 //     db.close()
 // })
 
@@ -293,7 +291,7 @@ const vampireFamily = [
 //     .catch((error) => {
 //     console.log(error)
 //     })
-//     .finally(() => { 
+//     .finally(() => {
 //         db.close()
 //     })
 
@@ -304,17 +302,30 @@ const vampireFamily = [
 //         .catch((error) => {
 //         console.log(error)
 //         })
-//         .finally(() => { 
+//         .finally(() => {
 //             db.close()
 //         })
 
-Vampire.find({ $and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500}}]})
-.then((data) =>  {
-            console.log(data)
-            })
-            .catch((error) => {
-            console.log(error)
-            })
-            .finally(() => { 
-                db.close()
-            })
+// Vampire.find({ $and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500}}]})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+// Select by exists or does not exist
+
+Vampire.find({ "title": { $exists: true}})
+              .then((data) =>  {
+               console.log(data)
+               })
+               .catch((error) => {
+               console.log(error)
+               })
+               .finally(() => {
+                   db.close()
+               })
