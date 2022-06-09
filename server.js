@@ -294,14 +294,70 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // query to find vampires with a title and no victims
-Vampire.find({$and: [
-  {title: {$exists: true}}, 
-  {victims: {$exists: false}}
-]})
-.then((data) => {
-  console.log("Yes")
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({$and: [
+//   {title: {$exists: true}}, 
+//   {victims: {$exists: false}}
+// ]})
+// .then((data) => {
+//   console.log("Yes")
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// ### Select with OR
+// Select all the vampires that:
+
+// 1. are from New York, New York, US or New Orleans, Louisiana, US
+// 2. love brooding or being tragic
+// 3. have more than 1000 victims or love marshmallows
+// 4. have red hair or green eyes
+
+// query to find vampires that are from new york or new orleans
+// Vampire.find({$or: [
+//   {location: 'New York, New York, US'},
+//   {location: 'New Orleans, Louisiana, US'}
+// ]})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires that love brooding or being tragic
+// Vampire.find({$or: [
+//   {loves: 'brooding'},
+//   {loves: 'being tragic'}
+// ]})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires that love marshmallows and has more than 1000 victims
+// Vampire.find({$or: [
+//   {loves: 'marshmallows'},
+//   {victims: {$gt: 1000}}
+// ]})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires with red hair or green eyes
+// Vampire.find({$or: [
+//   {hair_color: 'red'},
+//   {eye_color: 'green'}
+// ]})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
