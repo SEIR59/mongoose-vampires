@@ -597,3 +597,34 @@ const addMoreVamps = [
 // });
 
 
+// Update
+
+// Update 'Guy Man' to have a gender of 'f'
+// Vampire.updateOne( { name: 'Guy Man' }, { $set: { gender: 'f' } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+Vampire.find( { name: 'Guy Man' } )
+.then((vampire) => {
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
+
+// Update 'Eve' to have a gender of 'm'
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Rename 'Eve's' name field to 'moniker'
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+
