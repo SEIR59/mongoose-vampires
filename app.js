@@ -333,9 +333,20 @@ const addMoreVamps = [
 //   db.close();
 // });
 
-
 // do not have a key of 'victims'
-Vampire.find( { victims: {$exists: false} } )
+// Vampire.find( { victims: {$exists: false} } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// have a title AND no victims
+Vampire.find( {$and: [ { title: { $exists: true } }, { victims: { $exists: false } } ] } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -345,7 +356,8 @@ Vampire.find( { victims: {$exists: false} } )
 .finally(() => {
   db.close();
 });
-// have a title AND no victims
+
+
 // have victims AND the victims they have are greater than 1000
 
 
