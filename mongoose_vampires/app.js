@@ -191,6 +191,32 @@ Vampire.find({$not: [{loves: 'fancy cloaks'}, {loves: 'frilly shirtsleeves'},
 
 Vampire.find({victims: {$lte: 200}})
 
+Vampire.updateOne({name:'Claudia'}, {$set: {name: 'Eve'}})
+
+Vampire.updateOne({name: 'Eve'}, {$set: {portrayed_by: 'Tilda Swinton'}},{upsert: true})
+
+Vampire.findOneAndUpdate({gender:'m'}, {$set: {name: 'Guy Man'}})
+
+Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually: 'were lizard'}},{upsert: true})
+
+Vampire.updateOne({name:'Guy Man'}, {$set: {gender: 'f'}})
+
+Vampire.updateOne({name:'Eve'}, {$set: {gender: 'm'}})
+
+Vampire.updateOne({name:'Guy Man'}, {$set: {hates: ['clothes', 'jobs']}}, {upsert: true})
+
+Vampire.updateOne({name:'Guy Man'}, {$push: {hates: ['alarm clocks', 'jackalopes']}})
+
+Vampire.updateOne({name:'Eve'}, {$rename: {name: 'Moniker'}}, {upsert: true})
+
+Vampire.updateMany({gender:'f'}, {$set: {gender: 'fems'}})
+
+//Vampire.findOneAndRemove({hair_color: 'brown'})
+
+//Vampire.find({eye_color:'blue'})
+
+
+
 //Listen on port set in .env
 const PORT = process.env.PORT
 app.listen(PORT, () => {
