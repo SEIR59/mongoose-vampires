@@ -161,8 +161,15 @@ async function vicAndGT1000(){
     const thevicAndGT1000= await Vampire.find({victims: {$exists: true}, victims: {$gt: 1000}})
     console.log(thevicAndGT1000);
 }
-vicAndGT1000();
+//vicAndGT1000();
 
+Vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
+
+Vampire.find({$or: [{loves:/brooding/}, {loves: /being tragic/}]})
+
+Vampire.find({$or: [{loves:/marshmallow/}, {victims: {$gt: 100}}]})
+
+Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]})
 
 //Listen on port set in .env
 const PORT = process.env.PORT
