@@ -149,6 +149,57 @@ const newVampires = (
       ]
 )
 
+// Vampire.create(
+//     {
+//         name: 'steven',
+//         hair_color: 'brown',
+//         eye_color: 'blue',
+//         dob: new Date(1924, 6, 3, 13, 12),
+//         loves: ['video games'],
+//         location: 'Philadelphia,PA, US',
+//         gender: 'm',
+//         title: 'Sticky'
+//     }
+// )
+Vampire.create(
+    {
+        name: 'james',
+        hair_color: 'bald',
+        eye_color: 'blue',
+        dob: new Date(1904, 7, 3, 13, 12),
+        loves: ['poker'],
+        location: 'Philadelphia,PA, US',
+        gender: 'm',
+        title: 'Captian',
+        victims: 62549,
+    }
+)
+Vampire.create(
+    {
+        name: 'Gwargo',
+        hair_color: 'Silver',
+        eye_color: 'no eyes',
+        dob: new Date(1124, 6, 3, 13, 12),
+        loves: ['singing in the shower'],
+        location: 'Philadelphia,PA, US',
+        gender: 'm',
+        title: 'Dreadfull',
+        victims: 69,
+    }
+)
+Vampire.create(
+    {
+        name: 'Shit',
+        hair_color: 'brown',
+        eye_color: 'brown',
+        dob: new Date(1, 6, 3, 13, 12),
+        loves: ['track and field'],
+        location: 'Philadelphia,PA, US',
+        gender: 'm',
+        title: 'The Old One',
+        victims: 13546841687,
+    }
+)
 
 
 //   Vampire.insertMany(newVampires)
