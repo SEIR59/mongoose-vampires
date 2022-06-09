@@ -600,7 +600,19 @@ const vampireFamily = [
 
 // Remove
  
-Vampire.deleteOne({ hair_color: 'brown'})
+// Vampire.deleteOne({ hair_color: 'brown'})
+//             .then((data) => {
+//                 console.log(data)
+//             })
+//             .catch((error) => {
+//                 console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+ 
+
+Vampire.deleteMany({ eye_color: 'blue'})
             .then((data) => {
                 console.log(data)
             })
