@@ -413,3 +413,22 @@ db.on("close", () => console.log("mongo disconnected"));
 //   .catch((error) => {
 //     console.log(error)
 //   })
+
+// Negative Selection
+// Select all vampires that:
+
+// love ribbons but do not have brown eyes
+Vampire.find({ $and: [
+  {loves: { $in: [/ribbons/] }},
+  {eye_color: {$ne: "brown"}}
+]
+})
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+// are not from Rome
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// have not killed more than 200 people
