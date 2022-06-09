@@ -6,7 +6,6 @@ const port = 3000;
 const rowdy = require("rowdy-logger");
 const routesReport = rowdy.begin(app);
 const Vampire = require("./models/vampire.js");
-const db = mongoose.connection;
 
 // homepage
 app.get("/", (req, res) => {
@@ -55,15 +54,52 @@ const newVampires = [
     victims: 2,
   },
 ];
-Vampire.insertMany(newVampires)
-.then((newVampires) => {
-    console.log(newVampires)
-})
-.catch((error) => {
-    console.log(error)
-})
-.finally(() => {
-    db.close()
+// Vampire.insertMany(newVampires)
+// .then((newVampires) => {
+//     console.log(newVampires)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+// ========find female vampires=======
+// Vampire.find({gender: 'f'})
+// .then((res) => {
+//     console.log(`List of female vampires ${res}`)
+// })
+
+// ========find more than 500 victims vampires=======
+// Vampire.find({victims: {$gt:500}})
+// .then((res) => {
+//     console.log(res)
+// })
+
+// ========find less or equal 150 victims vampires=======
+// Vampire.find({victims: {$lte:500}})
+// .then((res) => {
+//     console.log(res)
+// })
+
+// ========find !== 210234 victims vampires=======
+// Vampire.find({victims: {$ne:210234}})
+// .then((res) => {
+//     console.log(res)
+// })
+
+// ========find >150 && <500 victims vampires=======
+// Vampire.find({victims: {$gt:150, $lt:500}})
+// .then((res) => {
+//     console.log(res)
+// })
+
+// ========select exist or doesnot exist=======
+// ========find key of title vampires=======
+Vampire.find({victims: {$gt:150, $lt:500}})
+.then((res) => {
+    console.log(res)
 })
 
 app.listen(port, () => {

@@ -174,19 +174,19 @@ db.on("open", () => {
     },
   ];
   Vampire.deleteMany({})
-  .then((deletedVampires) => {
+    .then((deletedVampires) => {
       Vampire.create(startVampires)
-      .then((newVampires) => {
-          console.log(newVampires)
-          db.close()
-      })
-      .catch((error) => {
-          console.log(error)
-          db.close()
-      })
-  })
-  .catch((error) => {
-      console.log(error)
-      db.close()
-  })
+        .then((newVampires) => {
+          console.log(newVampires);
+          db.close();
+        })
+        .catch((error) => {
+          console.log(error);
+          db.close();
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      db.close();
+    });
 });
