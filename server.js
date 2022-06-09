@@ -214,4 +214,13 @@ const moleButt =
 // Vampire.find({victims: {$lt: 201}})
 // .then((data) => {console.log(data)})
 
+// Replace
+
+// Replace Claudia with Eve
+// Vampire.findOneAndUpdate({ name: 'Claudia'}, {$set: { name: 'Eve', portrayed_by: 'Tilda Swinton'}}, {new: true, strict: false})
+// .then((data) => {console.log(data)})
+
+// Replace Male Vampire
+// Vampire.findOneAndUpdate({ name: 'Guy Man'}, {$set: { is_actually: 'were-lizard', gender: 'f'}}, {new: true, strict: false})
+// .then((data) => {console.log(data)})
 
