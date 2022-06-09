@@ -621,7 +621,37 @@ const newVampires = [
 //      db.close()
 //  })
 
-Vampire.updateMany({ gender: 'f' }, { $set: { gender: 'fems' } })
+// Vampire.updateMany({ gender: 'f' }, { $set: { gender: 'fems' } })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// ** REMOVE **
+
+// Vampire.findOneAndRemove({ hair_color: 'brown' })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+Vampire.deleteMany({ eye_color: 'blue' })
 // if succeeds
 .then((vampire) => {
     console.log(vampire)
@@ -634,6 +664,9 @@ Vampire.updateMany({ gender: 'f' }, { $set: { gender: 'fems' } })
  .finally(() => {
      db.close()
  })
+
+
+
 
 
 
