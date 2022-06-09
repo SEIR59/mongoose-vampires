@@ -291,4 +291,10 @@ async function fewerAndGreater() {
   const gtlt = await Vampire.find({ victims: { $gt: 150, $lt: 500 } })
   console.log(gtlt)
 }
-fewerAndGreater()
+// fewerAndGreater()
+
+async function hasTitle() {
+  const hasATitle = await Vampire.find({ title: { $exists: true } })
+  console.log(hasATitle)
+}
+// hasTitle()
