@@ -668,4 +668,81 @@ const brus = async () => {
   }
 };
 // brus()
+////////////////////////////////////
+
+const genf = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Guy Man'}, { gender:'f'} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//genf()
+
+const genm = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Eve'}, { gender:'m'} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//genm()
+
+
+const guy = async () => {
+  try {
+    const a = await (await Vampire.updateOne( {name: 'Guy Man'}, {$push: {hates: {$each:['clothes', 'jobs', 'alarm clocks', 'jackalopes']}}} ,{upsert:true} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+// guy()
+
+const guys = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Guy Man'}, {$set: {hates: ['alarm clocks', 'jackalopes']}} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//guys()
+
+
+const mon = async () => {
+  try {
+    const a = await (await Vampire.updateOne({ name: 'Eve'}, {$rename: {name: 'monike'}}, {upsert: true} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//mon()
+
+const fems = async () => {
+  try {
+    const a = await (await Vampire.updateMany({ gender: 'f'}, { gender: 'fems'}, {upsert: true} ))
+    console.log( a );
+  } catch (error) {
+    console.log(error);
+  } finally {
+    mongoose.connection.close();
+  }
+};
+//fems()
+
+
 
