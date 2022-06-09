@@ -479,7 +479,19 @@ const addMoreVamps = [
 // Select all vampires that:
 
 // love ribbons but do not have brown eyes
-Vampire.find( { $and: [ { loves: 'ribbons' }, { eye_color: { $ne: 'brown' } } ] } )
+// Vampire.find( { $and: [ { loves: 'ribbons' }, { eye_color: { $ne: 'brown' } } ] } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// are not from Rome
+Vampire.find({ location: { $ne: 'Rome, Italy' } } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -489,7 +501,7 @@ Vampire.find( { $and: [ { loves: 'ribbons' }, { eye_color: { $ne: 'brown' } } ] 
 .finally(() => {
   db.close();
 });
-// are not from Rome
+
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
 // have not killed more than 200 people
 
