@@ -235,7 +235,7 @@ const myVampires = [
     loves: ['wings', 'drawing'],
     location: 'Hotel Vampiringa',
     gender: 'f',
-    victims: 1
+    victims: 0
   }
 ]
 
@@ -420,11 +420,20 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // query to find vampires that love ribbons but do not have brown eyes
-Vampire.find(
-  {$and: [
-    {loves: 'ribbons'}, 
-    {eye_color: {$nin: 'brown'}}]}
-  )
+// Vampire.find(
+//   {$and: [
+//     {loves: 'ribbons'}, 
+//     {eye_color: {$nin: 'brown'}}]}
+//   )
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// vampire that have not killed more than 200 people
+Vampire.find({victims: {$not: {$gt: 200}}})
 .then((data) => {
   console.log(data)
 })
