@@ -477,16 +477,36 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
-Vampire.updateOne(
-  { gender: "m" },
-  {
-    name: "Guy Man",
-    is_actually: "were-lizard"
-  }
-)
+// Vampire.updateOne(
+//   { gender: "m" },
+//   {
+//     name: "Guy Man",
+//     is_actually: "were-lizard"
+//   }
+// )
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+// Update
+
+// Update 'Guy Man' to have a gender of 'f'
+Vampire.updateOne({ name: "Guy Man" }, { gender: "f" })
   .then((vampires) => {
     console.log(vampires)
   })
   .catch((error) => {
     console.log(error)
   })
+// Update 'Eve' to have a gender of 'm'
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+
+// Rename 'Eve's' name field to 'moniker'
+
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
