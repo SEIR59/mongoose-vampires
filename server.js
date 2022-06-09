@@ -311,9 +311,159 @@ app.get("/", (req, res) => {
 //     });
 
 // love ribbons but do not have brown eyes
-Vampire.find({
-  $and: [{ loves: "ribbons" }, { eye_color: { $ne: "brown" } }],
-})
+// Vampire.find({
+//   $and: [{ loves: "ribbons" }, { eye_color: { $ne: "brown" } }],
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// // are not from Rome
+//  Vampire.find({
+//    location:{$ne: "Rome"} 
+//   })
+//     .then((v) => {
+//       console.log(v);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     .finally(() => {
+//       db.close();
+//     });
+
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({
+//   loves: {
+//     $nin: [
+//       "fancy cloaks",
+//       "frilly shirtsleeves",
+//       "appearing innocent",
+//       "being tragic",
+//       "brooding",
+//     ],
+//   },
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// // have not killed more than 200 people
+//  Vampire.find({
+//   victims: { $lte: 200 },
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+ 
+
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.updateOne(
+//   { name: "Claudia" },
+//   { $set: {name: "Eve"} }
+// )
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+//  Vampire.findOneAndUpdate(
+//      { name: "Eve"},
+//      { $set: {portrayed_by: "Tilda Swinton"}}
+//  )
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+// Vampire.replaceOne(
+//   { gender: "m" },
+//   { name: "Guy Man", is_actually: "were-lizard" },
+//   { new: true }
+// )
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// Update 'Guy Man' to have a gender of 'f'
+ Vampire.updateOne({ name: "Guy Man" }, { $set: { gender: "f" } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// Update 'Eve' to have a gender of 'm'
+ Vampire.updateOne({ name: "Eve" }, { $set: { gender: "m" } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+  // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+Vampire.updateOne({ name: "Guy Man" }, { $set: { hates: ["clothes", "jobs"] } })
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+Vampire.updateOne(
+  { name: "Guy Man" },
+  {
+    $push: {
+      hates: { $each: ["alarm clocks", "jackalopes"] },
+    },
+  }
+)
   .then((v) => {
     console.log(v);
   })
@@ -323,58 +473,6 @@ Vampire.find({
   .finally(() => {
     db.close();
   }); 
-
-// are not from Rome
- Vampire.find({
-   location:{$ne: "Rome"} 
-  })
-    .then((v) => {
-      console.log(v);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-    .finally(() => {
-      db.close();
-    });
-
-// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-Vampire.find({
-  loves: {
-    $nin: [
-      "fancy cloaks",
-      "frilly shirtsleeves",
-      "appearing innocent",
-      "being tragic",
-      "brooding",
-    ],
-  },
-})
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
-
-// have not killed more than 200 people
- Vampire.find({
-  victims: { $lte: 200 },
-})
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
- 
-
 
 
 
