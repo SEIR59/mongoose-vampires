@@ -322,12 +322,81 @@ const newVampires = [
 //      db.close()
 //  })
 
-Vampire.find({
-         $or: [{ hair_color: "red" },
-              { eye_color: "green" }]
-     })
-    // if succeeds
- .then((vampire) => {
+// Vampire.find({
+//          $or: [{ hair_color: "red" },
+//               { eye_color: "green" }]
+//      })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+
+// **Match one of Several Values**
+
+// Vampire.find({
+//              $or: [{ loves: 'frilly shirtsleeves' },
+//                   { loves: 'frilly collars' }]
+// })
+//          // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.find({ loves: 'brooding' })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+//  Vampire.find({
+//                  $or: [ { loves: 'frilly shirtsleeves' },
+//                         { loves: 'fancy cloaks' },
+//                         { loves: 'appearing innocent' },
+//                         { loves: 'being tragic' },
+//                         { loves: 'brooding' },
+//      ]
+//  })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+Vampire.find({ victims: { $lte: 200 } })
+// if succeeds
+.then((vampire) => {
     console.log(vampire)
  })
       // if fails
@@ -338,6 +407,9 @@ Vampire.find({
  .finally(() => {
      db.close()
  })
+
+ 
+
 
 
 
