@@ -18,3 +18,14 @@ mongoose.connection
 .on('open', () => console.log('Connected to Mongoose'))
 .on('close', () => console.log('Disconnected from Mongoose'))
 .on('error', (error) => console.log(error))
+
+//MiddleWare
+app.use(morgan("tiny")); 
+app.use(methodOverride("_method")); 
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.static("public")); 
+
+const seedData = require("./seed.js");
+
+
+app.listen(PORT, () => console.log("Listening on Port 3000"));
