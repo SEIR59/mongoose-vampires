@@ -32,9 +32,9 @@ const db = mongoose.connection
 /////////////////////////////////////////////////////
 // Middleware
 /////////////////////////////////////////////////////
-app.use(methodOverride("_method")); // override for put and delete requests from forms
-app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
-app.use(express.static("public")); // serve files from public statically
+// app.use(methodOverride("_method")); // override for put and delete requests from forms
+// app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+// app.use(express.static("public")); // serve files from public statically
 
 ////////////////////////////////////////////////
 // Our Models
@@ -101,13 +101,17 @@ const newVampires = [
         hair_color: 'purple',
         eye_color: 'orange',
         dob: new Date(1992, 3, 15, 9, 24, 35),
-        loves: [killing, relaxing],
+        loves: ['partying, sports'],
         location: 'Chicago',
         gender: 'm',
         victims: 24,
     }
 ]
 
+Vampire.insertMany(newVampires)
+.then((data) =>  {console.log(data)})
+.catch((error)=>{console.log(error)})
+.finally(()=>{db.close()})
 
 
 
