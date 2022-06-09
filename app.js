@@ -289,7 +289,19 @@ const addMoreVamps = [
 // });
 
 //have a victim count is not equal to 210234
-Vampire.find( { victims: { $ne: 210234 }})
+// Vampire.find( { victims: { $ne: 210234 }})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+//have greater than 150 AND fewer than 500 victims
+Vampire.find( {$and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500 }}]})
 .then((vampire) => {
   console.log(vampire);
 })
