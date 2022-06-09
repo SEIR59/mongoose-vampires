@@ -47,7 +47,7 @@ const vampiresSchema = new Schema(
         gender: String,
         victims: { type: Number, min: 0 }
     },
-    { timestamps: true },
+     // commenting this out, I believe it's affecting my ability to update vampires { timestamps: true },
     { strict: false }
 );
 
@@ -118,7 +118,7 @@ const seedCollection = () => {
         // .finally(() => db.close())
     })
 }
-seedCollection()
+// seedCollection()
 
 
 // ********* SELECT BY COMPARISON ********
@@ -246,4 +246,20 @@ Vampire.find({ loves: {$nin:
 
 // have not killed more than 200 people
 Vampire.find({ victims: {$not: {$gt: 200}}})
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
+
+
+// ******** REPLACE *********
+
+// replace 'Claudia' with 'Eve'. Eve will have 'portrayed_by: "Tilda Swinton"'
+// Vampire.updateOne({ name: 'Claudia'}, { $set: { name: 'Eve'}})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+
+// Vampire.updateOne({ name: 'Eve'}, {$set: {portrayed_by: 'Tilda Swinton'}})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+
+// Vampire.findOneAndUpdate({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-lizard'}})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
