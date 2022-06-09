@@ -180,15 +180,39 @@ const newVampires = [
 // })
 
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+// Vampire.find({
+//   $and: [
+//     {loves: 'fancy cloaks'},
+//     {loves: {
+//       $nin: [
+//         'top hats', 'virgin blood'
+//       ]
+//     }}
+//   ]
+// })
+
+// ========Negative Selection=======
+// love ribbons but do not have brown eyes
+// Vampire.find({
+//   $and: [
+//     {loves: 'ribbons'},
+//     {eye_color: {$ne: 'brown'}}
+//   ]
+// })
+
+// are not from Rome
+// Vampire.find({
+//   location: {$ne: 'Rome'}
+// })
+
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({
+//   loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}
+// })
+
+// have not killed more than 200 people
 Vampire.find({
-  $and: [
-    {loves: 'fancy cloaks'},
-    {loves: {
-      $nin: [
-        'top hats', 'virgin blood'
-      ]
-    }}
-  ]
+  victims: {$lt: 200}
 })
 .then((res) => {
     console.log(res)
