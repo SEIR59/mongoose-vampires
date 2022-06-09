@@ -213,60 +213,49 @@ async function runVamps() {
 
 let newVamps = [
   {
-    name: "Robert Pattinson",
-    hair_color: "blond",
-    eye_color: "blue",
-    dob: new Date(1986, 5, 13, 12, 12),
-    loves: ["being a bat", "making movies"],
+    name: "Nick Cage",
+    hair_color: "Barely has hair",
+    eye_color: "brown",
+    dob: new Date(1965, 4, 3, 2, 1),
+    loves: ["Aquaman!!!!!!!!!"],
     location: "London, England, UK",
     gender: "m",
-    title: "the Batman",
+    title: "Amber heard did what?",
   },
   {
-    name: "Christian Bale",
-    hair_color: "blond",
-    eye_color: "blue",
-    dob: new Date(1974, 1, 30, 12, 52),
-    loves: ["modifying weight"],
+    name: "Morbius",
+    hair_color: "Black",
+    eye_color: "Black",
+    dob: new Date(1200, 5, 4, 3, 2),
+    loves: ["morbin"],
     location: "Haverfordwest, England, UK",
     gender: "m",
-    title: "American Psycho",
-    victims: 21,
+    title: "It's Morbin Time",
+    victims: 1000000,
   },
   {
-    name: "Victoria Tan",
-    hair_color: "black",
+    name: "Jacob",
+    hair_color: "Brown",
     eye_color: "brown",
-    dob: new Date(1996, 9, 2, 2, 20),
-    love: ["dancing with the devil in the pale moonlight"],
-    location: "Brooklyn, New York, US",
+    dob: new Date(2000, 5, 4, 3, 2),
+    love: ["emma?"],
+    location: "twilight zone",
     gender: "f",
-    title: "the Duke of Edinburgh",
-    victims: 420,
+    title: "wolf?",
+    victims: 11,
   },
   {
-    name: "Jelly Bear",
-    hair_color: "light brown",
-    eye_color: "brown",
-    dob: new Date(2016, 1, 30, 12, 30),
-    loves: ["licking couches", "eating sweet potato"],
-    location: "Brooklyn, New York, US",
+    name: "Rascal",
+    hair_color: "orange",
+    eye_color: "green",
+    dob: new Date(2019, 8, 5, 4, 3),
+    loves: ["knocking shit off my desk"],
+    location: "saint joe mi",
     gender: "f",
     title: "Chubby bear",
-    victims: 1,
+    victims: 7000000000,
   },
 ]
-
-let robertPattinson = {
-  name: "Robert Pattinson",
-  hair_color: "blond",
-  eye_color: "blue",
-  dob: new Date(1986, 5, 13, 12, 12),
-  loves: ["being a bat", "making movies"],
-  location: "London, England, UK",
-  gender: "m",
-  title: "the Batman",
-}
 
 // Vampire.insertMany(newVamps, function (error) {
 //   if (error) console.log(error)
@@ -278,6 +267,7 @@ async function findDocs() {
   const find = await Vampire.find({ gender: "f" })
   console.log(find)
 }
+
 // findDocs()
 // find kill count
 async function find500() {
@@ -296,3 +286,9 @@ async function findNotEqual() {
   console.log(notNumber)
 }
 //findNotEqual()
+
+async function fewerAndGreater() {
+  const gtlt = await Vampire.find({ victims: { $gt: 150, $lt: 500 } })
+  console.log(gtlt)
+}
+fewerAndGreater()
