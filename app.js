@@ -205,3 +205,59 @@ const moreVampires = [
 //     db.close()
 // })
 
+
+
+const vampireFamily = [
+    {
+    name: 'Ambrosia Johnson',
+    hair_color: 'blonde',
+    eye_color: 'blue',
+    dob: new Date(1972, 2, 9, 15, 15),
+    loves: ['chocolate', 'graham crackers'],
+    location: 'Paris, Tennessee, US',
+    gender: 'f',
+    victims: 150
+  },
+  {
+    name: 'Claudia Johnson',
+    hair_color: 'black',
+    eye_color: 'black',
+    dob: new Date(1973, 9, 15, 15, 15),
+    loves: ['apples', 'peanut butter'],
+    location: 'Paris, Tennessee, US',
+    gender: 'f',
+    victims: 175
+  },
+  {
+    name: 'Magnum Johnson',
+    hair_color: 'black',
+    eye_color: 'blue',
+    dob: new Date(1972, 8, 13, 13, 13),
+    loves: ['carrots', 'ranch dressing'],
+    location: 'Paris, Tennessee, US',
+    gender: 'm',
+    victims: 180
+  },
+  {
+    name: 'Silas Johnson',
+    hair_color: 'black',
+    eye_color: 'green',
+    dob: new Date(1974, 7, 15, 15, 15),
+    loves: ['mice', 'cats'],
+    location: 'Paris, Tennessee, US',
+    gender: 'm',
+    victims: 112
+  },
+    
+]
+
+Vampire.insertMany(vampireFamily)
+.then((data) =>  {
+console.log(data)
+})
+.catch((error) => {
+console.log(error)
+})
+.finally(() => { 
+    db.close()
+})
