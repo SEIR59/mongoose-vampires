@@ -304,3 +304,170 @@ async function noVictims() {
   console.log(ifNoVictims)
 }
 // noVictims()
+
+async function victimsAndTitles() {
+  const ifNoVictimsAndTitles = await Vampire.find({
+    $and: [{ victims: { $exists: false } }, { title: { $exists: true } }],
+  })
+  console.log(ifNoVictimsAndTitles)
+}
+// victimsAndTitles()
+
+async function largeVictims() {
+  const aLotOfVictims = await Vampire.find({ victims: { $gte: 1000 } })
+  console.log(aLotOfVictims)
+}
+// largeVictims()
+
+async function frilly() {
+  const frillyStuff = await Vampire.find({
+    $or: [{ loves: "frilly collars" }, { loves: "frilly shirtsleeves" }],
+  })
+  console.log(frillyStuff)
+}
+// frilly()
+
+async function brooding() {
+  const lovesBrooding = await Vampire.find({ loves: "brooding" })
+  console.log(lovesBrooding)
+}
+// brooding()
+
+async function loveAtLeast() {
+  const lovesOne = await Vampire.find({
+    loves: {
+      $in: [
+        "appearing innocent",
+        "trickery",
+        "lurking in rotting mansions",
+        "R&B music",
+      ],
+    },
+  })
+  console.log(lovesOne)
+}
+// loveAtLeast()
+
+async function fancyCloaks() {
+  const notIf = await Vampire.find({
+    $and: [
+      { loves: "fancy cloaks" },
+      { loves: { $nin: ["top hats", "virgin blood"] } },
+    ],
+  })
+  console.log(notIf)
+}
+// fancyCloaks()
+
+async function loveRibbons() {
+  const ribbonsBut = await Vampire.find({
+    $and: [{ loves: "ribbons" }, { eye_color: { $ne: "brown" } }],
+  })
+  console.log(ribbonsBut)
+}
+// loveRibbons()
+
+async function notRoman() {
+  const notFromRome = await Vampire.find({ location: { $not: /rome/ } })
+  console.log(notFromRome)
+}
+// notRoman()
+
+async function doesntLove() {
+  const nonLover = await Vampire.find({
+    loves: {
+      $nin: [
+        "fancy cloaks",
+        "frilly shirtsleeves",
+        "appearing innocents",
+        "being tragic",
+        "brooding",
+      ],
+    },
+  })
+  console.log(nonLover)
+}
+// doesntLove()
+
+async function smallTimeKilla() {
+  const fewVictims = await Vampire.find({ victims: { $lt: 200 } })
+  console.log(fewVictims)
+}
+// smallTimeKilla()
+
+async function claudiaDies() {
+  await Vampire.updateOne({ name: "Claudia" }, { $set: { name: "Eve" } })
+}
+// claudiaDies()
+
+async function evePortrayed() {
+  let update = await Vampire.findOneAndUpdate(
+    { name: "Eve" },
+    { $set: { portrayed_by: "Tilda Swinton" } }
+  )
+  console.log(update)
+}
+// evePortrayed()
+
+async function maleLizard() {
+  let newGuy = await Vampire.findOneAndUpdate(
+    { gender: "m" },
+    { name: "Guy Man", is_actually: "were-lizard" },
+    { new: true }
+  )
+  console.log(newGuy)
+}
+// maleLizard()
+
+async function changeGender() {
+  let newGenderF = await Vampire.updateOne(
+    { name: "Guy Man" },
+    { $set: { gender: "f" } }
+  )
+  console.log(newGenderF)
+  let newGenderM = await Vampire.updateOne(
+    { name: "Eve" },
+    { $set: { gender: "m" } }
+  )
+  console.log(newGenderM)
+}
+// changeGender()
+
+async function hatesStuff() {
+  let hatingThings = await Vampire.updateOne(
+    { name: "Guy Man" },
+    { $set: { hates: ["clothes", "jobs", "alarm clocks", "jackalopes"] } }
+  )
+  console.log(hatingThings)
+}
+// hatesStuff()
+
+async function newName() {
+  let newMoniker = await Vampire.updateOne(
+    { name: "Eve" },
+    { $rename: { name: "moniker" } }
+  )
+  console.log(newMoniker)
+}
+// newName()
+
+async function femaleUpdate() {
+  let newFems = await Vampire.updateMany(
+    { gender: "f" },
+    { $set: { gender: "fems" } }
+  )
+  console.log(newFems)
+}
+// femaleUpdate()
+
+async function removeBrown() {
+  let deleteBrown = await Vampire.deleteOne({ hair_color: "brown" })
+  console.log(deleteBrown)
+}
+// removeBrown()
+
+async function blueEyedFakes() {
+  let deleteBlues = await Vampire.deleteMany({ eye_color: "blue" })
+  console.log(deleteBlues)
+}
+// blueEyedFakes()
