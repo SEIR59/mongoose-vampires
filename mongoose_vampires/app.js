@@ -494,14 +494,21 @@ db.on("close", () => console.log("mongo disconnected"));
 // Update
 
 // Update 'Guy Man' to have a gender of 'f'
-Vampire.updateOne({ name: "Guy Man" }, { gender: "f" })
-  .then((vampires) => {
-    console.log(vampires)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-// Update 'Eve' to have a gender of 'm'
+// Vampire.updateOne({ name: "Guy Man" }, { gender: "f" })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+  // Update 'Eve' to have a gender of 'm'
+  Vampire.updateOne({ name: "Eve" }, { gender: "m" })
+    .then((vampires) => {
+      console.log(vampires)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 
 // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
 
