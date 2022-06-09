@@ -423,13 +423,61 @@ const newVampires = [
 // })
 
 //4.have not killed more than 200 people
-Vampire.find({victims:{$lte:200}})
-.then((Vampire) => {
-  console.log(Vampire)
-})
-.catch((error) => {
-  console.log(error)
-})
-.finally(() => {
- db.close()
-})
+// Vampire.find({victims:{$lte:200}})
+// .then((Vampire) => {
+//   console.log(Vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//  db.close()
+// })
+
+
+
+//////////////////////////////////////////////////
+//Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
+//////////////////////////////////////////////////
+
+// 1.replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+
+//******!!!!!!!STRICT OPTION DID THE JOB!!!!!! TOO 20MINS TO SOLVE IT */
+// Vampire.findOneAndUpdate(
+//   { name: "Claudia" },
+//   { name: "Eve", portrayed_by: "Tilda Swinton" },
+//   { new: true, strict:false }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+// 2.replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+
+
+Vampire.findOneAndUpdate(
+  { gender: "m" },
+  { name: "Guy Man", is_actually: 'were-lizard' },
+  { new: true, strict:false }
+)
+  // if database transaction succeeds
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  // if database transaction fails
+  .catch((error) => {
+    console.log(error);
+  })
+  // close db connection either way
+  .finally(() => {
+    db.close();
+  });
