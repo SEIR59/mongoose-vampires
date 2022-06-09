@@ -136,7 +136,17 @@ async function gt150ft500(){
     const thegt150ft500 = await Vampire.find({victims: {$gt: 150, $lt: 500}})
     console.log(thegt150ft500);
 }
-gt150ft500();
+//gt150ft500();
+
+
+async function title(){
+    const theTitle = await Vampire.find({title: {$exists: true}})
+    console.log(theTitle);
+}
+title();
+
+
+
 
 //Listen on port set in .env
 const PORT = process.env.PORT
