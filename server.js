@@ -283,3 +283,12 @@ Vampire.find({victims: {$gt: 500}}).then((data) => {
 .catch((error) => {
   console.log(error)
 })
+
+// query to find all the vampires that have the key of 'title'
+Vampire.find({title: {$exists: true}})
+.then((data) => {
+  console.log(data)
+})
+.catch((error) => {
+  console.log(error)
+})
