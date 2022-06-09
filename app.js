@@ -252,13 +252,38 @@ const addMoreVamps = [
 //     })
 
 //Find all the vampires that that are females
-Vampire.find({ gender: "f" })
-  .then((vampire) => {
-    console.log(vampire);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();git 
-  });
+// Vampire.find({ gender: "f" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close(); 
+//   });
+
+  //have greater than 500 victims
+//   Vampire.find( { victims: { $gt: 500 }})
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+
+//have fewer than or equal to 150 victims
+Vampire.find( { victims: { $lte: 150 }})
+.then((vampire) => {
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
