@@ -143,8 +143,13 @@ async function title(){
     const theTitle = await Vampire.find({title: {$exists: true}})
     console.log(theTitle);
 }
-title();
+//title();
 
+async function victims(){
+    const theVictims = await Vampire.find({victims: {$exists: false}})
+    console.log(theVictims);
+}
+//victims();
 
 
 
