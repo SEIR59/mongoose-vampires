@@ -433,7 +433,16 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // vampire that have not killed more than 200 people
-Vampire.find({victims: {$not: {$gt: 200}}})
+// Vampire.find({victims: {$not: {$gt: 200}}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// replace vampire called 'Claudia' with vampire called 'Eve'
+Vampire.updateOne({name: 'Claudia'}, {$set: {name: 'Eve'}})
 .then((data) => {
   console.log(data)
 })
