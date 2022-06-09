@@ -389,7 +389,18 @@ const vampireFamily = [
 //             })
 
 
-Vampire.find({ $or: [{ victims: { $gt: 1000 }}, { loves:'marshmallows'}]})
+// Vampire.find({ $or: [{ victims: { $gt: 1000 }}, { loves:'marshmallows'}]})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+Vampire.find({ $or: [{ hair_color: 'red' },{ eye_color: 'green' }] })
 .then((data) =>  {
             console.log(data)
             })
@@ -399,3 +410,5 @@ Vampire.find({ $or: [{ victims: { $gt: 1000 }}, { loves:'marshmallows'}]})
             .finally(() => {
                 db.close()
             })
+
+            
