@@ -196,6 +196,22 @@ const moleButt =
 // .then((data) => {console.log(data)})
 
 
+// Negative Selection
 
+// Loves ribbons but no brown eyes
+// Vampire.find({ $and: [{loves: 'ribbons'}, {eye_color: {$ne: 'brown eyes'}}]})
+// .then((data) => {console.log(data)})
+
+// Not from Rome
+// Vampire.find({location: {$ne: 'Rome'}})
+// .then((data) => {console.log(data)})
+
+// Don't love [array]
+// Vampire.find({loves: {$ne: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}})
+// .then((data) => {console.log(data)})
+
+// Victims under 201
+// Vampire.find({victims: {$lt: 201}})
+// .then((data) => {console.log(data)})
 
 
