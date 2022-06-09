@@ -496,13 +496,28 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.find({ victims: { $lte: 200 } })
-.then((data) =>  {
-    console.log(data)
+// Vampire.find({ victims: { $lte: 200 } })
+// .then((data) =>  {
+//     console.log(data)
+//     })
+//     .catch((error) => {
+//     console.log(error)
+//     })
+//     .finally(() => {
+//         db.close()
+//     })
+
+// Replace
+
+Vampire.updateOne({ name: "Claudia" },{ name: "Eve", portrayed_by: "Tilda Swinton"})
+    .then((data) => {
+        console.log(data)
     })
     .catch((error) => {
-    console.log(error)
+        console.log(error)
     })
     .finally(() => {
         db.close()
     })
+
+    
