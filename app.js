@@ -34,7 +34,8 @@ const vampireSchema = new Schema(
     likes: { type: Number, default: 0 },
     sponsored: { type: Boolean, default: false },
   },
-  { strict: false }
+  {strict: false }
+  
 );
 const Vampire = model("Vampire", vampireSchema);
 
@@ -44,7 +45,7 @@ const Vampire = model("Vampire", vampireSchema);
 
 // if database transaction succeeds
 .then((vampire) => {
-  console.log()
+  console.log('Hello')
 })
 // if database transaction fails
 .catch((error) => {
@@ -54,6 +55,83 @@ const Vampire = model("Vampire", vampireSchema);
 .finally(() => {
  db.close()
 })*/
+
+
+//### Add some new vampire data
+/*Vampire.insertMany([{ name: 'Anna', victims: 15466, hair_color: 'blonde',
+eye_color: 'brown',
+dob: new Date(1999, 4, 21, 16, 15),
+loves: ['marshmallows', 'ribbons', 'being tragic'],
+location: 'LA',
+gender: 'f'}])
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})
+
+Vampire.insertMany([{ name: 'moon', victims: 156, hair_color: 'blonde',
+eye_color: 'blue',
+dob: new Date(2567, 4, 21, 16, 15),
+loves: ['marshmallows', 'ribbons', 'being tragic'],
+location: 'LA',
+gender: 'f'}])
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})
+Vampire.insertMany([{ name: 'Tom', victims: 15466, hair_color: 'blonde',
+eye_color: 'brown',
+dob: new Date(1944, 4, 21, 16, 15),
+loves: ['marshmallows', 'ribbons', 'being tragic'],
+location: 'NY',
+gender: 'm'}])
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})
+Vampire.insertMany([{ name: 'Jimmy', victims: 466, hair_color: 'blonde',
+eye_color: 'brown',
+dob: new Date(1999, 4, 21, 16, 15),
+loves: ['marshmallows', 'being tragic'],
+location: 'LA',
+gender: 'm'}])
+
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//1. Using the create method, create 4 new vampires with any qualities that you like two should be male and two should be female.
 
 //Find all the vampires that that are females
 
@@ -343,8 +421,8 @@ const Vampire = model("Vampire", vampireSchema);
 })*/
 
 
-//3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-Vampire.find({loves:{$not: {$eq: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}}})
+///*still not working//3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+/*Vampire.find({loves:{$not: {$eq: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}}})
 .then((vampire) => {
   console.log(vampire)
 })
@@ -355,7 +433,7 @@ Vampire.find({loves:{$not: {$eq: ['fancy cloaks', 'frilly shirtsleeves', 'appear
 
 .finally(() => {
  db.close()
-})
+})*/
 
 
 //5. have not killed more than 200 people
@@ -376,4 +454,149 @@ Vampire.find({loves:{$not: {$eq: ['fancy cloaks', 'frilly shirtsleeves', 'appear
 
 
 
+//## Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
+
+//1. replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+/*Vampire.findOneAndReplace({name:'Claudia'}, {name:'Eve', portrayed_by: 'Tilda Swinton'}, {returnDocument: 'after', strict: false})
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})*/
+
+
+
+//2. replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+/*Vampire.findOneAndReplace({gender: 'm'},{name:'Guy Man', is_actually: 'were-lizard'}, {returnDocument: 'after', strict: false})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+
+//## Update
+
+//1. Update 'Guy Man' to have a gender of 'f'
+/*Vampire.updateOne({name:'Guy Man'},{$set:{gender: 'f'}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//2. Update 'Eve' to have a gender of 'm'
+
+/*Vampire.updateOne({name:'Eve'},{$set:{gender: 'm'}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//3. Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+/*Vampire.updateOne({name:'Guy Man'},{$set:{hates: ['clothes', 'jobs']}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//4. Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+/*Vampire.updateOne({name:'Guy Man'},{$push: {hates: ['alarm clocks', 'jackalopes']}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//5. Rename 'Eve's' name field to 'moniker'
+/*Vampire.updateOne({name:'Eve'},{$rename:{ moniker: 'Eve'}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ //db.close()
+})*/
+
+//6. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
+/*Vampire.updateMany({gender: 'f',},{$set:{ gender: 'fems'}})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ //db.close()
+})*/
+
+// if database transaction succeeds
+
+//## Remove
+
+//1. Remove a single document wherein the hair_color is 'brown'
+/*Vampire.deleteOne({hair_color: 'brown'})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
+//2. We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+/*Vampire.deleteMany({eye_color: 'blue'})
+.then((vampire) => {
+  console.log(vampire)
+})
+
+.catch((error) => {
+  console.log(error)
+})
+
+.finally(() => {
+ db.close()
+})*/
 
