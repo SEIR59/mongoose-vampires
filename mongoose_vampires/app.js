@@ -180,6 +180,16 @@ Vampire.find({loves: {$in: ['appearing innocent', 'trickery', 'lurking in rottin
 
 Vampire.find({loves: 'fancy cloaks', $nor: [{loves: 'top hats'}, {loves: 'virgin blood'}]})
 
+Vampire.find({loves: 'ribbons', eye_color: {$ne: 'brown'}})
+
+Vampire.find({location: {$ne: 'Rome, Italy'}})
+
+Vampire.find({$not: [{loves: 'fancy cloaks'}, {loves: 'frilly shirtsleeves'}, 
+{loves: 'appearing innocent'},
+{loves: 'being tragic'},
+{loves: 'brooding'}]})
+
+Vampire.find({victims: {$lte: 200}})
 
 //Listen on port set in .env
 const PORT = process.env.PORT
