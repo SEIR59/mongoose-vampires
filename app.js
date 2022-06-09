@@ -400,7 +400,20 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.find({ $or: [{ hair_color: 'red' },{ eye_color: 'green' }] })
+// Vampire.find({ $or: [{ hair_color: 'red' },{ eye_color: 'green' }] })
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+// Select objects that match one of several values
+
+Vampire.find({ loves: { $in: ['frilly shirtsleeves', 'frilly collars']}})
 .then((data) =>  {
             console.log(data)
             })
@@ -410,5 +423,3 @@ Vampire.find({ $or: [{ hair_color: 'red' },{ eye_color: 'green' }] })
             .finally(() => {
                 db.close()
             })
-
-            
