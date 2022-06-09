@@ -140,43 +140,88 @@ app.get("/", (req, res) => {
 //   });
 
 //Key of title
-Vampire.find({ title: { $exists: true } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+// Vampire.find({ title: { $exists: true } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // Do not have key of victim
-Vampire.find({ victims: { $exists: false } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+// Vampire.find({ victims: { $exists: false } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // Title and no victims
-Vampire.find({ victims: { $exists: false }, title: { $exists: true } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+// Vampire.find({ victims: { $exists: false }, title: { $exists: true } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // Great than 1000 victims
-Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+// Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// From New York, New York, US or New Orleans, Louisiana, US
+Vampire.find({
+  $or: [
+    { location: "New York, New York, US" },
+    { location: "New Orleans, Louisiana, US" },
+  ],
+})
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); 
+
+// Brooding or being tragic
+Vampire.find({
+  loves: { $in: ["brooding", "being tragic"] },
+})
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); 
+
+// More than 1000 victims or love marshmallows
+Vampire.find({
+  $or: [{ victims: { $gt: 1000 } }, { loves: "marshmallows" }],
+})
   .then((v) => {
     console.log(v);
   })
@@ -187,11 +232,24 @@ Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
     db.close();
   });
 
+//Red hair or green eyes
+Vampire.find({
+    $or: [{ hair_color: "red" }, { eye_color: "green" }],
+  })
+    .then((v) => {
+      console.log(v);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      db.close();
+    });
 
 
 app.listen(PORT, () => console.log("Listening on Port 3000"));
 
-// Vampire.insertMany(seedData)
+// Vampire.insertMany(newVampires)
 // .then((data) =>  {console.log(data)})
 // .catch((error)=>{console.log(error)})
 // .finally(()=>{db.close()})
