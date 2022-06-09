@@ -319,7 +319,19 @@ const vampireFamily = [
 
 // Select by exists or does not exist
 
-Vampire.find({ "title": { $exists: true}})
+// Vampire.find({ "title": { $exists: true}})
+//               .then((data) =>  {
+//                console.log(data)
+//                })
+//                .catch((error) => {
+//                console.log(error)
+//                })
+//                .finally(() => {
+//                    db.close()
+//                })
+
+
+Vampire.find({ "victims": { $exists: false}})
               .then((data) =>  {
                console.log(data)
                })
@@ -329,3 +341,4 @@ Vampire.find({ "title": { $exists: true}})
                .finally(() => {
                    db.close()
                })
+
