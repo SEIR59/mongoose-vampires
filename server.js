@@ -394,14 +394,82 @@ const newVampires = [
 //      db.close()
 //  })
 
-Vampire.find(
-            { loves: 'fancy cloaks' ,
-                    $nor:
-                    [{ loves: 'top hats' },
-                     { loves: 'virgin blood' }],
-    })
-    // if succeeds
- .then((vampire) => {
+// Vampire.find(
+//             { loves: 'fancy cloaks' ,
+//                     $nor:
+//                     [{ loves: 'top hats' },
+//                      { loves: 'virgin blood' }],
+//     })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// ** Negative Selection **
+
+// Vampire.find({
+//                    loves: 'ribbons' ,
+//                    eye_color: { $ne: 'brown' }
+// })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.find({ location: { $ne: 'Rome, Italy' } })
+//   // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.find({
+//     $not:  [{ loves: 'fancy cloaks' },
+//             { loves: 'frilly shirtsleeves' },
+//             { loves: 'appearing innocent' },
+//             { loves: 'being tragic' },
+//             { loves: 'brooding' }],
+
+// })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+Vampire.find({ victims: { $lte: 200 } })
+// if succeeds
+.then((vampire) => {
     console.log(vampire)
  })
       // if fails
@@ -412,7 +480,6 @@ Vampire.find(
  .finally(() => {
      db.close()
  })
-
 
 
 
