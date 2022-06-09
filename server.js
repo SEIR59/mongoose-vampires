@@ -277,16 +277,29 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // query to find vampires with victims greater than 500
-Vampire.find({victims: {$gt: 500}}).then((data) => {
-  console.log(data)
-})
-.catch((error) => {
-  console.log(error)
-})
+// Vampire.find({victims: {$gt: 500}}).then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
 
 // query to find all the vampires that have the key of 'title'
-Vampire.find({title: {$exists: true}})
+// Vampire.find({title: {$exists: true}})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires with a title and no victims
+Vampire.find({$and: [
+  {title: {$exists: true}}, 
+  {victims: {$exists: false}}
+]})
 .then((data) => {
+  console.log("Yes")
   console.log(data)
 })
 .catch((error) => {
