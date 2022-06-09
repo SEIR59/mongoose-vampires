@@ -96,8 +96,53 @@ const newVampires = [
 // })
 
 // ========select exist or doesnot exist=======
-// ========find key of title vampires=======
-Vampire.find({victims: {$gt:150, $lt:500}})
+// key of title vampires exist
+// Vampire.find({title: {$exists:true}})
+
+// donot have a key
+// Vampire.find({title: {$exists:false}})
+
+// have a title AND no victims
+// Vampire.find({title: {$exists:true}, victims:{$exists:false}})
+
+// have victims AND the victims they have are greater than 1000
+// Vampire.find({ victims:{$exists:true, $gt:1000}})
+// .then((res) => {
+//     console.log(res)
+// })
+
+// ========select with or=======
+// OR IN OBJECT
+// are from New York, New York, US or New Orleans, Louisiana, US
+// Vampire.find({
+//   $or: [
+//     {
+//       location: 'New York, New York, US'
+//     },
+//     {
+//       location: 'New Orleans, Louisiana, US'
+//     }
+//   ]
+// })
+
+// OR IN ARRAY
+// love brooding or being tragic
+// Vampire.find({
+//   loves: {
+//     $in: [
+//       'brooding', 'being tragic'
+//     ]
+//   }
+// })
+
+// have more than 1000 victims or love marshmallows
+Vampire.find({
+  $or: loves: {
+    $in: [
+      'brooding', 'being tragic'
+    ]
+  }
+})
 .then((res) => {
     console.log(res)
 })
