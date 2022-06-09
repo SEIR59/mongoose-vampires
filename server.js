@@ -464,20 +464,146 @@ const newVampires = [
 // 2.replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
 
 
-Vampire.findOneAndUpdate(
-  { gender: "m" },
-  { name: "Guy Man", is_actually: 'were-lizard' },
-  { new: true, strict:false }
-)
-  // if database transaction succeeds
-  .then((vampire) => {
-    console.log(vampire);
-  })
-  // if database transaction fails
-  .catch((error) => {
-    console.log(error);
-  })
-  // close db connection either way
-  .finally(() => {
-    db.close();
-  });
+// Vampire.findOneAndUpdate(
+//   { gender: "m" },
+//   { name: "Guy Man", is_actually: 'were-lizard' },
+//   { new: true, strict:false }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//////////////////////////////////////////////////
+//Update 
+//////////////////////////////////////////////////
+
+//1.Update 'Guy Man' to have a gender of 'f'
+// Vampire.findOneAndUpdate(
+//   { name: "Guy Man" },
+//   { gender: "f"},
+//   { new: true }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+
+//2.Update 'Eve' to have a gender of 'm'
+// Vampire.findOneAndUpdate(
+//   { name: "Eve" },
+//   { gender: "m"},
+//   { new: true }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//3.Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.findOneAndUpdate(
+//   { name: "Guy Man" },
+//   { hates: ["clothes","jobs"]},
+//   { new: true, strict:false }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+
+//4.Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.findOneAndUpdate(
+//   { name: "Guy Man" },
+//   { $push:{hates: {$each:["alarm clocks","jackalopes"]}}},
+//   { new: true,strict:false }
+// )
+//   // if database transaction succeeds
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//     db.close();
+//   });
+
+//5.Rename 'Eve's' name field to 'moniker'
+// Vampire.findOneAndUpdate(
+//     { name: "Eve" },
+//     { $set: { name: 'moniker' }},
+//     { new: true }
+//   )
+//     // if database transaction succeeds
+//     .then((vampire) => {
+//       console.log(vampire);
+//     })
+//     // if database transaction fails
+//     .catch((error) => {
+//       console.log(error);
+//     })
+//     // close db connection either way
+//     .finally(() => {
+//       db.close();
+//     });
+  
+  //6.We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+
+//    Vampire.updateMany(
+//         { gender: "f" },
+//         { gender: 'fems' },
+//         { new: true }
+//       )
+//         // if database transaction succeeds
+//         .then((vampire) => {
+//           console.log(vampire);
+//         })
+//         // if database transaction fails
+//         .catch((error) => {
+//           console.log(error);
+//         })
+//         // close db connection either way
+//         .finally(() => {
+//           db.close();
+//         });
+
+        Vampire.find({})
+        .then((vampire) => {
+            console.log(vampire);
+          })
