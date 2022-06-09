@@ -275,23 +275,23 @@ app.get("/", (req, res) => {
 //   }); 
 
 // Love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
- Vampire.find({
-  $or: [
-    { loves: "appearing innocent" },
-    { loves: "trickery" },
-    { loves: "lurking in rotting mansions" },
-    { loves: "R&B music" },
-  ],
-})
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  }); 
+//  Vampire.find({
+//   $or: [
+//     { loves: "appearing innocent" },
+//     { loves: "trickery" },
+//     { loves: "lurking in rotting mansions" },
+//     { loves: "R&B music" },
+//   ],
+// })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
 
 // love fancy cloaks but not if they also love either top hats or virgin blood
 // Vampire.find({
@@ -309,6 +309,71 @@ app.get("/", (req, res) => {
 //     .finally(() => {
 //       db.close();
 //     });
+
+// love ribbons but do not have brown eyes
+Vampire.find({
+  $and: [{ loves: "ribbons" }, { eye_color: { $ne: "brown" } }],
+})
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  }); 
+
+// are not from Rome
+ Vampire.find({
+   location:{$ne: "Rome"} 
+  })
+    .then((v) => {
+      console.log(v);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      db.close();
+    });
+
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+Vampire.find({
+  loves: {
+    $nin: [
+      "fancy cloaks",
+      "frilly shirtsleeves",
+      "appearing innocent",
+      "being tragic",
+      "brooding",
+    ],
+  },
+})
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// have not killed more than 200 people
+ Vampire.find({
+  victims: { $lte: 200 },
+})
+  .then((v) => {
+    console.log(v);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+ 
 
 
 
