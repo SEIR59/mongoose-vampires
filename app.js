@@ -353,13 +353,26 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.find({ $and: [{ victims: { $exists: true }}, { victims: { $gt: 1000}}]})
-.then((data) =>  {
-            console.log(data)
-            })
-            .catch((error) => {
-            console.log(error)
-            })
-            .finally(() => {
-                db.close()
-            })
+// Vampire.find({ $and: [{ victims: { $exists: true }}, { victims: { $gt: 1000}}]})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+// Select with OR
+Vampire.find({ $or: [{ location: { $in: ["New York, New York, US","New Orleans, Louisiana, US" ]}}]})
+               .then((data) =>  {
+                console.log(data)
+                })
+                .catch((error) => {
+                console.log(error)
+                })
+                .finally(() => {
+                    db.close()
+                })
+
