@@ -473,27 +473,28 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.find({location: { $nin: ["Rome"]}})
-               .then((data) =>  {
-                console.log(data)
-                })
-                .catch((error) => {
-                console.log(error)
-                })
-                .finally(() => {
-                    db.close()
-                })
+// Vampire.find({location: { $nin: ["Rome"]}})
+//                .then((data) =>  {
+//                 console.log(data)
+//                 })
+//                 .catch((error) => {
+//                 console.log(error)
+//                 })
+//                 .finally(() => {
+//                     db.close()
+//                 })
 
 
+Vampire.find({ loves: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}})
+.then((data) =>  {
+            console.log(data)
+            })
+            .catch((error) => {
+            console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
 
 
-
-                // .then((data) =>  {
-                // console.log(data)
-                // })
-                // .catch((error) => {
-                // console.log(error)
-                // })
-                // .finally(() => {
-                //     db.close()
-                // })
+                
