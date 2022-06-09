@@ -503,3 +503,25 @@ const ladyVamps = [
 //   .finally(() => {
 //     db.close();
 //   });
+
+// Vampire.findOneAndRemove({ hair_color: "brown" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.deleteMany({ eye_color: "blue" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
