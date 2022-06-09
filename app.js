@@ -646,7 +646,134 @@ const addMoreVamps = [
 // });
 
 // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateOne( { name: 'Guy Man' }, { $set: { hates: ['clothes', 'jobs'] } }, { upsert: true } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { name: 'Guy Man' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.updateOne( { name: 'Guy Man' }, { $push: { hates: { $each: ['alarm clocks', 'jackalopes'] } } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { name: 'Guy Man' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+
 // Rename 'Eve's' name field to 'moniker'
+// Vampire.updateOne( { name: 'Eve' }, { $rename: {'name': 'moniker' } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( { moniker: 'Eve' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
 // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+// Vampire.updateMany( { gender: 'f' }, { $set: { gender: 'fems' } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// Vampire.find( {gender: 'fems'} )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+
+// Remove
+// Remove a single document wherein the hair_color is 'brown'
+// Vampire.deleteOne( { hair_color: 'brown' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+// Vampire.deleteMany( { eye_color: 'blue' } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+Vampire.find( { eye_color: 'blue' } )
+.then((vampire) => {
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
+
+
 
