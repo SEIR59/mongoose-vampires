@@ -430,14 +430,23 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
   // are not from Rome
-  Vampire.find({
-    location: { $nin: [/Rome/] }
-  })
-    .then((vampires) => {
-      console.log(vampires)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+  // Vampire.find({
+  //   location: { $nin: [/Rome/] }
+  // })
+  //   .then((vampires) => {
+  //     console.log(vampires)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+Vampire.find({
+  loves: { $nin: [/fancy cloaks/, /frilly shirtsleeves/, /appearing innocent/, /being tragic/, /brooding/] }
+})
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 // have not killed more than 200 people
