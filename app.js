@@ -462,7 +462,24 @@ const addMoreVamps = [
 // });
 
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
-Vampire.find( { $and: [ { loves: 'fancy cloaks' }, { loves: { $nin: ['top hats', 'virgin blood'] } } ] } )
+// Vampire.find( { $and: [ { loves: 'fancy cloaks' }, { loves: { $nin: ['top hats', 'virgin blood'] } } ] } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+
+// Negative Selection
+
+// Select all vampires that:
+
+// love ribbons but do not have brown eyes
+Vampire.find( { $and: [ { loves: 'ribbons' }, { eye_color: { $ne: 'brown' } } ] } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -472,7 +489,9 @@ Vampire.find( { $and: [ { loves: 'fancy cloaks' }, { loves: { $nin: ['top hats',
 .finally(() => {
   db.close();
 });
-
+// are not from Rome
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// have not killed more than 200 people
 
 
 
