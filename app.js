@@ -365,14 +365,25 @@ const vampireFamily = [
 //             })
 
 // Select with OR
-Vampire.find({ $or: [{ location: { $in: ["New York, New York, US","New Orleans, Louisiana, US" ]}}]})
-               .then((data) =>  {
-                console.log(data)
-                })
-                .catch((error) => {
-                console.log(error)
-                })
-                .finally(() => {
-                    db.close()
-                })
 
+// Vampire.find({ $or: [{ location: { $in: ["New York, New York, US","New Orleans, Louisiana, US" ]}}]})
+//                .then((data) =>  {
+//                 console.log(data)
+//                 })
+//                 .catch((error) => {
+//                 console.log(error)
+//                 })
+//                 .finally(() => {
+//                     db.close()
+//                 })
+
+Vampire.find({ $or: [{ loves: 'brooding' },{ loves: 'being tragic' }] })
+.then((data) =>  {
+            console.log(data)
+            })
+            .catch((error) => {
+            console.log(error)
+            })
+            .finally(() => {
+                db.close()
+            })
