@@ -440,8 +440,18 @@ db.on("close", () => console.log("mongo disconnected"));
   //     console.log(error)
   //   })
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({
+//   loves: { $nin: [/fancy cloaks/, /frilly shirtsleeves/, /appearing innocent/, /being tragic/, /brooding/] }
+// })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// have not killed more than 200 people
 Vampire.find({
-  loves: { $nin: [/fancy cloaks/, /frilly shirtsleeves/, /appearing innocent/, /being tragic/, /brooding/] }
+  victims: { $lte: 200}
 })
   .then((vampires) => {
     console.log(vampires)
@@ -449,4 +459,3 @@ Vampire.find({
   .catch((error) => {
     console.log(error)
   })
-// have not killed more than 200 people
