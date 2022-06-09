@@ -286,13 +286,24 @@ const vampireFamily = [
 //     db.close()
 // })
 
-Vampire.find({ victims: { $lte: 150 } })
+// Vampire.find({ victims: { $lte: 150 } })
+// .then((data) =>  {
+//     console.log(data)
+//     })
+//     .catch((error) => {
+//     console.log(error)
+//     })
+//     .finally(() => { 
+//         db.close()
+//     })
+
+Vampire.find({ victims: {$ne: 210234 }})
 .then((data) =>  {
-    console.log(data)
-    })
-    .catch((error) => {
-    console.log(error)
-    })
-    .finally(() => { 
-        db.close()
-    })
+        console.log(data)
+        })
+        .catch((error) => {
+        console.log(error)
+        })
+        .finally(() => { 
+            db.close()
+        })
