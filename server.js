@@ -361,3 +361,60 @@ app.get("/vampires/seed", (request, response) => {
 // .catch((error) => {
 //   console.log(error)
 // })
+
+//////////////////////////////////////////////////////
+// ### Select objects that match one of several values
+// Select all the vampires that:
+
+// 1. love either frilly shirtsleeves or frilly collars
+// 2. love brooding
+// 3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+// 4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+///////////////////////////////////////////////////////
+
+// query to find vampires that love frilly shirtsleeves or frilly collars
+// Vampire.find(
+//   {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'}]}
+// )
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires that loves brooding
+// Vampire.find(
+//   {loves: 'brooding'}
+// )
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find vampires if they love one of the following (shown below)
+// Vampire.find(
+//   {loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}}
+// )
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// query to find love fancy cloaks but not if they also love either top hats or virgin blood
+// Vampire.find(
+//   {$and: [
+//     {loves: 'fancy cloaks'}, 
+//     {loves: {$nin: 'top hats'}},
+//     {loves: {$nin: 'virgin blood'}}]}
+//   )
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
