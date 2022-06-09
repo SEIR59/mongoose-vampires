@@ -266,6 +266,79 @@ const newVampires = [
   
 // })
 
+// ========Update=======
+// Update 'Guy Man' to have a gender of 'f'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Guy Man'}, 
+//   //Update found data
+//   {$set: {
+//     gender: 'f'
+//   }}
+// )
+
+// Update 'Eve' to have a gender of 'm'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Eve'}, 
+//   //Update found data
+//   {$set: {
+//     gender: 'm'
+//   }}
+// )
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Guy Man'}, 
+//   //Update found data
+//   {$set: {
+//     hates: ['clothes', 'jobs']
+//   }},
+//   {upsert: true}
+// )
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Guy Man'}, 
+//   //Update found data
+//   {$push: 
+//     {hates: {$each:['clothes', 'jobs']}}
+//   }
+// )
+
+// Rename 'Eve's' name field to 'moniker'
+// Vampire.updateOne(
+//   //find Claudia
+//   {name:'Eve'}, 
+//   //Update found data
+//   {$set: 
+//     {name: 'moniker'}
+//   }
+// )
+
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+Vampire.updateMany(
+  //find Claudia
+  {gender:'f'}, 
+  //Update found data
+  {$set: 
+    {gender: 'fems'}
+  }
+)
+
+// 
+
+.then((res) => {
+  console.log(res)
+})
+
+  Vampire.find({gender:'fems'})
+  .then((res) => {
+    console.log(res)
+  })
+
 app.listen(port, () => {
   console.log("port 3000 listens");
   routesReport.print();
