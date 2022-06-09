@@ -377,7 +377,19 @@ const vampireFamily = [
 //                     db.close()
 //                 })
 
-Vampire.find({ $or: [{ loves: 'brooding' },{ loves: 'being tragic' }] })
+// Vampire.find({ $or: [{ loves: 'brooding' },{ loves: 'being tragic' }] })
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+
+Vampire.find({ $or: [{ victims: { $gt: 1000 }}, { loves:'marshmallows'}]})
 .then((data) =>  {
             console.log(data)
             })
