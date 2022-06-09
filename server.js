@@ -532,7 +532,96 @@ const newVampires = [
 //      db.close()
 //  })
   
- Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually: 'were lizard' }}, {upsert: true})
+//  Vampire.updateOne({name: 'Guy Man'}, {$set: {is_actually: 'were lizard' }}, {upsert: true})
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// ** Update **
+
+// Vampire.updateOne({ name: 'Guy Man' }, { $set: { gender: 'f' } })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.updateOne({ name: 'Eve' }, { $set: { gender: 'm' } })
+//     // if succeeds
+//  .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+    
+// Vampire.updateOne({ name: 'Guy Man' }, { $set: { hates: ['clothes', 'jobs']}}, {upsert: true})
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.updateOne({ name: 'Guy Man' }, {
+//     $push:
+//         { hates: ['alarm clocks', 'jackalopes'] }
+// })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+// Vampire.updateOne({ name: 'Eve' }, { $rename: { name: 'moniker' } }, { upsert: true })
+// // if succeeds
+// .then((vampire) => {
+//     console.log(vampire)
+//  })
+//       // if fails
+// .catch ((error) => {
+//    console.log(error)
+//  })
+// // // close db connection either way
+//  .finally(() => {
+//      db.close()
+//  })
+
+Vampire.updateMany({ gender: 'f' }, { $set: { gender: 'fems' } })
 // if succeeds
 .then((vampire) => {
     console.log(vampire)
@@ -545,6 +634,8 @@ const newVampires = [
  .finally(() => {
      db.close()
  })
+
+
 
 
 
