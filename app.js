@@ -503,7 +503,19 @@ const addMoreVamps = [
 // });
 
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-Vampire.find({ loves: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding'] } } )
+// Vampire.find({ loves: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding'] } } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+// have not killed more than 200 people
+Vampire.find( { victims: { $lte: 200 } } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -513,7 +525,6 @@ Vampire.find({ loves: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing
 .finally(() => {
   db.close();
 });
-// have not killed more than 200 people
 
 
 
