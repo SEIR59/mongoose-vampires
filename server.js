@@ -297,8 +297,20 @@ Vampire.find({ victims: { $not: { $gt: 200 } } })
 // .then(data => console.log(data))
 
 //rename all females to gender 'fems'
-Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}})
-.then(data => console.log(data))
+// Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}})
+// .then(data => console.log(data))
 
-Vampire.find({gender: 'fems'})
-.then(data => console.log(data))
+// Vampire.find({gender: 'fems'})
+// .then(data => console.log(data))
+
+//remove vampire with brown hair
+// Vampire.findOneAndRemove({hair_color: 'brown'})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+// Vampire.deleteOne({hair_color: 'brown'})
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+
+// Vampire.deleteMany({eye_color: 'blue'})
+// .then(data => console.log(data))
+// .catch(error => console.log(error))
