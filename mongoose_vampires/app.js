@@ -120,6 +120,12 @@ async function findVictimsGT500(){
 }
 //findVictimsGT500();
 
+async function findVictimsLTE150(){
+    const findingVictimsLTE150 = await Vampire.find({victims: {$lte: 150}})
+    console.log(findingVictimsLTE150);
+}
+//findVictimsLTE150();
+
 
 //Listen on port set in .env
 const PORT = process.env.PORT
