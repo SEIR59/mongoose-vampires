@@ -424,7 +424,19 @@ const vampireFamily = [
 //                 db.close()
 //             })
 
-Vampire.find({ loves: { $in: ['brooding']}})
+// Vampire.find({ loves: { $in: ['brooding']}})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+
+Vampire.find({ loves: { $in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
 .then((data) =>  {
             console.log(data)
             })
@@ -434,5 +446,3 @@ Vampire.find({ loves: { $in: ['brooding']}})
             .finally(() => {
                 db.close()
             })
-
-
