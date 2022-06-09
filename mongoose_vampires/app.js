@@ -7,15 +7,33 @@ const app = require('liquid-express-views')(express())
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
-const Vampire = require('./models/vampire')
+const Vampires = require('./models/vampire')
 const seedData = require('./models/vampire')
 
-/*
+const { Schema, model } = mongoose
+
+// make our fruits schema
+const vampireSchema = new Schema({
+    name: { type: String, required: true},
+    title: { type: String },
+    hair_color: { type: String, default: 'Blonde' },
+    eye_color: { type: String },
+    dob: { type: Date, default: Date.now },
+    loves: { type: [String] },
+    location: { type: String },
+    gender: {type: String},
+    victims: {type: Number, min: 0}
+
+}, { timestamps: true })
+
+// make our vampire model
+const Vampire = model("Vampire", vampireSchema)
+
 Vampire.insertMany(seedData)
     .then((data) => console.log(data))
     .catch((error)=> console.log(error))
     .finally(()=>(db.close()))
-*/
+
 function myVampires(){
     const theVampires = 
 
@@ -69,6 +87,11 @@ function myVampires(){
 }
 
 //myVampires()
+async function findFemale(){
+    const findingF = await Vampire.find({gender: 'f'})
+    console.log(findingF);
+}
+//findFemale();
 
 //Listen on port set in .env
 const PORT = process.env.PORT
