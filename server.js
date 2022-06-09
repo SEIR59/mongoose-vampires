@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
+const Vampires = require('./models/vampires')
 
 const DATABASE_URL = process.env.DATABASE_URL
 const CONFIG = {
@@ -20,14 +21,16 @@ mongoose.connection
 const { Schema, model } = mongoose
 
 const vampireSchema = new Schema({
-    name: String,
+    name: {type: String, required: true},
     title: String,
     hair_color: {type: String, default: 'blonde'
     },
     eye_color: String,
     dob: Date,
-    loves: Array,
+    loves: [String],
     location: String,
     gender: String,
     victims: {type: Number, default: 1}
 })
+
+const Vampires = model('Vampires', vampireSchema)
