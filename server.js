@@ -114,32 +114,57 @@ app.listen(PORT, () => {
 
 //Female
 
-Vampire.find({ gender: 'f'})
+// Vampire.find({ gender: 'f'})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+// //Victim Greater Than 500
+// Vampire.find({victims: {$gt: 500}})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+// //Victims less than or equal to 150
+// Vampire.find({victim: {$lte: 150}})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+// //Victims not equal to 210234
+// Vampire.find({victim: {$ne: 210234}})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+// //Victims greater than 150 AND fewer than 500
+// Vampire.find({victim: {$gt: 150, $lt: 500}})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+//Select by exists or does not exist
+
+// Has a key of title
+Vampire.find({title: {$exists: true}})
 .then((data) => {console.log(data)})
 .catch((error) => {console.log(error)})
 .finally(() => {db.close()})
 
-//Victim Greater Than 500
-Vampire.find({victims: {$gt: 500}})
+// Does not have a key of victims
+Vampire.find({victims: {$exists: false}})
 .then((data) => {console.log(data)})
 .catch((error) => {console.log(error)})
 .finally(() => {db.close()})
 
-//Victims less than or equal to 150
-Vampire.find({victim: {$lte: 150}})
+// Has a title AND 0 victims
+Vampire.find({title: {$exists: true},victims: {$exists: false}})
 .then((data) => {console.log(data)})
 .catch((error) => {console.log(error)})
 .finally(() => {db.close()})
 
-//Victims not equal to 210234
-Vampire.find({victim: {$ne: 210234}})
+// Has victims AND victims over 1000
+Vampire.find({victims: {$exists: true},victims: {$gt: 1000}})
 .then((data) => {console.log(data)})
 .catch((error) => {console.log(error)})
 .finally(() => {db.close()})
-
-//Victims greater than 150 AND fewer than 500
-Vampire.find({victim: {$gt: 150, $lt: 500}})
-.then((data) => {console.log(data)})
-.catch((error) => {console.log(error)})
-.finally(() => {db.close()})
-
