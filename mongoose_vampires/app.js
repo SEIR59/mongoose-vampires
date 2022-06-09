@@ -157,6 +157,11 @@ async function vicAndTitle(){
 }
 //vicAndTitle();
 
+async function vicAndGT1000(){
+    const thevicAndGT1000= await Vampire.find({victims: {$exists: true}, victims: {$gt: 1000}})
+    console.log(thevicAndGT1000);
+}
+vicAndGT1000();
 
 
 //Listen on port set in .env
