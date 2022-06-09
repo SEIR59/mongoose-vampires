@@ -469,7 +469,16 @@ app.get("/vampires/seed", (request, response) => {
 // })
 
 // remove a single document wherein the hair_color is brown
-Vampire.deleteOne({hair_color: 'brown'})
+// Vampire.deleteOne({hair_color: 'brown'})
+// .then((data) => {
+//   console.log(data)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+
+// remove all vampires with blue eyes
+Vampire.deleteMany({eye_color: 'blue'})
 .then((data) => {
   console.log(data)
 })
