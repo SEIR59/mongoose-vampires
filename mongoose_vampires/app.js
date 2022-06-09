@@ -8,7 +8,24 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
 const Vampires = require('./models/vampire')
-const seedData = require('./models/vampire')
+
+
+const DATABASE_URL = process.env.DATABASE_URL
+const CONFIG = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+
+// establish connection
+mongoose.connect(DATABASE_URL, CONFIG)
+
+// events for when our connection opens/closes/errors
+const db = mongoose.connection
+	.on('open', () => console.log('Connected to Mongoose'))
+	.on('close', () => console.log('Disconnected from Mongoose'))
+	.on('error', (error) => console.log(error))
+
+
 
 const { Schema, model } = mongoose
 
@@ -29,10 +46,13 @@ const vampireSchema = new Schema({
 // make our vampire model
 const Vampire = model("Vampire", vampireSchema)
 
-Vampire.insertMany(seedData)
+
+/*Vampire.insertMany(Vampires)
     .then((data) => console.log(data))
     .catch((error)=> console.log(error))
     .finally(()=>(db.close()))
+*/
+
 
 function myVampires(){
     const theVampires = 
@@ -87,11 +107,13 @@ function myVampires(){
 }
 
 //myVampires()
+
 async function findFemale(){
     const findingF = await Vampire.find({gender: 'f'})
     console.log(findingF);
 }
 //findFemale();
+
 
 //Listen on port set in .env
 const PORT = process.env.PORT
