@@ -1,16 +1,51 @@
+// Import Dependencies
 const express = require('express')
-const app = require('liquid-express-views')(express())
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const port = 3000
 const rowdy = require('rowdy-logger')
 const routesReport = rowdy.begin(app)
 const Vampire = require('./models/vampire.js')
-const db = mongoose.connection
+// const db = mongoose.connection
 
-// Homepage
+//Database Connection
+// Setup inputs for our connect function
+
+const DATABASE_URL = process.env.DATABASE_URL
+const CONFIG = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+// Establish Connection
+mongoose.connect(DATABASE_URL, CONFIG)
+
+// Events for when connection opens/disconnects/errors
+mongoose.connection
+.on("open", () => console.log("Connected to Mongoose"))
+.on("close", () => console.log("Disconnected from Mongoose"))
+.on("error", (error) => console.log(error));
+
+/////////////////////////////////////////////////
+// Create our Express Application Object
+/////////////////////////////////////////////////
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
+
+/////////////////////////////////////////////////////
+// Middleware
+/////////////////////////////////////////////////////
+app.use(methodOverride("_method")); // override for put and delete requests from forms
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+app.use(express.static("public")); // serve files from public statically
+
+
+////////////////////////////////////////////
+// Routes
+////////////////////////////////////////////
+app.get("/", (req, res) => {
+    res.send("your server is running... better catch it.");
+  });
 app.get('/', (req,res) => {
-    res.send("Mongoose-Vampires homepagae")
+    res.send("Mongoose-Vampires Homepage")
 })
 
 const newVampires = [
@@ -59,18 +94,12 @@ const newVampires = [
         victims: 2,
       }
 ]
-Vampire.insertMany(newVampires)
-.then((newVampires) => {
-    console.log(newVampires)
-})
-.catch((error) => {
-    console.log(error)
-})
-.finally(() => {
-    db.close()
-})
 
-app.listen(3000, () => {
-    console.log('working connection')
+//////////////////////////////////////////////
+// Server Listener
+//////////////////////////////////////////////
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
     routesReport.print()
-})
+    console.log(`Now Listening on port ${PORT}`
+)});

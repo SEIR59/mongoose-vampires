@@ -1,3 +1,7 @@
+////////////////////////////////////////////////
+// Our Models
+////////////////////////////////////////////////
+
 const mongoose = require('mongoose')
 // pull schema and model from mongoose
 const { Schema, model } = mongoose
@@ -16,12 +20,14 @@ const vampireSchema = new Schema ({
     dob: Date,
     loves: Array,
     location: String,
-    gender: String,
+    gender: {
+        type: String,
+        enum: ['m', 'f'],
     victims: {
         type: Number,
         min: 1
     }
-})
+}})
 
 // vampire model
 

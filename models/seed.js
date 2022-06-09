@@ -1,11 +1,4 @@
-const mongoose = require('mongoose')
-const Vampire = require('./vampire')
-
-// Seed code
-const db = mongoose.connection
-
-db.on('open', () => {
-    const startVampires = [
+const seedData = [
         {
         name: 'Count Chocula',
         hair_color: 'brown',
@@ -142,21 +135,6 @@ db.on('open', () => {
         gender: 'm',
         title: 'Osiris of Sewer Rats'
       }
-      ]
-      Vampire.deleteMany({})
-      .then((deletedVampires) => {
-          Vampire.create(startVampires)
-          .then((newVampires) => {
-              console.log(newVampires)
-              db.close()
-          })
-          .catch((error) => {
-              console.log(error)
-              db.close()
-          })
-      })
-      .catch((error) => {
-          console.log(error)
-          db.close()
-      })
-})
+      ];
+
+      module.exports = seedData
