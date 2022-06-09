@@ -501,16 +501,22 @@ db.on("close", () => console.log("mongo disconnected"));
 //   .catch((error) => {
 //     console.log(error)
 //   })
-  // Update 'Eve' to have a gender of 'm'
-  Vampire.updateOne({ name: "Eve" }, { gender: "m" })
-    .then((vampires) => {
-      console.log(vampires)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-
+// Update 'Eve' to have a gender of 'm'
+// Vampire.updateOne({ name: "Eve" }, { gender: "m" })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   }) 
 // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+Vampire.updateOne({ name: "Guy Man" }, { hates: ["clothes","jobs"] })
+  .then((vampires) => {
+    console.log(vampires)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
 
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
 
