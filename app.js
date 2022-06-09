@@ -251,6 +251,10 @@ const addMoreVamps = [
 //         db.close()
 //     })
 
+
+
+//Select by comparison
+
 //Find all the vampires that that are females
 // Vampire.find({ gender: "f" })
 //   .then((vampire) => {
@@ -301,7 +305,25 @@ const addMoreVamps = [
 // });
 
 //have greater than 150 AND fewer than 500 victims
-Vampire.find( {$and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500 }}]})
+// Vampire.find( {$and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500 }}]})
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+
+//Select by exists or does not exist
+
+// Select all the vampires that:
+
+// have a key of 'title'
+
+Vampire.find( { title: {$exists: true} } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -311,4 +333,12 @@ Vampire.find( {$and: [{ victims: { $gt: 150 }}, { victims: { $lt: 500 }}]})
 .finally(() => {
   db.close();
 });
+
+
+// do not have a key of 'victims'
+// have a title AND no victims
+// have victims AND the victims they have are greater than 1000
+
+
+
 
