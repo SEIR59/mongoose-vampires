@@ -58,7 +58,7 @@ const moreVampires = [
     dob: new Date(937, 0, 24, 13, 0),
     hair_color: 'brown',
     eye_color: 'blue',
-    loves: ['Winona Ryder', 'top hats', 'fancy cloaks', 'handlebar   mustaches'],
+    loves: ['Winona Ryder', 'top hats', 'fancy cloaks', 'handlebar mustaches'],
     location: 'Transylvania, Romania',
     gender: 'm',
     victims: 1238
@@ -78,7 +78,7 @@ const moreVampires = [
     dob: new Date(1760, 11, 9, 18, 44),
     hair_color: 'blonde',
     eye_color: 'blue',
-    loves: ['frilly shirtsleeves', 'frilly collars', 'lurking in   rotting mansions', 'Louis'],
+    loves: ['frilly shirtsleeves', 'frilly collars', 'lurking in rotting mansions', 'Louis'],
     location: 'Auvergne, France',
     gender: 'm',
     victims: 324
@@ -88,7 +88,7 @@ const moreVampires = [
     dob: new Date(1766, 6, 4, 2, 1),
     hair_color: 'brown',
     eye_color: 'blue',
-    loves:['brooding', 'Claudia', 'staring longingly into the   distance'],
+    loves:['brooding', 'Claudia', 'staring longingly into the distance'],
     location: 'New Orleans, Louisiana, US',
     gender:'m',
     victims: 150
@@ -413,7 +413,18 @@ const vampireFamily = [
 
 // Select objects that match one of several values
 
-Vampire.find({ loves: { $in: ['frilly shirtsleeves', 'frilly collars']}})
+// Vampire.find({ loves: { $in: ['frilly shirtsleeves', 'frilly collars']}})
+// .then((data) =>  {
+//             console.log(data)
+//             })
+//             .catch((error) => {
+//             console.log(error)
+//             })
+//             .finally(() => {
+//                 db.close()
+//             })
+
+Vampire.find({ loves: { $in: ['brooding']}})
 .then((data) =>  {
             console.log(data)
             })
@@ -423,3 +434,5 @@ Vampire.find({ loves: { $in: ['frilly shirtsleeves', 'frilly collars']}})
             .finally(() => {
                 db.close()
             })
+
+
