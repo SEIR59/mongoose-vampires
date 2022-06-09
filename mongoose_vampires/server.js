@@ -365,7 +365,62 @@ app.listen(3000, () => {
 //     db.close()
 //   })
 
-// Vampires.findOneAndReplace({ name: 'Claudia'},{$set: {n}})
+// Vampires.findOneAndReplace({ name: 'Claudia'}, {name: 'Eve', portrayed_by: 'Tilda Swinton'})
+//   .then((Vampires) => {
+//     console.log(Vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+// Vampires.findOneAndReplace({ gender: 'm'}, {name: 'Guy Man', is_actually: 'were-lizard'})
+//   .then((Vampires) => {
+//     console.log(Vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+// Vampires.findOneAndUpdate({name: 'Guy Man'}, {gender: 'f'}, {new: true})
+//   .then((Vampires) => {
+//     console.log(Vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+// Vampires.findOneAndUpdate({name: 'Eve'}, {gender: 'm'}, {new: true})
+//   .then((Vampires) => {
+//     console.log(Vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+// Vampires.findOneAndUpdate({name: 'Guy Man'}, {hates: ['clothes', 'jobs']}, {new: true})
+//   .then((Vampires) => {
+//     console.log(Vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+// Vampires.findOneAndUpdate({name: 'Guy Man'}, {$push: {hates: ['alarm clocks','jackalopes']}})
 //   .then((Vampires) => {
 //     console.log(Vampires)
 //   })
@@ -377,12 +432,47 @@ app.listen(3000, () => {
 //   })
 
 
+// Vampires.findOneAndUpdate({ name: 'Eve'}, { $rename: {'name': 'moniker' }},
+//     { new: true }
+// )
+// .then((Vampires) => {
+// console.log(Vampires)
+// })
+// .catch(error => res.json(error))
+// .finally(() => {
+//     db.close()
+// })
+
+// Vampires.updateMany({ gender: 'f'}, {gender: 'fems'},{new: true})
+// .then((Vampires) => {
+// console.log(Vampires)
+// })
+// .catch(error => res.json(error))
+// .finally(() => {
+//     db.close()
+// })
 
 
+// Vampires.findOneAndRemove({ hair_color: "brown"}, { new: true }
+// )
+// .then((Vampires) => {
+// console.log(Vampires)
+// })
+// .catch(error => res.json(error))
+// .finally(() => {
+//     db.close()
+// })
 
 
+// Vampires.deleteMany({ eye_color: "blue"}, { new: true }
+// )
+// .then((Vampires) => {
+// console.log(Vampires)
+// })
+// .catch(error => res.json(error))
+// .finally(() => {
+//     db.close()
+// })
 
-app.get('/new', (req, res) => {
-  res.render('new')
-})
+
 
