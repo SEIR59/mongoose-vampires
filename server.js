@@ -144,10 +144,50 @@ const newVampires = [
 // })
 
 // have red hair or green eyes
+// Vampire.find({
+//   $or: [
+//     {hair_color: 'red'},
+//     {eye_color: 'green'}
+//   ]
+// })
+
+// ========Select objects that match one of several values=======
+// love either frilly shirtsleeves or frilly collars
+// Vampire.find({
+//   loves: {
+//     $in: [
+//       'frilly shirtsleeves ', 'frilly collars'
+//     ]
+//   }
+// })
+
+// loves brooding
+// Vampire.find({
+//   loves:
+//     'brooding'
+// })
+
+// love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+// Vampire.find({
+//   loves: {
+//     $in: [
+//       'appearing innocent',
+//       'trickery',
+//       'lurking in rotting mansions',
+//       'R&B music'
+//     ]
+//   }
+// })
+
+// love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
 Vampire.find({
-  $or: [
-    {hair_color: 'red'},
-    {eye_color: 'green'}
+  $and: [
+    {loves: 'fancy cloaks'},
+    {loves: {
+      $nin: [
+        'top hats', 'virgin blood'
+      ]
+    }}
   ]
 })
 .then((res) => {
