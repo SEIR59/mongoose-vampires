@@ -171,6 +171,16 @@ Vampire.find({$or: [{loves:/marshmallow/}, {victims: {$gt: 100}}]})
 
 Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]})
 
+
+Vampire.find({loves: {$in: ['frilly shirtsleeves', 'frilly collars']}})
+
+Vampire.find({loves: 'brooding'})
+
+Vampire.find({loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
+
+Vampire.find({loves: 'fancy cloaks', $nor: [{loves: 'top hats'}, {loves: 'virgin blood'}]})
+
+
 //Listen on port set in .env
 const PORT = process.env.PORT
 app.listen(PORT, () => {
