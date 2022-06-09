@@ -420,49 +420,64 @@ app.get("/", (req, res) => {
 //   }); 
 
 // Update 'Guy Man' to have a gender of 'f'
- Vampire.updateOne({ name: "Guy Man" }, { $set: { gender: "f" } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+//  Vampire.updateOne({ name: "Guy Man" }, { $set: { gender: "f" } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // Update 'Eve' to have a gender of 'm'
- Vampire.updateOne({ name: "Eve" }, { $set: { gender: "m" } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+//  Vampire.updateOne({ name: "Eve" }, { $set: { gender: "m" } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
   // Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
-Vampire.updateOne({ name: "Guy Man" }, { $set: { hates: ["clothes", "jobs"] } })
-  .then((v) => {
-    console.log(v);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    db.close();
-  });
+// Vampire.updateOne({ name: "Guy Man" }, { $set: { hates: ["clothes", "jobs"] } })
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
 
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
-Vampire.updateOne(
-  { name: "Guy Man" },
-  {
-    $push: {
-      hates: { $each: ["alarm clocks", "jackalopes"] },
-    },
-  }
+// Vampire.updateOne(
+//   { name: "Guy Man" },
+//   {
+//     $push: {
+//       hates: { $each: ["alarm clocks", "jackalopes"] },
+//     },
+//   }
+// )
+//   .then((v) => {
+//     console.log(v);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   }); 
+
+// Rename 'Eve's' name field to 'moniker'
+ Vampire.updateOne(
+  { name: "Eve" },
+  {$set: { name: "moniker" },}
 )
   .then((v) => {
     console.log(v);
@@ -472,7 +487,22 @@ Vampire.updateOne(
   })
   .finally(() => {
     db.close();
-  }); 
+  });
+
+  // We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+Vampire.updateMany(
+    { gender: "f" },
+    { $set: { gender: "fems" },}
+  )
+    .then((v) => {
+      console.log(v);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      db.close();
+    });
 
 
 
