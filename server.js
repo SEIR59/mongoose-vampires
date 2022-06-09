@@ -3,7 +3,7 @@ const app = require('liquid-express-views')(express())
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const path = require('path')
-const Vampires = require('./models/vampires')
+const Vampire = require('./models/vampires')
 const seedData = require('./models/seed')
 
 const mongoURI = 'mongodb://127.0.0.1'
@@ -154,26 +154,48 @@ const moleButt =
 // Select with OR
 
 // From NY or LA
-Vampire.find({ $or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
-.then((data) => {console.log(data)})
-.catch((error) => {console.log(error)})
-.finally(() => {db.close()})
+// Vampire.find({ $or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
 
-// Loves Brooding or Being Tragic
-Vampire.find({ $or: [{loves: /brooding/}, {loves: /being tragic/ }]})
-.then((data) => {console.log(data)})
-.catch((error) => {console.log(error)})
-.finally(() => {db.close()})
+// // Loves Brooding or Being Tragic
+// Vampire.find({ $or: [{loves: /brooding/}, {loves: /being tragic/ }]})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
 
-// Has more than 1000 victims or loves marshmallows
-Vampire.find({ $or: [{victims: {$gt: 1000}, loves: /marshmallows/}]})
-.then((data) => {console.log(data)})
-.catch((error) => {console.log(error)})
-.finally(() => {db.close()})
+// // Has more than 1000 victims or loves marshmallows
+// Vampire.find({ $or: [{victims: {$gt: 1000}, loves: /marshmallows/}]})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
 
-// Has red hair or green eyes
-Vampire.find({ $or: [{hair_color: red}, {eye_color: green}]})
-.then((data) => {console.log(data)})
-.catch((error) => {console.log(error)})
-.finally(() => {db.close()})
+// // Has red hair or green eyes
+// Vampire.find({ $or: [{hair_color: 'red'}, {eye_color: 'green'}]})
+// .then((data) => {console.log(data)})
+// .catch((error) => {console.log(error)})
+// .finally(() => {db.close()})
+
+// Objects that match one of several values
+
+// Loves frilly  clothes
+// Vampire.find({ loves: {$in: ['frilly shirtsleeves', 'frilly collars']}})
+// .then((data) => {console.log(data)})
+
+// Loves brooding
+// Vampire.find({ loves: 'brooding' })
+// .then((data) => {console.log(data)})
+
+// Loves at least one...
+// Vampire.find({ loves: {$in: ['appearing innocent', 'trickery', 'lurking in rotting mansions', 'R&B music']}})
+// .then((data) => {console.log(data)})
+
+// Loves fancy cloaks, but not...
+// Vampire.find({ $and: [{loves: 'fancy cloaks'}, {loves: {$nin: ['top hat', 'virgin blood']} }]})
+// .then((data) => {console.log(data)})
+
+
+
+
 
