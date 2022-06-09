@@ -212,12 +212,17 @@ async function runVamps() {
 }
 
 let robertPattinson = {
-  name: 'Robert Pattinson',
-  hair_color: 'blond',
-  eye_color: 'blue',
+  name: "Robert Pattinson",
+  hair_color: "blond",
+  eye_color: "blue",
   dob: new Date(1986, 5, 13, 12, 12),
-  loves: ['being a bat', 'making movies'],
-  location: 'London, England, UK',
-  gender: 'm',
-  title: 'the Batman'
+  loves: ["being a bat", "making movies"],
+  location: "London, England, UK",
+  gender: "m",
+  title: "the Batman",
+}
+
+async function findDocs() {
+  const find = await Vampire.find({ gender: "f" })
+  console.log(find)
 }
