@@ -15,6 +15,8 @@ const vampireSchema = new Schema({
   location: String,
   gender: String,
   victims: { type: Number, min: 1 },
+  portrayed_by: String,
+  is_actually: String,
 });
 
 // Creating Tweet model : We need to convert our schema into a model-- will be stored in 'tweets' collection.  Mongo does this for you automatically

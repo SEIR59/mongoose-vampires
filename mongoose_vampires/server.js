@@ -327,3 +327,107 @@ const ladyVamps = [
 //   .finally(() => {
 //     db.close();
 //   });
+
+// Vampire.find({
+//   $and: [{ loves: "ribbons" }, { eye_color: { $nin: "brown" } }],
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({ location: { $nin: "Rome, Italy" } })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({
+//   loves: {
+//     $nin: [
+//       "fancy cloaks",
+//       "frilly shirtsleeves",
+//       "appearing innocent",
+//       "being tragic",
+//       "brooding",
+//     ],
+//   },
+// })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.find({ victims: { $lt: 200 } })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate(
+//   { name: "Claudia" },
+//   { name: "Eve" },
+//   { portrayed_by: "Tilda Swinton" }
+// )
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate({ name: "Eve" }, { portrayed_by: "Tilda Swinton" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate({ name: "Cedward Mullen" }, { name: "Guy Man" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
+
+// Vampire.findOneAndUpdate({ name: "Guy Man" }, { is_actually: "were-lizard" })
+//   .then((vampire) => {
+//     console.log(vampire);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     db.close();
+//   });
