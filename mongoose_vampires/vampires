@@ -6,15 +6,15 @@ const model = mongoose.model;
 // This will define the shape of the documents in the collection
 // https://mongoosejs.com/docs/guide.html
 const vampireSchema = new Schema({
-  name: { Type: String, received: true },
+  name: { type: String, required: true },
   title: String,
-  hair_color: { Type: String, default: "Blonde" },
+  hair_color: { type: String, required: true, defaultStatus: "blonde" },
   eye_color: String,
   dob: Number,
   loves: [String],
   location: String,
   gender: Number,
-  victims: { Type: String, default: 1 },
+  victims: { type: Number, min: 1, required: true },
 });
 
 // Creating Tweet model : We need to convert our schema into a model-- will be stored in 'tweets' collection.  Mongo does this for you automatically

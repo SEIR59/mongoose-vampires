@@ -1,6 +1,7 @@
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
+const Vampire = require("./vampires");
 
 // Global config
 const mongoURI = "mongodb://127.0.0.1/vampires";
