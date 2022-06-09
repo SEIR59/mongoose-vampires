@@ -429,16 +429,16 @@ db.on("close", () => console.log("mongo disconnected"));
 //   .catch((error) => {
 //     console.log(error)
 //   })
-  // are not from Rome
-  // Vampire.find({
-  //   location: { $nin: [/Rome/] }
-  // })
-  //   .then((vampires) => {
-  //     console.log(vampires)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
+// are not from Rome
+// Vampire.find({
+//   location: { $nin: [/Rome/] }
+// })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
 // do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
 // Vampire.find({
 //   loves: { $nin: [/fancy cloaks/, /frilly shirtsleeves/, /appearing innocent/, /being tragic/, /brooding/] }
@@ -450,12 +450,30 @@ db.on("close", () => console.log("mongo disconnected"));
 //     console.log(error)
 //   })
 // have not killed more than 200 people
-Vampire.find({
-  victims: { $lte: 200}
-})
+// Vampire.find({
+//   victims: { $lte: 200}
+// })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+// Replace (this one may require some additional google foo. Hint: fields may need to be updated in schema)
+
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+Vampire.updateOne(
+  { name: "Claudia" },
+  {
+    name: "Eve",
+    portrayed_by: "Tilda Swinton"
+  }
+)
   .then((vampires) => {
     console.log(vampires)
   })
   .catch((error) => {
     console.log(error)
   })
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'

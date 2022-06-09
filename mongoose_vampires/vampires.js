@@ -24,7 +24,11 @@ const vampiresSchema = new Schema({
         type: Number,
         min: 0
     },
-})
+  },
+  {
+    strict: false
+  }
+)
 
 const Vampire = model("vampire", vampiresSchema)
 
