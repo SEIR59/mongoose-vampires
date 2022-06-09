@@ -162,3 +162,60 @@ const manyVampires = [{
 //     .finally(() => {
 //         db.close()
 //     })
+
+//Using the create method, create 4 new vampires with any qualities that you like two should be male and two should be female.
+const addMoreVamps = [
+        {
+            name: 'Damon Salvator',
+            hair_color: 'black',
+            eye_color: 'grey',
+            dob: new Date(1487, 10, 30, 2, 7),
+            loves: ['Elena Gilbert', 'His brother'],
+            location: 'Mystic Falls',
+            gender: 'm',
+            victims: 465
+        },
+        {
+            name: 'Stefan Salvator',
+            hair_color: 'brown',
+            eye_color: 'green',
+            dob: new Date(1846, 11, 01, 9, 2),
+            loves: ['Elena Gilbert', 'His brother'],
+            location: 'Mystic Falls',
+            gender: 'm',
+            victims: 378
+        },
+        {
+            name: 'Elena Gilbert',
+            hair_color: 'brown',
+            eye_color: 'brown',
+            dob: new Date(1992, 6, 22, 5, 20),
+            loves: ['Damon Salvator', 'Stefan Salvator'],
+            location: 'Mystic Falls',
+            gender: 'f',
+            victims: 28
+        },
+        {
+            name: 'Rebecca Mikaelson',
+            hair_color: 'blond',
+            eye_color: 'blue',
+            dob: new Date(985, 8, 2, 20, 6),
+            loves: ['Her family', 'Stefan Salvator'],
+            location: 'Mystic Falls',
+            gender: 'f',
+            victims: 17867
+        }
+]
+
+//create 4 more vamps
+// Vampire.insertMany(addMoreVamps)
+//     .then((vampire) => {
+//         console.log(vampire);
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     })
+
+//     .finally(() => {
+//         db.close()
+//     })

@@ -11,11 +11,11 @@ const vapiresSchema = new Schema({
             required: true
         },
         title: String,
-        hairColor: {
+        hair_color: {
             type: String,
             default: 'blonde'
         },
-        eyeColor: String,
+        eye_color: String,
         dob: Date,
         loves: [String],
         location: String,
