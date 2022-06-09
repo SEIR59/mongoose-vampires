@@ -530,16 +530,23 @@ db.on("close", () => console.log("mongo disconnected"));
 //   })
 
 // Rename 'Eve's' name field to 'moniker'
-Vampire.updateOne({ name: "Eve" },
-  {
-    $rename:
-      { name: "moniker" }
-  })
+// Vampire.updateOne({ name: "Eve" },
+//   {
+//     $rename:
+//       { name: "moniker" }
+//   })
+//   .then((vampires) => {
+//     console.log(vampires)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
+Vampire.updateMany({ gender: "f" },
+  { gender: "fems" })
   .then((vampires) => {
     console.log(vampires)
   })
   .catch((error) => {
     console.log(error)
   })
-
-// We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems".
