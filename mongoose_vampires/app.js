@@ -530,10 +530,10 @@ db.on("close", () => console.log("mongo disconnected"));
 //   })
 
 // Rename 'Eve's' name field to 'moniker'
-Vampire.updateOne({ name: "Guy Man" },
+Vampire.updateOne({ name: "Eve" },
   {
-    $pull:
-      { hates: ["alarm clocks", "jackalopes"] }
+    $rename:
+      { name: "moniker" }
   })
   .then((vampires) => {
     console.log(vampires)
