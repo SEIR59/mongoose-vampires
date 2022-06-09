@@ -394,9 +394,14 @@ const newVampires = [
 //      db.close()
 //  })
 
-Vampire.find({ victims: { $lte: 200 } })
-// if succeeds
-.then((vampire) => {
+Vampire.find(
+            { loves: 'fancy cloaks' ,
+                    $nor:
+                    [{ loves: 'top hats' },
+                     { loves: 'virgin blood' }],
+    })
+    // if succeeds
+ .then((vampire) => {
     console.log(vampire)
  })
       // if fails
@@ -408,7 +413,7 @@ Vampire.find({ victims: { $lte: 200 } })
      db.close()
  })
 
- 
+
 
 
 
