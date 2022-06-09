@@ -358,7 +358,23 @@ const addMoreVamps = [
 // });
 
 // have victims AND the victims they have are greater than 1000
-Vampire.find( { $and: [ { victims: { $exists: true } }, { victims: { $gt: 1000 } } ] } )
+// Vampire.find( { $and: [ { victims: { $exists: true } }, { victims: { $gt: 1000 } } ] } )
+// .then((vampire) => {
+//   console.log(vampire);
+// })
+// .catch((error) => {
+//   console.log(error);
+// })
+// .finally(() => {
+//   db.close();
+// });
+
+//Select with OR
+
+//Select all the vampires that:
+
+// are from New York, New York, US or New Orleans, Louisiana, US
+Vampire.find( { $or: [ { location: 'New York, New York, US' }, { location: 'New Orleans, Louisiana, US' } ] } )
 .then((vampire) => {
   console.log(vampire);
 })
@@ -368,6 +384,11 @@ Vampire.find( { $and: [ { victims: { $exists: true } }, { victims: { $gt: 1000 }
 .finally(() => {
   db.close();
 });
+// love brooding or being tragic
+// have more than 1000 victims or love marshmallows
+// have red hair or green eyes
+
+
 
 
 
