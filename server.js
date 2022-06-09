@@ -28,6 +28,13 @@ const db = mongoose.connection
   db.on("open", () => console.log("Connected to Mongoose"))
   db.on("close", () => console.log("Disconnected from Mongoose"))
   db.on("error", (error) => console.log(error));
+  
+/////////////////////////////////////////////////////
+// Middleware
+/////////////////////////////////////////////////////
+app.use(methodOverride("_method")); // override for put and delete requests from forms
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+app.use(express.static("public")); // serve files from public statically
 
 ////////////////////////////////////////////////
 // Our Models
@@ -54,6 +61,60 @@ const Vampire = model("Vampire", vampireSchema)
 // .catch((error)=>{console.log(error)})
 // .finally(() => { db.close() })
 
+const newVampires = [
+    {
+        name: 'Markos',
+        title: 'Leader',
+        hair_color: 'white',
+        eye_color: 'blue',
+        dob: new Date(1968, 7, 10, 8, 42, 33),
+        loves: ['killing, relaxing'],
+        location: 'New York',
+        gender: 'm',
+        victims: 12,
+    },
+    {
+        name: 'Artura',
+        title: 'Pirate',
+        hair_color: 'red',
+        eye_color: 'blue',
+        dob: new Date(1954, 2, 15, 12, 44, 22),
+        loves: ['hiking, swimming'],
+        location: 'Miami',
+        gender: 'f',
+        victims: 15,
+    },
+    {
+        name: 'Carver',
+        title: 'Menace',
+        hair_color: 'green',
+        eye_color: 'yellow',
+        dob: new Date(1988, 10, 10, 5, 24, 31),
+        loves: ['drinking, crime'],
+        location: 'Austin',
+        gender: 'f',
+        victims: 18,
+    },
+    {
+        name: 'Drako',
+        title: 'Savage',
+        hair_color: 'purple',
+        eye_color: 'orange',
+        dob: new Date(1992, 3, 15, 9, 24, 35),
+        loves: [killing, relaxing],
+        location: 'Chicago',
+        gender: 'm',
+        victims: 24,
+    }
+]
+
+
+
+
+
+
+
+
 
 
 
@@ -62,12 +123,7 @@ const Vampire = model("Vampire", vampireSchema)
 /////////////////////////////////////////////////
 const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
 
-/////////////////////////////////////////////////////
-// Middleware
-/////////////////////////////////////////////////////
-app.use(methodOverride("_method")); // override for put and delete requests from forms
-app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
-app.use(express.static("public")); // serve files from public statically
+
 
 ////////////////////////////////////////////
 // Routes
