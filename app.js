@@ -174,6 +174,10 @@ const newVampires = (
 //         victims: 62549,
 //     }
 // )
+
+
+
+
 // Vampire.create(
 //     {
 //         name: 'Gwargo',
@@ -215,3 +219,189 @@ const newVampires = (
 //    db.close()
 //   })
   
+
+
+
+
+
+
+
+//Querying//
+
+//Select by Comparison//
+
+Vampire.find({gender:'f'})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({victims:{$gt:500}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({victims:{$lte:150}})
+    .then((res)=>{
+        console.log(res)
+})
+
+    Vampire.find({victims:{$ne:210234}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$and:[{victims:{$lt:500}},{victims:{$gt:150}}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+//Select by exists or does not exist//
+
+Vampire.find({title:{$exists:true}})
+    .then((res)=>{
+        console.log(res)
+})
+Vampire.find({victims:{$exists:false}})
+    .then((res)=>{
+        console.log(res)
+})
+
+
+Vampire.find({$and:[{title:{$exists:true}},{victims:{$exists:false}}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$and:[{victims:{$gt:1000}},{victims:{$exists:true}}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+
+// select with OR//
+
+Vampire.find({$or:[{location:'New Orleans, Louisiana, US'},{location:'New York, New York, US'}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$or:[{loves:/brooding/},{loves:/tragic/}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$or:[{loves:/marshmallows/},{victims:{$gt:1000}}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$or:[{eye_color:/green/},{hair_color:'red'}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+//select objects that match one of several//
+
+Vampire.find({loves:{$in:['frilly shirtsleeves','frilly collars']}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({loves:{$in:['brooding']}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({loves:{$in:['appearing innocent','trickery','lurking in rotting mansions','R&B music']}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({$and:[{loves:{$in:['fancy cloaks']}},{loves:{$nin:['top hats','virgin blood']}}]})
+    .then((res)=>{
+        console.log(res)
+})
+
+//negative selectioni//
+
+Vampire.find({$and:[{loves:{$in:['ribbons']}},{eye_color:{$ne:'brown'}}]})
+    .then((res)=>{
+        console.log(res)
+})
+Vampire.find({location:{$ne:'Rome, Italy'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({loves:{$nin:['fancy cloaks','frilly shirtsleeves','appearing innocent','being tragic','brooding']}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.find({victims:{$not:{$gte: 200}}})
+    .then((res)=>{
+        console.log(res)
+})
+
+
+//Replace//
+
+Vampire.updateOne({name:'Claudia'},{$set:{name:'Eve',portrayed_by: 'Tilda Swinton'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateOne({gender:'m'},{$set:{name:'Guy Man',is_actually:'were-lizard'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+//UPDATE//
+
+Vampire.updateOne({name:'Guy Man'},{$set:{gender:'f'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateOne({name:'Eve'},{$set:{gender:'m'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateOne({name:'Guy Man'},{$set:{hates:['clothes','jobs']}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateOne({name:'Guy Man'},{$push:{hates:'jackalopes'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateOne({name:'Guy Man'},{$push:{hates:'alarm clocks'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+
+Vampire.updateOne({name:'Eve'},{$set:{name:'moniker'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.updateMany({gender:'f'},{$set:{gender:'fems'}})
+    .then((res)=>{
+        console.log(res)
+})
+
+//Delete//
+
+Vampire.deleteMany({eye_color:'blue'})
+    .then((res)=>{
+        console.log(res)
+})
+
+Vampire.deleteOne({hair_color:'brown'})
+    .then((res)=>{
+        console.log(res)
+})
