@@ -220,7 +220,23 @@ const moleButt =
 // Vampire.findOneAndUpdate({ name: 'Claudia'}, {$set: { name: 'Eve', portrayed_by: 'Tilda Swinton'}}, {new: true, strict: false})
 // .then((data) => {console.log(data)})
 
-// Replace Male Vampire
+// Replace Male Vampire and update to F
 // Vampire.findOneAndUpdate({ name: 'Guy Man'}, {$set: { is_actually: 'were-lizard', gender: 'f'}}, {new: true, strict: false})
 // .then((data) => {console.log(data)})
 
+// Update
+
+// Update Eve to M
+// Vampire.findOneAndUpdate({ name: 'Eve'}, {$set: {gender: 'm'}}, {new: true, strict: false})
+// .then((data) => {console.log(data)})
+
+// Update Guy Man array
+// Vampire.findOneAndUpdate({ name: 'Guy Man'}, {$set: { hates: ['clothes', 'jobs']}}, {new: true, strict: false})
+// .then((data) => {console.log(data)})
+
+// Update Guy Man array again
+// Vampire.findOneAndUpdate({ name: 'Guy Man'}, {})
+
+// Update f to fems
+Vampire.updateMany({ gender: 'f'}, {$set: { gender: 'fems'}})
+.then((data) => {console.log(data)})
