@@ -238,5 +238,15 @@ const moleButt =
 // Vampire.findOneAndUpdate({ name: 'Guy Man'}, {})
 
 // Update f to fems
-Vampire.updateMany({ gender: 'f'}, {$set: { gender: 'fems'}})
-.then((data) => {console.log(data)})
+// Vampire.updateMany({ gender: 'f'}, {$set: { gender: 'fems'}})
+// .then((data) => {console.log(data)})
+
+// Remove
+
+// Remove 1 brown hair document
+// Vampire.findOneAndDelete({ hair_color: 'brown'})
+// .then((data) => {console.log(data)})
+
+// Remove all blue eyed Vampires
+// Vampire.deleteMany({eye_color: 'blue' })
+// .then((data) => {console.log(data)})
