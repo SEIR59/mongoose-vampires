@@ -7,7 +7,7 @@ const model = mongoose.model
 // Building our new Schema that composes a vampire.
 
 const vampireSchema = new Schema({
-    name: String,
+    name: { type: String, required: true }, 
     title: String,
     hair_color: {
         type: String,
