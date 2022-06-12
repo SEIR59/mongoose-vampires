@@ -337,7 +337,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({loves: 'fancy cloaks', $nin: ['top hats', 'virgin blood']})
+// Vampire.find({loves: 'fancy cloaks', $nin: ['top hats', 'virgin blood']})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.find({loves: 'ribbons', eye_color: {$nin: 'brown'}})
   .then((vampire) => {
     console.log(vampire)
   })
