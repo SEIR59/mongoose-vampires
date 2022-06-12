@@ -147,16 +147,27 @@ const vampiresDB = [
   }
   ]
 
-  Vampire.create(vampiresDB)
+//   Vampire.create(vampiresDB)
 
-  .then((vampire) => {
-      console.log(vampire)
-  })
+//   .then((vampire) => {
+//       console.log(vampire)
+//   })
 
-  .catch((error) => {
-      console.log(error)
-  })
+//   .catch((error) => {
+//       console.log(error)
+//   })
 
-  .finally(() => {
-      db.close()
-  })
+//   .finally(() => {
+//       db.close()
+//   })
+
+Vampire.find({ gender: "f" })
+.then((vampire) => {
+    console.log(vampire)
+})
+.catch((error) => {
+    console.log(error)
+})
+.finally(() => {
+    db.close()
+})
