@@ -315,7 +315,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({loves: 'brooding'})
+// Vampire.find({loves: 'brooding'})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.find({$or: [{loves: 'appearing innocent'}, {loves: 'trickery'}, {loves: 'lurking in rotting mansions'}, {loves: 'R&B music'}]})
   .then((vampire) => {
     console.log(vampire)
   })
