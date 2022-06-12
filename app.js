@@ -260,7 +260,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
+// Vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
+// .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.find({$or: [{loves: 'brooding'}, {loves: 'being tragic'}]})
 .then((vampire) => {
     console.log(vampire)
   })
