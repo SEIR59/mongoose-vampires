@@ -249,7 +249,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({victims: {$exists: true, $gt: 1000}})
+// Vampire.find({victims: {$exists: true, $gt: 1000}})
+// .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]})
 .then((vampire) => {
     console.log(vampire)
   })
