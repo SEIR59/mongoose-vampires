@@ -359,7 +359,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({location: {$nin: 'Rome, Italy'}})
+// Vampire.find({location: {$nin: 'Rome, Italy'}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.find({loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}})
   .then((vampire) => {
     console.log(vampire)
   })
