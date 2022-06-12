@@ -227,13 +227,24 @@ const vampiresDB = [
 //     db.close()
 // })
 
-Vampire.find({ victims: {$exists: false }})
+// Vampire.find({ victims: {$exists: false }})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+Vampire.find({title: {$exists: "true"}, victims: {$exists: "false"}})
 .then((vampire) => {
     console.log(vampire)
-})
-.catch((error) => {
+  })
+  .catch((error) => {
     console.log(error)
-})
-.finally(() => {
+  })
+  .finally(() => {
     db.close()
-})
+  })
