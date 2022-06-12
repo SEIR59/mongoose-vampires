@@ -161,7 +161,18 @@ const vampiresDB = [
 //       db.close()
 //   })
 
-Vampire.find({ gender: "f" })
+// Vampire.find({ gender: "f" })
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+Vampire.find({ victims: {$gt: 500}})
 .then((vampire) => {
     console.log(vampire)
 })
