@@ -172,7 +172,18 @@ const vampiresDB = [
 //     db.close()
 // })
 
-Vampire.find({ victims: {$gt: 500}})
+// Vampire.find({ victims: {$gt: 500}})
+// .then((vampire) => {
+//     console.log(vampire)
+// })
+// .catch((error) => {
+//     console.log(error)
+// })
+// .finally(() => {
+//     db.close()
+// })
+
+Vampire.find({ victims: {$lte: 150 }})
 .then((vampire) => {
     console.log(vampire)
 })
