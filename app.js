@@ -464,4 +464,72 @@ Vampire.find({
         .finally(() => {
           db.close();
         });
-        
+
+        //Negative Selection
+        // 1
+        Vampire.find({
+          $and: [{ loves: "ribbons" }, { eye_color: { $ne: "brown" } }],
+        })
+          .then((vampire) => {
+          console.log('love ribbons but do not have brown eyes')
+            console.log(vampire);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            db.close();
+          });
+
+        // 2
+        Vampire.find({
+          location:{$ne: "Rome"} 
+          })
+            .then((vampire) => {
+          console.log('are not from Rome')
+              console.log(vampire);
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+            .finally(() => {
+              db.close();
+            });
+
+        // 3
+        Vampire.find({
+          loves: {
+            $nin: [
+              "fancy cloaks",
+              "frilly shirtsleeves",
+              "appearing innocent",
+              "being tragic",
+              "brooding",
+            ],
+          },
+        })
+          .then((vampire) => {
+          console.log("do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]");
+            console.log(vampire);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            db.close();
+          });
+
+        // have not killed more than 200 people
+        Vampire.find({
+          victims: { $lte: 200 },
+        })
+          .then((vampire) => {
+          console.log('have not killed more than 200 people')
+            console.log(vampire);
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            db.close();
+          });
