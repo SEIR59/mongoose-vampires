@@ -436,7 +436,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs']}})
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {hates: ['clothes', 'jobs']}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+  Vampire.updateOne({name: 'Guy Man'}, {$push: {hates: ['alarm clocks', 'jackalopes']}})
   .then((vampire) => {
     console.log(vampire)
   })
