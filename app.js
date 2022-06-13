@@ -218,3 +218,124 @@ Vampire.create(myFourNewVampires)
  db.close()
 })
  */
+
+
+// QUERYING
+
+// Select by comparison
+//1
+Vampire.find({ gender: "f" })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 2
+Vampire.find({ victims: { $gte: 500 } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 3
+Vampire.find({ victims: { $lte: 150 } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 4
+Vampire.find({ victims: { $ne: 210234 } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 5
+Vampire.where("victims")
+  .gte(150)
+  .lt(500)
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+
+
+  //Select by exists or does not exist
+//1
+Vampire.find({ title: { $exists: true } })
+  .then((vampire) => {
+    console.log("have a key of 'title':");
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+  // 2
+Vampire.find({ victims: { $exists: false } })
+  .then((vampire) => {
+    console.log("do not have a key of 'victims':");
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+  // 3
+Vampire.find({ victims: { $exists: false }, title: { $exists: true } })
+  .then((vampire) => {
+    console.log("have a title AND no victims:");
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 4
+Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
+  .then((vampire) => {
+    console.log("have victims AND the victims they have are greater than 1000: ");
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
