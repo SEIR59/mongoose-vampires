@@ -403,19 +403,8 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.updateOne({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-lizard'}})
-.then((vampire) => {
-    console.log(vampire)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-  .finally(() => {
-    db.close()
-  })
-
-// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'm'}})
-//   .then((vampire) => {
+// Vampire.updateOne({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-lizard'}})
+// .then((vampire) => {
 //     console.log(vampire)
 //   })
 //   .catch((error) => {
@@ -424,3 +413,14 @@ Vampire.updateOne({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-liz
 //   .finally(() => {
 //     db.close()
 //   })
+
+Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'f'}})
+  .then((vampire) => {
+    console.log(vampire)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+  .finally(() => {
+    db.close()
+  })
