@@ -481,7 +481,19 @@ const vampiresDB = [
 //   db.close()
 // })
 
-Vampire.findOneAndDelete( {hair_color: 'brown'})
+// Vampire.findOneAndDelete( {hair_color: 'brown'})
+// .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+
+Vampire.remove( {eye_color: 'blue'})
 .then((vampire) => {
     console.log(vampire)
   })
