@@ -381,7 +381,18 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.find({victims: {$lte: 200}})
+// Vampire.find({victims: {$lte: 200}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.updateOne({name: 'Eve'}, { $set: {name: 'Eve', portrayed_by: 'Tilda Swinton'}})
   .then((vampire) => {
     console.log(vampire)
   })
