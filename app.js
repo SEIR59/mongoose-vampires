@@ -392,8 +392,19 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.updateOne({name: 'Eve'}, { $set: {name: 'Eve', portrayed_by: 'Tilda Swinton'}})
-  .then((vampire) => {
+// Vampire.updateOne({name: 'Eve'}, { $set: {name: 'Eve', portrayed_by: 'Tilda Swinton'}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.updateOne({gender: 'm'}, {$set: {name: 'Guy Man', is_actually: 'were-lizard'}})
+.then((vampire) => {
     console.log(vampire)
   })
   .catch((error) => {
@@ -402,3 +413,14 @@ Vampire.updateOne({name: 'Eve'}, { $set: {name: 'Eve', portrayed_by: 'Tilda Swin
   .finally(() => {
     db.close()
   })
+
+// Vampire.updateOne({name: 'Guy Man'}, {$set: {gender: 'm'}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
