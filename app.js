@@ -519,7 +519,7 @@ Vampire.find({
             db.close();
           });
 
-        // have not killed more than 200 people
+        // 4
         Vampire.find({
           victims: { $lte: 200 },
         })
@@ -533,3 +533,154 @@ Vampire.find({
           .finally(() => {
             db.close();
           });
+ 
+ 
+// Replace
+// 1
+Vampire.replaceOne(
+    { name: "Claudia" },
+    { name: "Eve", portrayed_by: "Tilda Swinton" },
+    { new: true }
+)
+.then((vampire) => {
+      console.log(vampire);
+})
+.catch((error) => {
+      console.log(error);
+})
+.finally(() => {
+      db.close();
+});
+
+// 2
+  Vampire.replaceOne(
+    { gender: "m" },
+    { name: "Guy Man", is_actually: "were-lizard" },
+    { new: true }
+  )
+    .then((vampire) => {
+      console.log(vampire);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      db.close();
+    });
+
+
+// Update
+// 1
+Vampire.updateOne({ name: "Guy Man" }, { $set: { gender: "f" } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 2
+Vampire.updateOne({ name: "Eve" }, { $set: { gender: "m" } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 3
+Vampire.updateOne({ name: "Guy Man" }, { $set: { hates: ["clothes", "jobs"] } })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 4
+Vampire.updateOne(
+  { name: "Guy Man" },
+  {
+    $push: {
+      hates: { $each: ["alarm clocks", "jackalopes"] },
+    },
+  }
+)
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 5
+Vampire.updateOne(
+  { name: "Eve" },
+  {
+    $set: { name: "moniker" },
+  }
+)
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 6
+Vampire.updateMany(
+  { gender: "f" },
+  {
+    $set: { gender: "fems" },
+  }
+)
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+
+// Remove
+// 1
+Vampire.deleteOne({ hair: "brown" })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 2
+Vampire.deleteMany({ eye_color: "blue" })
+  .then((vampire) => {
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
