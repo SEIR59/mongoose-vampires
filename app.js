@@ -339,3 +339,129 @@ Vampire.find({ victims: { $exists: true }, victims: { $gte: 1000 } })
   .finally(() => {
     db.close();
   });
+
+
+  // Select with OR
+// 1 
+Vampire.find({
+  $or: [
+    { location: "New York, New York, US" },
+    { location: "New Orleans, Louisiana, US" },
+  ],})
+  .then((vampire) => {
+    console.log("are from New York, New York, US or New Orleans, Louisiana, US");
+    console.log(vampire);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    db.close();
+  });
+
+// 2
+
+
+
+// 3
+Vampire.find({
+  $or: [{ victims: { $gt: 1000 } }, { loves: "marshmallows" }], 
+})
+.then((vampire) => {
+  console.log("have more than 1000 victims or love marshmallows: ");
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
+
+// 4
+Vampire.find({
+  $or: [{ hair_color: "red" }, { eye_color: "green" }],
+})
+.then((vampire) => {
+  console.log("have red hair or green eyes: ");
+  console.log(vampire);
+})
+.catch((error) => {
+  console.log(error);
+})
+.finally(() => {
+  db.close();
+});
+
+
+  // Select objects that match one of several values
+
+      //Select all the vampires that:
+      //1
+      Vampire.find({
+        $or: [{ loves: "frilly shirtsleeves" }, { loves: "frilly collars" }],
+      })
+      .then((vampire) => {
+        console.log("love either frilly shirtsleeves or frilly collars ");
+        console.log(vampire);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        db.close();
+      });
+
+      // 2
+      Vampire.find({
+        loves: "brooding",
+      })
+        .then((vampire) => {
+          console.log("love brooding");
+          console.log(vampire);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          db.close();
+        });
+
+      // 3
+      Vampire.find({
+        $or: [
+          { loves: "appearing innocent" },
+          { loves: "trickery" },
+          { loves: "lurking in rotting mansions" },
+          { loves: "R&B music" },
+        ],
+      })
+        .then((vampire) => {
+          console.log("love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music");
+          console.log(vampire);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          db.close();
+        });
+
+      // 4
+      Vampire.find({
+        $and: [
+          { loves: "fancy cloaks" },
+          { loves: { $nin: ["top hats", "virgin blood"] } },
+        ],
+      })
+        .then((vampire) => {
+          console.log("love fancy cloaks but not if they also love either top hats or virgin blood");
+          console.log(vampire);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          db.close();
+        });
+        
