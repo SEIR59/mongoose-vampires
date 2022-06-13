@@ -470,13 +470,24 @@ const vampiresDB = [
 //     db.close()
 //   })
 
-Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}},{multi: true})
+// Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}},{multi: true})
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// .catch((error) => {
+//   console.log(error)
+// })
+// .finally(() => {
+//   db.close()
+// })
+
+Vampire.findOneAndDelete( {hair_color: 'brown'})
 .then((vampire) => {
-  console.log(vampire)
-})
-.catch((error) => {
-  console.log(error)
-})
-.finally(() => {
-  db.close()
-})
+    console.log(vampire)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+  .finally(() => {
+    db.close()
+  })
