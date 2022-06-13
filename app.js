@@ -459,13 +459,24 @@ const vampiresDB = [
 //   })
 
 
-  Vampire.updateOne({name: 'Eve'}, {$rename: {name: 'moniker'}})
-  .then((vampire) => {
-    console.log(vampire)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-  .finally(() => {
-    db.close()
-  })
+//   Vampire.updateOne({name: 'Eve'}, {$rename: {name: 'moniker'}})
+//   .then((vampire) => {
+//     console.log(vampire)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   .finally(() => {
+//     db.close()
+//   })
+
+Vampire.updateMany({gender: 'f'}, {$set: {gender: 'fems'}},{multi: true})
+.then((vampire) => {
+  console.log(vampire)
+})
+.catch((error) => {
+  console.log(error)
+})
+.finally(() => {
+  db.close()
+})
