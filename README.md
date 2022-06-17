@@ -28,9 +28,9 @@ Our vampire collection will look something like this:
 
 ``` javascript
 var vampire = {
-  name: 'Chocula',
-  title: 'Count'
-  hair_color: 'brown',
+  {name: 'Chocula', required: true},
+  title: 'Count',
+  {hair_color: 'brown', default: 'blonde'},
   eye_color: 'brown',
   dob: new Date(1971, 2, 13, 7, 47),
   loves: ['cereal','marshmallows'],

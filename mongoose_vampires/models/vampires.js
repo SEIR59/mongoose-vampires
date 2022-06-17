@@ -5,15 +5,15 @@ const model = mongoose.model // shorthand for model function
 
 const vampireSchema = new Schema(
     {
-      name: String,
+        name: String, 
       title: String,
       hair_color: String,
       eye_color: String,
-      dob: new Date,
-      loves: String,
+      dob: Date,  
+      loves: Array,
       location: String,
       gender: String,
-      victims: Number
+      victims: Number,
     }
   );
 
