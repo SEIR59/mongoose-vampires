@@ -357,19 +357,19 @@ const newVampires = [
 
 // SELECT OBJECTS THAT MATCH ONE OF SEVERAL VALUES
 //love either frilly shirtsleeves or frilly collars
-// Vampire.find( {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'} ] })
-// // if database transaction succeeds
-// .then((vampire) => {
-//   console.log(vampire)
-// })
-// // if database transaction fails
-// .catch((error) => {
-//   console.log(error)
-// })
-// // close db connection either way
-// .finally(() => {
-//  db.close()
-// })
+Vampire.find( {$or: [{loves: 'frilly shirtsleeves'}, {loves: 'frilly collars'} ] })
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})
 
 //love brooding
 // Vampire.find( {loves: 'brooding'} )
@@ -412,6 +412,8 @@ const newVampires = [
 // .finally(() => {
 //     db.close();
 // })
+
+
 
 // NEGATIVE SELECTION
 //love ribbons but do not have brown eyes
@@ -583,20 +585,21 @@ const newVampires = [
 //  db.close()
 // })
 
+
 // Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
-// Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: ['alarm clocks', 'jackalopes']}} )
-// // if database transaction succeeds
-// .then((vampire) => {
-//   console.log(vampire)
-// })
-// // if database transaction fails
-// .catch((error) => {
-//   console.log(error)
-// })
-// // close db connection either way
-// .finally(() => {
-//  db.close()
-// })
+Vampire.updateOne( {name: 'Guy Man'}, {$push: { hates: { $each: ['alarm clocks', 'jackalopes']}}} )
+// if database transaction succeeds
+.then((vampire) => {
+  console.log(vampire)
+})
+// if database transaction fails
+.catch((error) => {
+  console.log(error)
+})
+// close db connection either way
+.finally(() => {
+ db.close()
+})
 
 
 //Rename 'Eve's' name field to 'moniker'
@@ -649,19 +652,19 @@ const newVampires = [
 
 
 //We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
-Vampire.deleteMany( {eye_color: 'blue'} )
-// if database transaction succeeds
-.then((vampire) => {
-  console.log(vampire)
-})
-// if database transaction fails
-.catch((error) => {
-  console.log(error)
-})
-// close db connection either way
-.finally(() => {
- db.close()
-})
+// Vampire.deleteMany( {eye_color: 'blue'} )
+// // if database transaction succeeds
+// .then((vampire) => {
+//   console.log(vampire)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
 
 
 
