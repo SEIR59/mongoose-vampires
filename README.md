@@ -336,3 +336,5 @@ Person.find({ occupation: /host/ })
 3. If number 1 was easy, try to connect your database to your application and show a proper index page that displays your vampire data. If this is also easy, create a show page as well where you are showing individual vampire data.
 
 4. Have extra time? Try out a few more problems on [CodeWars](https://www.codewars.com/)
+
+5. Steps Taken to Complete - Install Dependencies: "npm install express mongoose method-override liquid-express-views dotenv morgan"
