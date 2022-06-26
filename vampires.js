@@ -26,3 +26,34 @@ mongoose.connection
   .on("open", () => console.log("Connected to Mongoose"))
   .on("close", () => console.log("Disconnected from Mongoose"))
   .on("error", (error) => console.log(error));
+
+////////////////////////////////////////////////
+// Our Models
+////////////////////////////////////////////////
+// pull schema and model from mongoose
+const { Schema, model } = mongoose;
+
+// make fruits schema
+const sSchema = new Schema({
+  name: String,
+  color: String,
+  readyToEat: Boolean,
+});
+
+const vampiresSchema = new Schema(
+  {
+    name: { type: String, required: true },
+    title: String,
+    hair_color: { type: String, default: "blonde" },
+    eye_color: String,
+    dob: Date,
+    loves: [String],
+    location: String,
+    gender: String,
+    victims: { type: Number, min: 0 },
+  },
+  { timestamps: true }
+);
+
+// make fruit model
+const Vampire = model("Vampire", vampiresSchema);
