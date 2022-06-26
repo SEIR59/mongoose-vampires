@@ -223,13 +223,69 @@ const seedData = [
 
 Vampire.insertMany(seedData)
   .then((data) => {
-    console.log(data);
+    console.log("Data was seated Succesfully");
   })
   .catch((error) => {
     console.log(error);
-  })
-  .finally(() => {
-    db.close();
   });
+//   .finally(() => {
+//     db.close();
+//   });
 
-console.log(`${seedData} Seems to be seeding all of the data`);
+// console.log(`${seedData} Seems to be seeding all of the data`);
+
+const CreationA = {
+  name: "Jordan",
+  hair_color: "black",
+  eye_color: "brown",
+  dob: new Date(1991, 1, 21),
+  loves: ["Coding", "Driving Super Cars", "Interior Design"],
+  location: "Cumberland, Maryland, US",
+  gender: "m",
+  title: "Project Pantomath",
+};
+
+const CreationB = {
+  name: "Dr. Jordan",
+  hair_color: "black",
+  eye_color: "brown",
+  dob: new Date(1991, 1, 21),
+  loves: ["Coding", "Driving Super Cars", "Interior Design"],
+  location: "Cumberland, Maryland, US",
+  gender: "m",
+  title: "Project Pantomath 2",
+};
+
+const CreationC = {
+  name: "Dr. Jordan II",
+  hair_color: "black",
+  eye_color: "brown",
+  dob: new Date(1991, 1, 21),
+  loves: ["Coding", "Driving Super Cars", "Interior Design"],
+  location: "Cumberland, Maryland, US",
+  gender: "m",
+  title: "Project Pantomath 3",
+};
+
+const CreationD = {
+  name: "Dr. Jordan III",
+  hair_color: "black",
+  eye_color: "brown",
+  dob: new Date(1991, 1, 21),
+  loves: ["Coding", "Driving Super Cars", "Interior Design"],
+  location: "Cumberland, Maryland, US",
+  gender: "m",
+  title: "Project Pantomath 4",
+};
+
+const createVampire = (name) => {
+  Vampire.create(name)
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+};
+
+// createVampire(CreationA, CreationB, CreationC, CreationD);
+createVampire(CreationA);
+createVampire(CreationB);
+createVampire(CreationC);
+createVampire(CreationD);
